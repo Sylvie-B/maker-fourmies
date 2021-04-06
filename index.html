@@ -5,19 +5,19 @@
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <div id="container">
         <header>
             <a href="">
-                <img id="logo" src="engrenage01.png" alt="logo" height="146" width="146"/>
-                <p id="maker">MAKER FOURMIES</p>
-                <div id="white"></div>
+                <img id="logo" src="gears.png" alt="logo"/>
+                <h1 id="maker">MAKER FOURMIES</h1>
             </a>
         </header>
-        <nav>
+        <nav class="navbar">
             <a href="" class="menu">
-                <div>L'asso.</div>
+                <div>L'association</div>
             </a>
             <a href="" class="menu">
                 <div>Adhésion</div>
@@ -35,43 +35,25 @@
         <section>
             <div id="definition">
                 <h1>Le mouvement maker : Qu'est-ce c'est ?</h1>
-                <p>Les makers sont des gens qui font, qui fabriquent, bricolent, créent, mais pas seulement.</p>
+                <p>Les makers sont ceux qui font, qui fabriquent, bricolent, créent, mais pas seulement.</p>
                 <p>Etre maker c'est aussi un état d'esprit, celui de l'entre-aide et du partage.</p>
-                <!--            parler des makers faire et des fablab           -->
             </div>
-            <div>
-                <div id="manuel">
-                    <!-- manuel -->
-                    <div class="craft">
-                        <span id="brico">Bricolage</span>
-                        <div>
-                            <div id="bois">bois</div>
-                            <div id="carton">carton</div>
-                            <div id="papier">papier</div>
-                        </div>
-                    </div>
-                    <div class="craft">
-                        <span id="couture">Couture</span>
+            <div class="craft">
+                <div id="handMade">
+                    <span>Bricolage</span>
+                    <div>
+                        <div id="wood">bois</div>
+                        <div id="cardBoard">carton</div>
+                        <div id="paper">papier</div>
+                        <div id="fabric">tissu</div>
                     </div>
                 </div>
-                <div id="mixte">
-                    <!--    manuel et/ou numérique  -->
+                <div id="numérical">
                     <div class="craft">
-                        <span id="dessin">Dessin</span>
-                        <div>
-                            <div id="2d">dessin 2D</div>
-                            <div id="3d">modélisation</div>
-                        </div>
-                    </div>
-                </div>
-                <div id="numérique">
-                    <!--    numérique   -->
-                    <div class="craft">
-                        <span id="impression">Impressoin 3D</span>
+                        <span id="print3D">Impression 3D</span>
                     </div>
                     <div class="craft">
-                        <span id="electronique">Electronique</span>
-                        <div id="arduino">Arduino</div>
+                        <span id="electronic">Electronique</span>
                     </div>
                 </div>
                 <!--    fablab  -->
@@ -89,5 +71,6 @@
             </div>
         </section>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -41,11 +41,6 @@ a{
     font-size: 4em;
 }
 
-#white{
-    height: 0.5em;
-}
-
-
 .menu{
     width: 20%;
     height: 10rem;
@@ -65,7 +60,7 @@ nav .menu:nth-child(1){
     padding: 4em;
 }
 
-#manuel, #mixte, #numérique, #fablab{
+#handMade, #mix, #numérical, #fablab{
     display: inline-block;
     width: 24%;
 }
