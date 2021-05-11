@@ -11,7 +11,7 @@
 <div id="container">
     <header>
         <a href="">
-            <img id="logo" src="img/gears.png" alt="logo"/>
+            <img id="logo" src="img/gears.png" alt="logo" width="5%" height="5%"/>
             <h1 id="maker">MAKER FOURMIES</h1>
         </a>
     </header>
