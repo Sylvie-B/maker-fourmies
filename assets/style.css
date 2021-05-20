@@ -6,12 +6,11 @@
 
 body {
     width: 100%;
-    background-color: black;
+    background-color: grey;
 }
 
 html {
     font-family:Bahnschrift, sans-serif;
-    color: blue;
 }
 
 #container{
@@ -20,7 +19,8 @@ html {
 }
 
 header {
-    box-shadow: 5px 5px 3px 0px #a9a9a9;
+    background-color: white;
+    box-shadow: 5px 5px 3px 0 #a9a9a9;
     margin-bottom: 1vh;
     padding-bottom: 1vh;
 }
@@ -37,10 +37,9 @@ header a {
 nav {
     display: flex;
     justify-content: space-around;
-
 }
 
-nav a {
+.menu {
     color: #a9a9a9;
 }
 

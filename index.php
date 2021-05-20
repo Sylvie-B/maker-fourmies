@@ -5,6 +5,11 @@
 // Inclusion des managers.
 
 // Inclusion des controllers.
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/controller.php";
+
+// database connexion
 
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "/View/base.php";
+$control = new controller();
+
+$control->render('signIn.php', 'inscription');

@@ -1,5 +1,5 @@
 <!--    le mouvement maker   -->
-<section>
+        <section>
     <div id="definition">
         <h2>Le mouvement maker : Qu'est-ce c'est ?</h2>
         <p>

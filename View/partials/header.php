@@ -14,10 +14,10 @@
                 <h1 id="maker">MAKER FOURMIES</h1>
             </a>
             <div>
-                <button type="submit">Connexion</button>
+                <button type="button">Connexion</button>
             </div>
             <div>
-                <button type="submit">Inscription</button>
+                <button type="button">Inscription</button>
             </div>
             <nav class="navbar">
                 <a href="" class="menu" title="L'association">
