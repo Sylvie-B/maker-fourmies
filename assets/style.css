@@ -19,22 +19,32 @@ html {
     margin: auto;
 }
 
+header {
+    box-shadow: 5px 5px 3px 0px #a9a9a9;
+    margin-bottom: 1vh;
+    padding-bottom: 1vh;
+}
+
 header a {
     width : 50%;
     margin: auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
-
+    color: blue;
 }
 
 nav {
     display: flex;
     justify-content: space-around;
+
+}
+
+nav a {
+    color: #a9a9a9;
 }
 
 a {
-    color: blue;
     text-decoration-line: none;
 }
 
