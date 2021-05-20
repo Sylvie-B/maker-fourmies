@@ -1,4 +1,4 @@
-<nav class="navbar">
+        <nav class="navbar">
             <a href="" class="menu" title="L'association">
                 <div>L'association</div>
             </a>

@@ -4,14 +4,12 @@
     box-sizing: border-box;
 }
 
-html {
-    font-size: 62.5%;
-    font-family: Bahnschrift, sans-serif, sans-serif;
-}
-
 body {
     width: 100%;
-    /*background-color: black;*/
+}
+
+html {
+    font-family:Bahnschrift, sans-serif;
 }
 
 #container{
@@ -19,3 +17,20 @@ body {
     margin: auto;
 }
 
+header a {
+    width : 50%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration-line: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+h1 {
+    color: black;
+}
