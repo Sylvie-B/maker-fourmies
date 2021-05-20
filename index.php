@@ -12,4 +12,21 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/controller.php";
 
 $control = new controller();
 
-$control->render('signIn.php', 'inscription');
+if(isset($_GET['ctrl'])){
+    switch ($_GET['ctrl']){
+        case 'project' :
+            $control->render($_GET['ctrl'],'Les projets');
+            break;
+        case 'signIn' :
+            $control->render($_GET['ctrl'],'Inscription');
+            break;
+        case 'gallery' :
+            $control->render($_GET['ctrl'],'Galerie');
+            break;
+        default :
+            $control->render('home','Accueil');
+    }
+}
+else{
+    $control->render('home','Accueil');
+}

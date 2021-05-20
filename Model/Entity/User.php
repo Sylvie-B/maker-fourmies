@@ -3,7 +3,7 @@
 
 class User {
     private ?int $id_user;
-    private $db;
+    private PDO $db;
     private ?string $name;
     private ?string $surname;
     private string $pseudo;

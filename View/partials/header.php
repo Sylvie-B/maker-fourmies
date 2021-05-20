@@ -9,31 +9,26 @@
 <body>
     <div id="container">
         <header>
-            <a href="../../index.php">
+            <a href="/index.php?ctrl=home">
                 <img id="logo" src="../../img/gears.png" alt="logo" width="13%" height="13%"/>
                 <h1 id="maker">MAKER FOURMIES</h1>
             </a>
             <div>
-                <button type="button">Connexion</button>
+                <a href="/index.php?ctrl=signIn">
+                    <button type="button">Connexion</button>
+                </a>
             </div>
             <div>
-                <button type="button">Inscription</button>
+                <a href="/index.php?ctrl=signIn">
+                    <button type="button">Inscription</button>
+                </a>
             </div>
             <nav class="navbar">
-                <a href="" class="menu" title="L'association">
-                    <div>L'association</div>
-                </a>
-                <a href="" class="menu">
-                    <div>Adhésion</div>
-                </a>
-                <a href="" class="menu">
+                <a href="/index.php?ctrl=project" class="menu">
                     <div>Les projets</div>
                 </a>
-                <a href="" class="menu">
+                <a href="/index.php?ctrl=gallery" class="menu">
                     <div>Galerie</div>
-                </a>
-                <a href="" class="menu">
-                    <div>Contact</div>
                 </a>
             </nav>
         </header>

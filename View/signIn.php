@@ -1,7 +1,7 @@
 <div id="frame">
     <!-- affect inscription or connexion -->
     <h2></h2>
-    <form method="post">
+    <form method="post" action="../Controller/controller.php">
         <div class="signIn">
             <label for="name">Nom</label>
             <input type="text" name="name" id="name">

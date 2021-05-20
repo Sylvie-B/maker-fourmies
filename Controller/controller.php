@@ -7,4 +7,14 @@ class controller {
         require_once $_SERVER['DOCUMENT_ROOT'] . "/view/" . $page. ".php";
         require_once $_SERVER['DOCUMENT_ROOT'] . "/View/partials/footer.php";
     }
+
+    public function checkInscription (){
+        if(!empty($_POST)){
+            if(isset($_POST['name'], $_POST['surname'], $_POST['mail'], $_POST['pseudo'], $_POST['passW'])){
+                // form is complete
+                echo 'ici';
+            }
+        }
+    }
 }
+
