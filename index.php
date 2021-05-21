@@ -14,7 +14,7 @@ $control = new controller();
 if(isset($_GET['ctrl'])){
     switch ($_GET['ctrl']){
         case 'connexion' :
-            $control->render($_GET['ctrl'], 'connexion');
+            $control->render($_GET['ctrl'], 'Connexion');
             break;
         case 'project' :
             $control->render($_GET['ctrl'],'Les projets');
@@ -26,9 +26,10 @@ if(isset($_GET['ctrl'])){
             $control->render($_GET['ctrl'],'Galerie');
             break;
         default :
-            $control->render('home','Accueil');
+            $control->render($_GET['ctrl'],'Accueil');
     }
 }
 else{
     $control->render('home','Accueil');
 }
+

@@ -59,3 +59,12 @@ form {
     flex-direction: column;
     align-items: flex-end;
 }
+
+h2 {
+    margin: 5vh;
+}
+
+.section {
+    width: 80%;
+    margin: 1vh auto;
+}
