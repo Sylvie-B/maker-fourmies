@@ -18,9 +18,11 @@ if(isset($_GET['ctrl'])){
             break;
         case 'connexion' :
             $control->render($_GET['ctrl'], 'Connexion');
+            $control->checkValidation($_GET['ctrl']);
             break;
         case 'signIn' :
             $control->render($_GET['ctrl'],'Inscription');
+            $control->checkValidation($_GET['ctrl']);
             break;
         case 'project' :
             $control->render($_GET['ctrl'],'Les projets');

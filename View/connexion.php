@@ -1,7 +1,7 @@
 <div id="frame">
     <!-- affect inscription or connexion -->
     <h2>Connexion</h2>
-    <form method="post" action="../Controller/controller.php">
+    <form method="post" action="../index.php">
         <div>
             <label for="pseudo">Pseudo</label>
             <input type="text" name="pseudo" id="pseudo">
