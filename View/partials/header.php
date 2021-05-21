@@ -9,11 +9,14 @@
 <body>
     <div id="container">
         <header>
-            <div id="title">
+            <div id="headband">
                 <a href="/index.php?ctrl=home">
-                    <img id="logo" src="../../img/gears.png" alt="logo" width="10%" height="10%"/>
+                <img id="logo" src="../../img/gears.png" alt="logo"/>
+                </a>
+                <a id="title" href="/index.php?ctrl=home">
                     <h1 id="maker">MAKER FOURMIES</h1>
                 </a>
+                <!--    choice connexion or inscription     -->
                 <div>
                     <a href="/index.php?ctrl=connexion">
                         <button class="btn" type="button">Connexion</button>
@@ -23,6 +26,7 @@
                     </a>
                 </div>
             </div>
+            <!-- menu -->
             <nav>
                 <a href="/index.php?ctrl=project" class="menu">
                     <div>Les projets</div>
