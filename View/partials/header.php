@@ -9,21 +9,21 @@
 <body>
     <div id="container">
         <header>
-            <a href="/index.php?ctrl=home">
-                <img id="logo" src="../../img/gears.png" alt="logo" width="13%" height="13%"/>
-                <h1 id="maker">MAKER FOURMIES</h1>
-            </a>
-            <div>
-                <a href="/index.php?ctrl=signIn">
-                    <button type="button">Connexion</button>
+            <div id="title">
+                <a href="/index.php?ctrl=home">
+                    <img id="logo" src="../../img/gears.png" alt="logo" width="10%" height="10%"/>
+                    <h1 id="maker">MAKER FOURMIES</h1>
                 </a>
+                <div>
+                    <a href="/index.php?ctrl=connexion">
+                        <button class="btn" type="button">Connexion</button>
+                    </a>
+                    <a href="/index.php?ctrl=signIn">
+                        <button class="btn" type="button">Inscription</button>
+                    </a>
+                </div>
             </div>
-            <div>
-                <a href="/index.php?ctrl=signIn">
-                    <button type="button">Inscription</button>
-                </a>
-            </div>
-            <nav class="navbar">
+            <nav>
                 <a href="/index.php?ctrl=project" class="menu">
                     <div>Les projets</div>
                 </a>

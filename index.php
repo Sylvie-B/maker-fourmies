@@ -9,11 +9,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/controller.php";
 
 // database connexion
 
-
 $control = new controller();
 
 if(isset($_GET['ctrl'])){
     switch ($_GET['ctrl']){
+        case 'connexion' :
+            $control->render($_GET['ctrl'], 'connexion');
+            break;
         case 'project' :
             $control->render($_GET['ctrl'],'Les projets');
             break;
