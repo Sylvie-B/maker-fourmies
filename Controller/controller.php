@@ -10,9 +10,14 @@ class controller {
 
     public function checkInscription ($param){
 //        which form ? -> case $_GET[ctrl]
-//        switch ($param){
-//            case
-//        }
+        switch ($param){
+            case 'connexion':
+                if(!empty($_POST)){
+                    if(isset($_POST['pseudo'], $_POST['passW'])){
+
+                    }
+                }
+        }
         if(!empty($_POST)){
             if(isset($_POST['name'], $_POST['surname'], $_POST['mail'], $_POST['pseudo'], $_POST['passW'])){
                 // form is complete

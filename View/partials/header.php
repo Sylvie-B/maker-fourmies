@@ -28,6 +28,9 @@
             </div>
             <!-- menu -->
             <nav>
+                <a href="/index.php?ctrl=accueil" class="menu">
+                    <div>Accueil</div>
+                </a>
                 <a href="/index.php?ctrl=project" class="menu">
                     <div>Les projets</div>
                 </a>
