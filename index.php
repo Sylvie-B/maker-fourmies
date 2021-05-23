@@ -37,4 +37,3 @@ if(isset($_GET['ctrl'])){
 else{
     $control->render('home','Accueil');
 }
-

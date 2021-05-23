@@ -19,17 +19,16 @@ class controller
             switch ($param) {
                 case 'connexion':
                     if (isset($_POST['pseudo'], $_POST['passW'])) {
-                        $_GET['form'] = 1;
+                        
                     } else {
-                        $_GET['form'] = 0;
+
                     }
                     break;
                 case 'inscription':
                     if (isset($_POST['name'], $_POST['surname'], $_POST['mail'], $_POST['pseudo'], $_POST['passW'])) {
-                        // form is complete
-                        echo "formulaire d'inscription complet";
+
                     } else {
-                        echo "formulaire d'nscription incomplet";
+
                     }
             }
         }
