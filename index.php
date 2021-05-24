@@ -13,21 +13,21 @@ $control = new controller();
 
 if(isset($_GET['ctrl'])){
     switch ($_GET['ctrl']){
-        case 'home' :
+        case 'home-view' :
             $control->render($_GET['ctrl'], 'Accueil');
             break;
-        case 'connexion' :
+        case 'connexion-view' :
             $control->render($_GET['ctrl'], 'Connexion');
             $control->checkValidation($_GET['ctrl']);
             break;
-        case 'signIn' :
+        case 'signIn-view' :
             $control->render($_GET['ctrl'],'Inscription');
             $control->checkValidation($_GET['ctrl']);
             break;
-        case 'project' :
+        case 'project-view' :
             $control->render($_GET['ctrl'],'Les projets');
             break;
-        case 'gallery' :
+        case 'gallery-view' :
             $control->render($_GET['ctrl'],'Galerie');
             break;
         default :
@@ -35,5 +35,6 @@ if(isset($_GET['ctrl'])){
     }
 }
 else{
-    $control->render('home','Accueil');
+    $control->render('home-view','Accueil');
 }
+
