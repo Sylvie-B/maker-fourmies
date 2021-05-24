@@ -3,23 +3,23 @@
 
 class User {
     private ?int $id_user;
-    private PDO $db;
     private ?string $name;
     private ?string $surname;
     private string $pseudo;
     private ?string $mail;
     private string $password;
+    private ?int $date;
     private ?int $role_fk;
 
-    public function __construct(?int $id_user, $db, ?string $name, ?string $surname, ?string $mail,string $pseudo,
+    public function __construct(?int $id_user, ?string $name, ?string $surname, ?string $mail,string $pseudo,
                                 string $password, ?int $date, ?int $role_fk = 4){
         $this->id_user = $id_user;
-        $this->db = $db;
         $this->name = $name;
         $this->surname = $surname;
         $this->pseudo = $pseudo;
         $this->mail = $mail;
         $this->password = $password;
+        $this->date = $date;
         $this->role_fk = $role_fk;
     }
 
@@ -37,22 +37,6 @@ class User {
     public function setIdUser(?int $id_user): void
     {
         $this->id_user = $id_user;
-    }
-
-    /**
-     * @return PDO
-     */
-    public function getDb(): PDO
-    {
-        return $this->db;
-    }
-
-    /**
-     * @param PDO $db
-     */
-    public function setDb(PDO $db): void
-    {
-        $this->db = $db;
     }
 
     /**
@@ -138,6 +122,22 @@ class User {
     /**
      * @return int|null
      */
+    public function getDate(): ?int
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param int|null $date
+     */
+    public function setDate(?int $date): void
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * @return int|null
+     */
     public function getRoleFk(): ?int
     {
         return $this->role_fk;
@@ -150,5 +150,4 @@ class User {
     {
         $this->role_fk = $role_fk;
     }
-
 }
