@@ -4,12 +4,10 @@
 class Type {
     private ?int $id_type;
     private string $type;
-    private int $action_fk;
 
-    public function __construct(?int $id_type, string $type, int $action_fk){
+    public function __construct(?int $id_type, string $type){
         $this->id_type = $id_type;
         $this->type = $type;
-        $this->action_fk = $action_fk;
     }
 
     /**
@@ -44,19 +42,4 @@ class Type {
         $this->type = $type;
     }
 
-    /**
-     * @return int
-     */
-    public function getActionFk(): int
-    {
-        return $this->action_fk;
-    }
-
-    /**
-     * @param int $action_fk
-     */
-    public function setActionFk(int $action_fk): void
-    {
-        $this->action_fk = $action_fk;
-    }
 }
