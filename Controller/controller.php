@@ -12,25 +12,52 @@ class controller
     }
 
     // verify which form is to complete and is it complete
-    public function checkValidation($param)
+    public function checkValidation($param, $pdo)
     {
         // which form ?
         if (!empty($_POST)) {
             switch ($param) {
                 case 'connexion':
+                    // check pseudo & password
                     if (isset($_POST['pseudo'], $_POST['passW'])) {
-                        
+                        $pseudo = strip_tags($_POST['pseudo']);
+                        $password = password_hash($_POST['passW'], PASSWORD_ARGON2ID);
                     } else {
-
+                        // form incomplete
+                        echo "pseudo ou mot de passe incorrect";
                     }
                     break;
                 case 'inscription':
+                    // check all form fields
                     if (isset($_POST['name'], $_POST['surname'], $_POST['mail'], $_POST['pseudo'], $_POST['passW'])) {
+                        $name = strip_tags($_POST['name']);
+                        $surname = strip_tags($_POST['surname']);
+                        $pseudo = strip_tags($_POST['pseudo']);
+                        if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
+                            echo("adresse mail incorrecte");
+                        }
+                        $password = password_hash($_POST['passW'], PASSWORD_ARGON2ID);
+                        $sql = $pdo->prepare("
+                            INSERT INTO 'user'('name', 'surname', 'mail', 'pseudo', 'password')
+                            VALUES (:name, :surname, :pseudo, :mail, :password)
+                        ");
 
-                    } else {
+                        $sql->bindValue(":name", $name);
+                        $sql->bindValue(":surname", $surname);
+                        $sql->bindValue(":mail", $_POST['mail']);
+                        $sql->bindValue(":pseudo", $pseudo);
+                        $sql->bindValue(":password", $password);
 
+                        $sql->execute();
+                    }
+                    else {
+                        echo ("le formulaire est incomplet");
                     }
             }
         }
     }
 }
+
+// wich form
+// con = check con
+// ins = check insc + con

@@ -25,7 +25,7 @@
                         <button class="btn" type="button">Inscription</button>
                     </a>
                 </div>
-                <?php if ?>
+<!--       <?php //if ?>         -->
             </div>
             <!-- menu -->
             <nav>

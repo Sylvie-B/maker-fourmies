@@ -14,7 +14,6 @@ class Comment {
         $this->pseudo_fk = $pseudo_fk;
         $this->date = $date;
         $this->action_fk = $action_fk;
-
     }
 
     /**
