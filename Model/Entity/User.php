@@ -9,11 +9,10 @@ class User {
     private string $pseudo;
     private ?string $mail;
     private string $password;
-    private ?int $date;
     private ?int $role_fk;
 
     public function __construct(?int $id_user, $db, ?string $name, ?string $surname, ?string $mail,string $pseudo,
-                                string $password, ?int $date, ?int $role_fk){
+                                string $password, ?int $date, ?int $role_fk = 4){
         $this->id_user = $id_user;
         $this->db = $db;
         $this->name = $name;
@@ -21,7 +20,6 @@ class User {
         $this->pseudo = $pseudo;
         $this->mail = $mail;
         $this->password = $password;
-        $this->date = $date;
         $this->role_fk = $role_fk;
     }
 
@@ -42,17 +40,17 @@ class User {
     }
 
     /**
-     * @return mixed
+     * @return PDO
      */
-    public function getDb()
+    public function getDb(): PDO
     {
         return $this->db;
     }
 
     /**
-     * @param mixed $db
+     * @param PDO $db
      */
-    public function setDb($db): void
+    public function setDb(PDO $db): void
     {
         $this->db = $db;
     }
@@ -135,22 +133,6 @@ class User {
     public function setPassword(string $password): void
     {
         $this->password = $password;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getDate(): ?int
-    {
-        return $this->date;
-    }
-
-    /**
-     * @param int|null $date
-     */
-    public function setDate(?int $date): void
-    {
-        $this->date = $date;
     }
 
     /**
