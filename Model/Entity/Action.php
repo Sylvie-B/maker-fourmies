@@ -7,14 +7,14 @@ class Action {
     private ?string $description;
     // starting date
     private ?string $date;
-    private ?int $type_fk;
+    private ?Type $type;
 
-    public function __construct(?int $id_act = null, string $title=null, string $description = null, string $date = null, int $type_fk = null){
+    public function __construct(?int $id_act = null, string $title=null, string $description = null, string $date = null, Type $type = null){
         $this->id_act = $id_act;
         $this->title = $title;
         $this->description = $description;
         $this->date = $date;
-        $this->type_fk = $type_fk;
+        $this->type = $type;
     }
 
     /**
@@ -34,67 +34,69 @@ class Action {
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
 
     /**
-     * @param string $title
+     * @param string|null $title
      */
-    public function setTitle(string $title): void
+    public function setTitle(?string $title): void
     {
         $this->title = $title;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
     /**
-     * @param string $description
+     * @param string|null $description
      */
-    public function setDescription(string $description): void
+    public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDate(): string
+    public function getDate(): ?string
     {
         return $this->date;
     }
 
     /**
-     * @param string $date
+     * @param string|null $date
      */
-    public function setDate(string $date): void
+    public function setDate(?string $date): void
     {
         $this->date = $date;
     }
 
     /**
-     * @return int
+     * @return Type|null
      */
-    public function getTypeFk(): int
+    public function getType(): ?Type
     {
-        return $this->type_fk;
+        return $this->type;
     }
 
     /**
-     * @param int $type_fk
+     * @param Type|null $type
      */
-    public function setTypeFk(int $type_fk): void
+    public function setType(?Type $type): void
     {
-        $this->type_fk = $type_fk;
+        $this->type = $type;
     }
+
+
 
 }
