@@ -1,8 +1,7 @@
 <?php
 
 
-class controller
-{
+class controller {
     // display the right page function of index/user information/action - set title - pass information in array
     public function render(string $page, string $title, array $var = [])
     {
@@ -37,18 +36,7 @@ class controller
                             echo("adresse mail incorrecte");
                         }
                         $password = password_hash($_POST['passW'], PASSWORD_ARGON2ID);
-                        $sql = $pdo->prepare("
-                            INSERT INTO 'user'('name', 'surname', 'mail', 'pseudo', 'password')
-                            VALUES (:name, :surname, :pseudo, :mail, :password)
-                        ");
 
-                        $sql->bindValue(":name", $name);
-                        $sql->bindValue(":surname", $surname);
-                        $sql->bindValue(":mail", $_POST['mail']);
-                        $sql->bindValue(":pseudo", $pseudo);
-                        $sql->bindValue(":password", $password);
-
-                        $sql->execute();
                     }
                     else {
                         echo ("le formulaire est incomplet");

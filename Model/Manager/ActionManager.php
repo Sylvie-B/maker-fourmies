@@ -20,7 +20,7 @@ class ActionManager {
     public function addAction(string $title, string $description, $date, int $type_fk) {
         $sql = $this->pdo->prepare("
         INSERT INTO action (title, description, date, type_fk)
-        VALUE (:title, :description, :date, :type_fk)
+        VALUES (:title, :description, :date, :type_fk)
         ");
         $sql->bindValue(':title', trim(strip_tags($title)));
         $sql->bindValue(':description', trim(strip_tags($description)));
@@ -53,7 +53,7 @@ class ActionManager {
     /**
      * @return array
      */
-    public function getAllAction() : array {
+    public function getAllActions() : array {
         $actions = [];
         $sql = $this->pdo->prepare("SELECT * FROM action");
         $sql->execute();

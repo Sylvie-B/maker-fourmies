@@ -35,7 +35,7 @@ class TypeManager {
         return $type;
     }
 
-    public function getAllType () {
+    public function getAllTypes () {
         $type = [];
         $sql = $this->pdo->prepare("SELECT * FROM type");
         $sql->execute();
