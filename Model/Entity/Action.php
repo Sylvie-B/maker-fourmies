@@ -3,13 +3,13 @@
 
 class Action {
     private ?int $id_act;
-    private string $title;
-    private string $description;
+    private ?string $title;
+    private ?string $description;
     // starting date
-    private string $date;
-    private int $type_fk;
+    private ?string $date;
+    private ?int $type_fk;
 
-    public function __construct(?int $id_act, string $title, string $description, string $date, int $type_fk){
+    public function __construct(?int $id_act = null, string $title=null, string $description = null, string $date = null, int $type_fk = null){
         $this->id_act = $id_act;
         $this->title = $title;
         $this->description = $description;
