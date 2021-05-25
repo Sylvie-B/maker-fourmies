@@ -3,9 +3,9 @@
 
 class Type {
     private ?int $id_type;
-    private string $type;
+    private ?string $type;
 
-    public function __construct(?int $id_type, string $type){
+    public function __construct(?int $id_type = null, ?string $type = null){
         $this->id_type = $id_type;
         $this->type = $type;
     }
@@ -27,19 +27,20 @@ class Type {
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
 
     /**
-     * @param string $type
+     * @param string|null $type
      */
-    public function setType(string $type): void
+    public function setType(?string $type): void
     {
         $this->type = $type;
     }
+
 
 }
