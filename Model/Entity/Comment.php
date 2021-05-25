@@ -4,16 +4,16 @@
 class Comment {
     private ?int $id_com;
     private ?string $content;
-    private ?int $pseudo_fk; // author
+    private ?string $pseudo; // author
     private ?int $date;
-    private ?int $action_fk;    // about
+    private ?string $action;    // about
 
-    public function __construct(?int $id_com = null, ?string $content = null, ?int $pseudo_fk = null, ?int $date = null, ?int $action_fk = null) {
+    public function __construct(?int $id_com = null, ?string $content = null, ?string $pseudo = null, ?int $date = null, ?string $action = null) {
         $this->id_com = $id_com;
         $this->content = $content;
-        $this->pseudo_fk = $pseudo_fk;
+        $this->pseudo = $pseudo;
         $this->date = $date;
-        $this->action_fk = $action_fk;
+        $this->action = $action;
     }
 
     /**
@@ -49,19 +49,19 @@ class Comment {
     }
 
     /**
-     * @return int|null
+     * @return string|null
      */
-    public function getPseudoFk(): ?int
+    public function getPseudo(): ?string
     {
-        return $this->pseudo_fk;
+        return $this->pseudo;
     }
 
     /**
-     * @param int|null $pseudo_fk
+     * @param string|null $pseudo
      */
-    public function setPseudoFk(?int $pseudo_fk): void
+    public function setPseudo(?string $pseudo): void
     {
-        $this->pseudo_fk = $pseudo_fk;
+        $this->pseudo = $pseudo;
     }
 
     /**
@@ -81,19 +81,20 @@ class Comment {
     }
 
     /**
-     * @return int|null
+     * @return string|null
      */
-    public function getActionFk(): ?int
+    public function getAction(): ?string
     {
-        return $this->action_fk;
+        return $this->action;
     }
 
     /**
-     * @param int|null $action_fk
+     * @param string|null $action
      */
-    public function setActionFk(?int $action_fk): void
+    public function setAction(?string $action): void
     {
-        $this->action_fk = $action_fk;
+        $this->action = $action;
     }
+
 
 }
