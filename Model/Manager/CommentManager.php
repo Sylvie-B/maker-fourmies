@@ -17,6 +17,7 @@ class CommentManager {
      * @param int $pseudo_fk
      * @param $date
      * @param int $action_fk
+     * @return string
      */
     public function addComment (string $content, int $pseudo_fk, $date, int $action_fk){
         $sql = $this->pdo->prepare("
@@ -30,6 +31,10 @@ class CommentManager {
         return $this->pdo->lastInsertId();
     }
 
+    /**
+     * @param $id
+     * @return Comment
+     */
     public function getOneComment ($id){
         $sql = $this->pdo->prepare("SELECT * FROM comment WHERE id_com = $id");
         $sql->execute();
@@ -66,7 +71,8 @@ class CommentManager {
     }
 
     /**
-     * @param $id
+     * @param $u
+     * @param $a
      * @return array
      */
     public function getParamComment ($u, $a) {
@@ -81,10 +87,45 @@ class CommentManager {
                     $comments[] = new Comment($comment['id_com'], $comment['content'], null, $comment['date'], $action);
                 }
             }
-            return $comments;
         }
-
-
+        if(!isset($u) && isset($a)){
+            $sql = $this->pdo->prepare("SELECT * FROM comment WHERE action_fk = $a");
+            $sql->execute();
+            $result = $sql->fetchAll();
+            if($result){
+                foreach ($result as $comment){
+                    $pseudo = $this->userManager->getOneUser($comment['pseudo_fk']);
+                    $comments[] = new Comment($comment['id_com'], $comment['content'], $pseudo, $comment['date'], null);
+                }
+            }
+        }
+        if(isset($u) && isset($a)){
+            $sql = $this->pdo->prepare("SELECT * FROM comment WHERE pseudo_fk = $u AND action_fk = $a");
+            $sql->execute();
+            $result = $sql->fetchAll();
+            if($result){
+                foreach ($result as $comment){
+                    $comments[] = new Comment($comment['id_com'], $comment['content'], null, $comment['date'], null);
+                }
+            }
+        }
+        return $comments;
     }
 
+    public function updateComment($id, $content){
+        $sql = $this->pdo->prepare("UPDATE comment SET content = :content WHERE id_com = $id");
+        $sql->bindValue(':content', $content);
+        $sql->execute();
+        /** todo return ? */
+    }
+
+    /**
+     * @param $id
+     */
+    public function deleteComment($id){
+        $sql = $this->pdo->prepare("DELETE FROM comment WHERE id_com = $id");
+        if($sql->execute()){
+            echo "Le commentaire ".$id." a bien été supprimé";
+        }
+    }
 }
