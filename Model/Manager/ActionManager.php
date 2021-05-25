@@ -7,7 +7,7 @@ class ActionManager {
 
     public function __construct($pdo) {
         $this->pdo = $pdo;
-        $this->typeManager = new TypeManager();
+        $this->typeManager = new TypeManager($this->pdo);
     }
 
     /**
@@ -44,7 +44,8 @@ class ActionManager {
             $action->setTitle($result['title']);
             $action->setDescription($result['description']);
             $action->setDate($result['date']);
-            $action->setTypeFk($result['type_fk']);
+            $type = $this->typeManager->getOneType($action['type_fk']);
+            $action->setType($type);
         }
         return $action;
     }
@@ -60,7 +61,7 @@ class ActionManager {
 
         if($result){
             foreach ($result as $action) {
-                $type = $this->typeManager->getType($action['type_fk']);
+                $type = $this->typeManager->getOneType($action['type_fk']);
                 $actions[] = new Action($action['id_act'], $action['title'], $action['description'], $action['date'], $type);
             }
         }
