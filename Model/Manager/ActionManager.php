@@ -1,11 +1,13 @@
 <?php
 
 
-class actionManager {
+class ActionManager {
     private PDO $pdo;
+    private TypeManager $typeManager;
 
     public function __construct($pdo) {
         $this->pdo = $pdo;
+        $this->typeManager = new TypeManager();
     }
 
     /**
@@ -45,5 +47,23 @@ class actionManager {
             $action->setTypeFk($result['type_fk']);
         }
         return $action;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAllAction() : array {
+        $actions = [];
+        $sql = $this->pdo->prepare("SELECT * FROM action");
+        $sql->execute();
+        $result = $sql->fetchAll();
+
+        if($result){
+            foreach ($result as $action) {
+                $type = $this->typeManager->getType($action['type_fk']);
+                $actions[] = new Action($action['id_act'], $action['title'], $action['description'], $action['date'], $type);
+            }
+        }
+        return $actions;
     }
 }
