@@ -5,19 +5,19 @@ class User {
     private ?int $id_user;
     private ?string $name;
     private ?string $surname;
-    private string $pseudo;
     private ?string $mail;
-    private string $password;
+    private ?string $pseudo;
+    private ?string $password;
     private ?int $date;
     private ?int $role_fk;
 
-    public function __construct(?int $id_user, ?string $name, ?string $surname, ?string $mail,string $pseudo,
-                                string $password, ?int $date, ?int $role_fk = 4){
+    public function __construct(?int $id_user = null, ?string $name = null, ?string $surname = null, ?string $mail = null, ?string $pseudo = null,
+                                ?string $password = null, ?int $date = null, ?int $role_fk = 4){
         $this->id_user = $id_user;
         $this->name = $name;
         $this->surname = $surname;
-        $this->pseudo = $pseudo;
         $this->mail = $mail;
+        $this->pseudo = $pseudo;
         $this->password = $password;
         $this->date = $date;
         $this->role_fk = $role_fk;
@@ -72,22 +72,6 @@ class User {
     }
 
     /**
-     * @return string
-     */
-    public function getPseudo(): string
-    {
-        return $this->pseudo;
-    }
-
-    /**
-     * @param string $pseudo
-     */
-    public function setPseudo(string $pseudo): void
-    {
-        $this->pseudo = $pseudo;
-    }
-
-    /**
      * @return string|null
      */
     public function getMail(): ?string
@@ -104,17 +88,33 @@ class User {
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPassword(): string
+    public function getPseudo(): ?string
+    {
+        return $this->pseudo;
+    }
+
+    /**
+     * @param string|null $pseudo
+     */
+    public function setPseudo(?string $pseudo): void
+    {
+        $this->pseudo = $pseudo;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPassword(): ?string
     {
         return $this->password;
     }
 
     /**
-     * @param string $password
+     * @param string|null $password
      */
-    public function setPassword(string $password): void
+    public function setPassword(?string $password): void
     {
         $this->password = $password;
     }
@@ -150,4 +150,5 @@ class User {
     {
         $this->role_fk = $role_fk;
     }
+
 }
