@@ -3,12 +3,12 @@
 
 class Comment {
     private ?int $id_com;
-    private string $content;
-    private int $pseudo_fk; // author
-    private int $date;
-    private int $action_fk;    // about
+    private ?string $content;
+    private ?int $pseudo_fk; // author
+    private ?int $date;
+    private ?int $action_fk;    // about
 
-    public function __construct(?int $id_com, string $content, int $pseudo_fk, int $date, int $action_fk) {
+    public function __construct(?int $id_com = null, ?string $content = null, ?int $pseudo_fk = null, ?int $date = null, ?int $action_fk = null) {
         $this->id_com = $id_com;
         $this->content = $content;
         $this->pseudo_fk = $pseudo_fk;
@@ -33,66 +33,67 @@ class Comment {
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getContent(): string
+    public function getContent(): ?string
     {
         return $this->content;
     }
 
     /**
-     * @param string $content
+     * @param string|null $content
      */
-    public function setContent(string $content): void
+    public function setContent(?string $content): void
     {
         $this->content = $content;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPseudoFk(): int
+    public function getPseudoFk(): ?int
     {
         return $this->pseudo_fk;
     }
 
     /**
-     * @param int $pseudo_fk
+     * @param int|null $pseudo_fk
      */
-    public function setPseudoFk(int $pseudo_fk): void
+    public function setPseudoFk(?int $pseudo_fk): void
     {
         $this->pseudo_fk = $pseudo_fk;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getDate(): int
+    public function getDate(): ?int
     {
         return $this->date;
     }
 
     /**
-     * @param int $date
+     * @param int|null $date
      */
-    public function setDate(int $date): void
+    public function setDate(?int $date): void
     {
         $this->date = $date;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getActionFk(): int
+    public function getActionFk(): ?int
     {
         return $this->action_fk;
     }
 
     /**
-     * @param int $action_fk
+     * @param int|null $action_fk
      */
-    public function setActionFk(int $action_fk): void
+    public function setActionFk(?int $action_fk): void
     {
         $this->action_fk = $action_fk;
     }
+
 }
