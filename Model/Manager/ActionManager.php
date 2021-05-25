@@ -19,8 +19,8 @@ class ActionManager {
      */
     public function addAction(string $title, string $description, $date, int $type_fk) {
         $sql = $this->pdo->prepare("
-        INSERT INTO action (title, description, date, type_fk)
-        VALUES (:title, :description, :date, :type_fk)
+            INSERT INTO action (title, description, date, type_fk)
+            VALUES (:title, :description, :date, :type_fk)
         ");
         $sql->bindValue(':title', trim(strip_tags($title)));
         $sql->bindValue(':description', trim(strip_tags($description)));
@@ -44,7 +44,7 @@ class ActionManager {
             $action->setTitle($result['title']);
             $action->setDescription($result['description']);
             $action->setDate($result['date']);
-            $type = $this->typeManager->getOneType($action['type_fk']);
+            $type = $this->typeManager->getOneType($result['type_fk']);
             $action->setType($type);
         }
         return $action;
