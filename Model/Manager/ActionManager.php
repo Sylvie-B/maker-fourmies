@@ -35,7 +35,8 @@ class ActionManager {
      * @return Action
      */
     public function getOneAction($id) : Action {
-        $sql = $this->pdo->prepare("SELECT * FROM action WHERE id_act = $id");
+        $sql = $this->pdo->prepare("SELECT * FROM action WHERE id_act = :id");
+        $sql->bindValue(':id', $id, PDO::PARAM_INT);
         $sql->execute();
         $result = $sql->fetch();
         $action = new Action();

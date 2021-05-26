@@ -24,7 +24,8 @@ class TypeManager {
      * @return Type
      */
     public function getOneType ($id){
-        $sql = $this->pdo->prepare("SELECT * FROM type WHERE id_type = $id");
+        $sql = $this->pdo->prepare("SELECT * FROM type WHERE id_type = :id");
+        $sql->bindValue(':id', $id, PDO::PARAM_INT);
         $sql->execute();
         $result = $sql->fetch();
         $type = new Type();

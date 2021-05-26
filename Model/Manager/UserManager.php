@@ -35,7 +35,8 @@ class UserManager {
      * @return User
      */
     public function getOneUser ($id) : User {
-        $sql = $this->pdo->prepare("SELECT * FROM user WHERE id_user = $id");
+        $sql = $this->pdo->prepare("SELECT * FROM user WHERE id_user = :id");
+        $sql->bindValue(':id', $id, PDO::PARAM_INT);
         $sql->execute();
         $result = $sql->fetch();
         $user = new User();
