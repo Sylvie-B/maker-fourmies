@@ -3,13 +3,13 @@
 
 class Image {
     private ?int $id_img;
-    private string $image;
-    private int $action_fk;
+    private ?string $image;
+    private ?Action $action;
 
-    public function __construct(?int $id_img, string $image, int $action_fk){
+    public function __construct(?int $id_img = null, ?string $image = null, ?Action $action = null){
         $this->id_img = $id_img;
         $this->image = $image;
-        $this->action_fk = $action_fk;
+        $this->action = $action;
     }
 
     /**
@@ -29,34 +29,35 @@ class Image {
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getImage(): string
+    public function getImage(): ?string
     {
         return $this->image;
     }
 
     /**
-     * @param string $image
+     * @param string|null $image
      */
-    public function setImage(string $image): void
+    public function setImage(?string $image): void
     {
         $this->image = $image;
     }
 
     /**
-     * @return int
+     * @return Action|null
      */
-    public function getActionFk(): int
+    public function getAction(): ?Action
     {
-        return $this->action_fk;
+        return $this->action;
     }
 
     /**
-     * @param int $action_fk
+     * @param Action|null $action
      */
-    public function setActionFk(int $action_fk): void
+    public function setAction(?Action $action): void
     {
-        $this->action_fk = $action_fk;
+        $this->action = $action;
     }
+
 }
