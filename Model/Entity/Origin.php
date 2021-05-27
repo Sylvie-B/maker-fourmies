@@ -3,9 +3,9 @@
 
 class Origin {
     private ?int $id_org;
-    private string $origin;
+    private ?string $origin;
 
-    public function __construct(?int $id_org, string $origin){
+    public function __construct(?int $id_org = null, ?string $origin = null){
         $this->id_org = $id_org;
         $this->origin = $origin;
     }
@@ -27,18 +27,19 @@ class Origin {
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getOrigin(): string
+    public function getOrigin(): ?string
     {
         return $this->origin;
     }
 
     /**
-     * @param string $origin
+     * @param string|null $origin
      */
-    public function setOrigin(string $origin): void
+    public function setOrigin(?string $origin): void
     {
         $this->origin = $origin;
     }
+
 }
