@@ -27,7 +27,7 @@ class UserManager {
         $sql->bindValue(":pseudo", $pseudo);
         $sql->bindValue(":password", $password);
         $sql->execute();
-        return $this->pdo->lastInsertId();
+        return $this->pdo->lastInsertId() !== 0 ;
     }
 
     /**

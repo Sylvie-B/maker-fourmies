@@ -27,7 +27,7 @@ class ActionManager {
         $sql->bindValue(':date', $date);
         $sql->bindValue('type_fk', $type_fk, PDO::PARAM_INT);
         $sql->execute();
-        return $this->pdo->lastInsertId();
+        return $this->pdo->lastInsertId() !== 0 ;
     }
 
     /**

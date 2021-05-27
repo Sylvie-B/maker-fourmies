@@ -16,7 +16,7 @@ class TypeManager {
         $sql = $this->pdo->prepare("INSERT INTO type (type) VALUE (:type)");
         $sql->bindValue(':type', trim(strip_tags($type)));
         $sql->execute();
-        return $this->pdo->lastInsertId();
+        return $this->pdo->lastInsertId() !== 0 ;
     }
 
     /**

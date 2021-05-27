@@ -20,7 +20,7 @@ class ImageManager {
         $sql->bindValue(':image', $image);
         $sql->bindValue(':action_fk', $action_fk, PDO::PARAM_INT);
         $sql->execute();
-        return $this->pdo->lastInsertId();
+        return $this->pdo->lastInsertId() !== 0 ;
     }
 
     /**
@@ -41,4 +41,6 @@ class ImageManager {
         }
         return $image;
     }
+
+
 }

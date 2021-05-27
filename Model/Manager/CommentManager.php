@@ -28,7 +28,7 @@ class CommentManager {
         $sql->bindValue(':date', $date);
         $sql->bindValue(':action_fk', $action_fk, PDO::PARAM_INT);
         $sql->execute();
-        return $this->pdo->lastInsertId();
+        return $this->pdo->lastInsertId() !== 0 ;
     }
 
     /**
