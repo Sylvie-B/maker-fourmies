@@ -3,13 +3,13 @@
 
 class Matter {
     private ?int $id_matter;
-    private string $matter;
-    private int $origin_fk;
+    private ?string $matter;
+    private ?string $origin;
 
-    public function __construct(?int $id_matter, string $matter, int $origin_fk){
+    public function __construct(?int $id_matter = null, ?string $matter = null, ?string $origin = null){
         $this->id_matter = $id_matter;
         $this->matter = $matter;
-        $this->origin_fk = $origin_fk;
+        $this->origin = $origin;
     }
 
     /**
@@ -29,34 +29,35 @@ class Matter {
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMatter(): string
+    public function getMatter(): ?string
     {
         return $this->matter;
     }
 
     /**
-     * @param string $matter
+     * @param string|null $matter
      */
-    public function setMatter(string $matter): void
+    public function setMatter(?string $matter): void
     {
         $this->matter = $matter;
     }
 
     /**
-     * @return int
+     * @return string|null
      */
-    public function getOriginFk(): int
+    public function getOrigin()
     {
-        return $this->origin_fk;
+        return $this->origin;
     }
 
     /**
-     * @param int $origin_fk
+     * @param string|null $origin
      */
-    public function setOriginFk(int $origin_fk): void
+    public function setOrigin($origin): void
     {
-        $this->origin_fk = $origin_fk;
+        $this->origin = $origin;
     }
+
 }

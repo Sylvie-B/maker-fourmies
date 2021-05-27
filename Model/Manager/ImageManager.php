@@ -40,6 +40,9 @@ class ImageManager {
             $image->setAction($action);
         }
         return $image;
+
+        // todo get all image
+
     }
 
 
