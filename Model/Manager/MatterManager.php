@@ -30,7 +30,24 @@ class MatterManager {
         $result = $sql->fetch();
         $matter = new Matter();
         if($result){
-
+            $matter->setIdMatter($result['id_matter']);
+            $matter->setMatter($result['matter']);
+            $origin = $this->originManager->getOneOrigin($result['id_org']);
+            $matter->setOrigin($origin);
         }
+        return $matter;
+    }
+
+    public function getAllMatters () : array {
+        $matter = [];
+        $sql = $this->pdo->prepare("SELECT * FROM matter");
+        $sql->execute();
+        $result = $sql->fetchAll();
+        if($result){
+            foreach ($result as $matter){
+                $matter[] = new Matter($matter['id_matter'], $matter['matter']);
+            }
+        }
+        return $matter;
     }
 }
