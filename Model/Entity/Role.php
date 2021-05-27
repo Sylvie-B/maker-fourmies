@@ -3,9 +3,9 @@
 
 class Role {
     private ?int $id_role;
-    private string $role;
+    private ?string $role;
 
-    public function __construct(?int $id_role, string $role){
+    public function __construct(?int $id_role = null, ?string $role = null){
         $this->id_role = $id_role;
         $this->role = $role;
     }
@@ -27,18 +27,19 @@ class Role {
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getRole(): string
+    public function getRole(): ?string
     {
         return $this->role;
     }
 
     /**
-     * @param string $role
+     * @param string|null $role
      */
-    public function setRole(string $role): void
+    public function setRole(?string $role): void
     {
         $this->role = $role;
     }
+
 }
