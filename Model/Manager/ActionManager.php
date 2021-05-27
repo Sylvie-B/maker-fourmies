@@ -30,6 +30,9 @@ class ActionManager {
         return $this->pdo->lastInsertId() !== 0 ;
     }
 
+    // todo find all informations about a project
+    // select project-title, description, date, user-pseudo, technic- , tool-, matter-.
+
     /**
      * @param $id
      * @return Action
