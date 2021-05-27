@@ -37,15 +37,15 @@ class TypeManager {
     }
 
     public function getAllTypes () {
-        $type = [];
+        $types = [];
         $sql = $this->pdo->prepare("SELECT * FROM type");
         $sql->execute();
         $result = $sql->fetchAll();
         if($result){
             foreach ($result as $type) {
-                $type[] = new Type($type['id_type'], $type['type']);
+                $types[] = new Type($type['id_type'], $type['type']);
             }
         }
-        return $type;
+        return $types;
     }
 }

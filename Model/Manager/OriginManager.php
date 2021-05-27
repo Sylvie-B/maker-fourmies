@@ -22,17 +22,16 @@ class OriginManager {
     }
 
     public function getAllOrigin () : array {
-        $origin = [];
+        $origins = [];
         $sql = $this->pdo->prepare("SELECT * FROM origin");
         $sql->execute();
         $result = $sql->fetchAll();
-
         if($result){
             foreach ($result as $origin){
-                $origin[] = new Origin($origin['id_org'], $origin['origin']);
+                $origins[] = new Origin($origin['id_org'], $origin['origin']);
             }
         }
-        return $origin;
+        return $origins;
     }
 
 }

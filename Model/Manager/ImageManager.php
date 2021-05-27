@@ -40,10 +40,20 @@ class ImageManager {
             $image->setAction($action);
         }
         return $image;
-
-        // todo get all image
-
     }
 
+    public function getAllImages () : array {
+        $images = [];
+        $sql = $this->pdo->prepare("SELECT * FROM image");
+        $sql->execute();
+        $result = $sql->fetchAll();
+        if($result){
+            foreach ($result as $image) {
+                $action = $this->actionManager->getOneAction($result['action_fk']);
+                $images[] = new Image($image['id_img'], $image['image'], $action);
 
+            }
+        }
+        return $images;
+    }
 }

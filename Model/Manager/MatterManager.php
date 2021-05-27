@@ -23,6 +23,10 @@ class MatterManager {
         return $this->pdo->lastInsertId() !== 0;
     }
 
+    /**
+     * @param $id
+     * @return Matter
+     */
     public function getOneMatter ($id) {
         $sql = $this->pdo->prepare("SELECT * FROM matter WHERE id_matter = :id");
         $sql->bindValue(':id', $id, PDO::PARAM_INT);
@@ -38,16 +42,20 @@ class MatterManager {
         return $matter;
     }
 
+    /**
+     * @return array
+     */
     public function getAllMatters () : array {
-        $matter = [];
+        $matters = [];
         $sql = $this->pdo->prepare("SELECT * FROM matter");
         $sql->execute();
         $result = $sql->fetchAll();
         if($result){
             foreach ($result as $matter){
-                $matter[] = new Matter($matter['id_matter'], $matter['matter']);
+                $origin = $this->originManager->getOneOrigin($result['id_org']);
+                $matters[] = new Matter($matter['id_matter'], $matter['matter'], $origin);
             }
         }
-        return $matter;
+        return $matters;
     }
 }
