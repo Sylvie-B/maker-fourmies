@@ -3,9 +3,9 @@
 
 class Technic {
     private ?int $id_tech;
-    private string $technic;
+    private ?string $technic;
 
-    public function __construct(?int $id_tech, string $technic){
+    public function __construct(?int $id_tech = null, ?string $technic = null){
         $this->id_tech = $id_tech;
         $this->technic = $technic;
     }
@@ -27,18 +27,19 @@ class Technic {
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTechnic(): string
+    public function getTechnic(): ?string
     {
         return $this->technic;
     }
 
     /**
-     * @param string $technic
+     * @param string|null $technic
      */
-    public function setTechnic(string $technic): void
+    public function setTechnic(?string $technic): void
     {
         $this->technic = $technic;
     }
+
 }

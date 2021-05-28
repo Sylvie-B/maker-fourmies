@@ -9,11 +9,13 @@ class roleManager {
     }
 
     /**
+     * @param int $id_role
      * @param string $role
      * @return bool
      */
-    public function addRole (string $role) {
-        $sql = $this->pdo->prepare("INSERT INTO role (role) VALUES (':role')");
+    public function addRole (int $id_role, string $role) {
+        $sql = $this->pdo->prepare("INSERT INTO role (id_role, role) VALUES (':id_role', ':role')");
+        $sql->bindValue(':id_role', $id_role, PDO::PARAM_INT);
         $sql->bindValue(':role', $role);
         $sql->execute();
         return $this->pdo->lastInsertId() !== 0;
@@ -36,7 +38,10 @@ class roleManager {
         return $role;
     }
 
-    public function getAllRoles () : array {
+    /**
+     * @return array
+     */
+    public function getAllRoles() : array {
         $roles = [];
         $sql = $this->pdo->prepare("SELECT * FROM role");
         $sql->execute();

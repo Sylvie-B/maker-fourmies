@@ -3,9 +3,9 @@
 
 class Tool {
     private ?int $id_tool;
-    private string $tool;
+    private ?string $tool;
 
-    public function __construct(?int $id_tool, string $tool){
+    public function __construct(?int $id_tool = null, ?string $tool = null) {
         $this->id_tool = $id_tool;
         $this->tool = $tool;
     }
