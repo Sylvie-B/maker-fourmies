@@ -70,3 +70,9 @@ h2 {
     width: 80%;
     margin: 1vh auto;
 }
+
+#gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

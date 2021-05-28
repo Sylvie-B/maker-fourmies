@@ -1,3 +1,1 @@
-<!--      picture      -->
-
-<?php
+<div id="gallery"></div>

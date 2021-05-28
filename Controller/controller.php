@@ -3,16 +3,14 @@
 
 class controller {
     // display the right page function of index/user information/action - set title - pass information in array
-    public function render(string $page, string $title, array $var = [])
-    {
+    public function render(string $page, string $title, array $var = []) {
         require_once $_SERVER['DOCUMENT_ROOT'] . "/View/partials/header.php";
         require_once $_SERVER['DOCUMENT_ROOT'] . "/view/" . $page . ".php";
         require_once $_SERVER['DOCUMENT_ROOT'] . "/View/partials/footer.php";
     }
 
     // verify which form is to complete and is it complete
-    public function checkValidation($param, $pdo)
-    {
+    public function checkValidation($param, $pdo) {
         // which form ?
         if (!empty($_POST)) {
             switch ($param) {
@@ -46,6 +44,3 @@ class controller {
     }
 }
 
-// wich form
-// con = check con
-// ins = check insc + con

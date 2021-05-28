@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -29,7 +31,7 @@
             </div>
             <!-- menu -->
             <nav>
-                <a href="/index.php?ctrl=accueil-view" class="menu">
+                <a href="/index.php?ctrl=home-view" class="menu">
                     <div>Accueil</div>
                 </a>
                 <a href="/index.php?ctrl=project-view" class="menu">

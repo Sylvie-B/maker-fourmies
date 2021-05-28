@@ -1,15 +1,15 @@
 <?php
+// database inclusion & connexion
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/assoDb.php';
-// Inclusion des entités.
-
-// Inclusion des managers.
-
-// Inclusion des controllers.
-require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/controller.php";
-
-// database connexion
 $db = new assoDb();
 $db->connect();
+
+// entities inclusions
+
+// managers inclusions
+
+// controleur inclusions
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/controller.php";
 
 $control = new controller();
 
