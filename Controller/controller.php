@@ -2,14 +2,9 @@
 
 
 class controller {
-
     private PDO $pdo;
     private UserManager $userManager;
 
-    /**
-     * controller constructor.
-     * @param $pdo
-     */
     public function __construct ($pdo){
         $this->pdo = $pdo;
         $this->userManager = new UserManager($this->pdo);
@@ -51,7 +46,7 @@ class controller {
                 // check pseudo & password
                 if ($this->checkData('mail', 'passW')) {
                     if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
-                        echo("adresse mail incorrecte");
+                        var_dump("adresse mail incorrecte");
                     }
                     $password = password_hash($_POST['passW'], PASSWORD_ARGON2ID);
 
@@ -59,7 +54,7 @@ class controller {
 
                 } else {
                     // form incomplete
-                    echo "pseudo ou mot de passe incorrect";
+                    var_dump("pseudo ou mot de passe incorrect");
                 }
                 break;
             case 'signIn-view':
@@ -69,15 +64,18 @@ class controller {
                     $surname = strip_tags($_POST['surname']);
                     $pseudo = strip_tags($_POST['pseudo']);
                     if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
-                        echo("adresse mail incorrecte");
+                        var_dump("adresse mail incorrecte");
                     }
                     $password = password_hash($_POST['passW'], PASSWORD_ARGON2ID);
 
                     // add new user in data base
-                    $this->userManager->addUser($name, $surname, $_POST['mail'], $pseudo, $password);
+                    $ref = $this->userManager->addUser($name, $surname, $_POST['mail'], $pseudo, $password);
+                    if($ref){
+                        var_dump("utilisateur ajouté");
+                    }
                 }
                 else {
-                    echo ("le formulaire est incomplet");
+                    var_dump("le formulaire est incomplet");
                 }
                 break;
         }

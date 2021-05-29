@@ -2,13 +2,13 @@
 // database inclusion & connexion
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/assoDb.php';
 $db = new assoDb();
-$db->connect();
+$db = $db->connect();
 
 // entities inclusions
 
 // managers inclusions
-
-// controleur inclusions
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Model/Manager/UserManager.php";
+// controller inclusion
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/controller.php";
 
 $control = new controller($db);
@@ -20,11 +20,9 @@ if(isset($_GET['ctrl'])){
             break;
         case 'connexion-view' :
             $control->render($_GET['ctrl'], 'Connexion');
-            $control->checkValidation($_GET['ctrl'], $db);
             break;
         case 'signIn-view' :
             $control->render($_GET['ctrl'],'Inscription');
-            $control->checkValidation($_GET['ctrl'], $db);
             break;
         case 'project-view' :
             $control->render($_GET['ctrl'],'Les projets');
