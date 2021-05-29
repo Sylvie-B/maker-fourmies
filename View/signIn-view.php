@@ -23,7 +23,7 @@
             <input id="passW" type="password" name="passW">
         </div>
         <div>
-            <button id="validate">valider</button>
+            <button id="validate" name="submit">valider</button>
         </div>
     </form>
 </div>

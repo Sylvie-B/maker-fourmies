@@ -11,7 +11,7 @@ $db->connect();
 // controleur inclusions
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/controller.php";
 
-$control = new controller();
+$control = new controller($db);
 
 if(isset($_GET['ctrl'])){
     switch ($_GET['ctrl']){
