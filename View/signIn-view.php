@@ -1,6 +1,6 @@
 <div id="frame">
-    <!-- affect inscription or connexion -->
     <h2>Inscription</h2>
+
     <form method="post" action="../Controller/controller.php">
         <div>
             <label for="name">Nom</label>

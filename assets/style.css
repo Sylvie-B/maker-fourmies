@@ -71,8 +71,3 @@ h2 {
     margin: 1vh auto;
 }
 
-#gallery {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}

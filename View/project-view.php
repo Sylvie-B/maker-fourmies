@@ -1,3 +1,7 @@
+<div id="frame">
+    <h1>Les projets</h1>
+</div>
+
 <div id="projectTitle"></div>
 <div id="description"></div>
 <div>
