@@ -49,9 +49,14 @@ class controller {
         switch ($param) {
             case 'connexion-view':
                 // check pseudo & password
-                if ($this->checkData('pseudo', 'passW')) {
-                    $pseudo = strip_tags($_POST['pseudo']);
+                if ($this->checkData('mail', 'passW')) {
+                    if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
+                        echo("adresse mail incorrecte");
+                    }
                     $password = password_hash($_POST['passW'], PASSWORD_ARGON2ID);
+
+                    // connect user
+
                 } else {
                     // form incomplete
                     echo "pseudo ou mot de passe incorrect";
@@ -68,12 +73,13 @@ class controller {
                     }
                     $password = password_hash($_POST['passW'], PASSWORD_ARGON2ID);
 
-
-
+                    // add new user in data base
+                    $this->userManager->addUser($name, $surname, $_POST['mail'], $pseudo, $password);
                 }
                 else {
                     echo ("le formulaire est incomplet");
                 }
+                break;
         }
     }
 }
