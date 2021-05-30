@@ -13,7 +13,7 @@
         <header>
             <div id="headband">
                 <a href="/index.php?ctrl=home-view">
-                <img id="logo" src="../../img/gears.png" alt="logo"/>
+                    <img id="logo" src="../../img/gears.png" alt="logo"/>
                 </a>
                 <a id="title" href="/index.php?ctrl=home-view">
                     <h1 id="maker">MAKER FOURMIES</h1>

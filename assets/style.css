@@ -71,3 +71,15 @@ h2 {
     margin: 1vh auto;
 }
 
+#show {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.picture {
+    width: 24%;
+    height: 24vh;
+    margin: 0.5vh;
+    border: 1px solid black;
+}
