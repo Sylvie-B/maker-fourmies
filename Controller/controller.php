@@ -22,7 +22,6 @@ class controller {
         require_once $_SERVER['DOCUMENT_ROOT'] . "/View/partials/footer.php";
     }
 
-
     /**
      * is there data and are they complete ?
      * @param mixed ...$data
@@ -51,29 +50,33 @@ class controller {
     public function checkValidation($param) {
         switch ($param) {
             case 'connexion-view':
-                // check pseudo & password
+                // check email & password
                 if ($this->checkData('mail', 'passW')) {
                     if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
                         header('location : index.php?ctrl=connexion-view&mail=0');
                     }
+                    // verify password
                     $password = password_hash($_POST['passW'], PASSWORD_ARGON2ID);
-
-                    // connect user
+                    // todo connect user
 
                 } else {
                     // form incomplete
-
+                    header('location : index.php?ctrl=connexion-view&form=0');
                 }
                 break;
             case 'signIn-view':
+
                 // check all form fields
                 if ($this->checkData('name', 'surname', 'pseudo', 'mail', 'passW')) {
                     $name = strip_tags($_POST['name']);
                     $surname = strip_tags($_POST['surname']);
+
+                    // ! does pseudo exist ?
                     $pseudo = strip_tags($_POST['pseudo']);
                     if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
-
+                        header('location : index.php?ctrl=signIn-view&mail=0');
                     }
+
                     $password = password_hash($_POST['passW'], PASSWORD_ARGON2ID);
 
                     // add new user in data base

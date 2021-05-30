@@ -23,7 +23,7 @@ if(isset($_GET['ctrl'])){
         case 'connexion-view' :
             if(isset($_GET['mail']) && $_GET['mail'] == 0){
                 $control->render($_GET['ctrl'], 'Connexion', [
-                    'info' => "l'adresse mail est incorrecte"
+                    'info' => "L'adresse mail et/ou le mot de passe est incorrecte"
                 ]);
             }
             else{
@@ -32,6 +32,15 @@ if(isset($_GET['ctrl'])){
             }
             break;
         case 'signIn-view' :
+            if(isset($_GET['mail']) && $_GET['mail'] == 0){
+                $control->render($_GET['ctrl'], 'Inscription', [
+                    'info' => "L'adresse mail et/ou le mot de passe est incorrecte"
+                ]);
+            }
+            else{
+                $control->render($_GET['ctrl'], 'Inscription');
+                $control->checkValidation($_GET['ctrl']);
+            }
             $control->render($_GET['ctrl'],'Inscription');
             break;
         case 'project-view' :
