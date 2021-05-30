@@ -1,10 +1,9 @@
 <div id="frame">
-    <!-- affect inscription or connexion -->
     <h2>Connexion</h2>
-    <form method="post" action="../Controller/controller.php">
+    <form method="post" action="/index.php?ctrl=connexion-view">
         <div>
-            <label for="pseudo">Pseudo</label>
-            <input type="text" name="pseudo" id="pseudo">
+            <label for="mail">Email</label>
+            <input type="email" name="mail" id="mail">
         </div>
         <div>
             <label for="passW">mot de passe</label>
@@ -14,4 +13,5 @@
             <button id="validate" name="submit">valider</button>
         </div>
     </form>
+    <?$var['info']?>
 </div>

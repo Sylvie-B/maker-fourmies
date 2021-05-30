@@ -22,7 +22,12 @@ class controller {
         require_once $_SERVER['DOCUMENT_ROOT'] . "/View/partials/footer.php";
     }
 
-    // is there data and are they complete ?
+
+    /**
+     * is there data and are they complete ?
+     * @param mixed ...$data
+     * @return bool
+     */
     public function checkData(...$data): bool {
         foreach ($data as $input) {
             // is data exist ?
@@ -39,14 +44,17 @@ class controller {
         return true;
     }
 
-    // verify which form is to complete
+    /**
+     * verify which form is to complete
+     * @param $param
+     */
     public function checkValidation($param) {
         switch ($param) {
             case 'connexion-view':
                 // check pseudo & password
                 if ($this->checkData('mail', 'passW')) {
                     if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
-                        var_dump("adresse mail incorrecte");
+                        header('location : index.php?ctrl=connexion-view&mail=0');
                     }
                     $password = password_hash($_POST['passW'], PASSWORD_ARGON2ID);
 
@@ -54,7 +62,7 @@ class controller {
 
                 } else {
                     // form incomplete
-                    var_dump("pseudo ou mot de passe incorrect");
+
                 }
                 break;
             case 'signIn-view':
@@ -64,21 +72,20 @@ class controller {
                     $surname = strip_tags($_POST['surname']);
                     $pseudo = strip_tags($_POST['pseudo']);
                     if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
-                        var_dump("adresse mail incorrecte");
+
                     }
                     $password = password_hash($_POST['passW'], PASSWORD_ARGON2ID);
 
                     // add new user in data base
                     $ref = $this->userManager->addUser($name, $surname, $_POST['mail'], $pseudo, $password);
                     if($ref){
-                        var_dump("utilisateur ajouté");
+
                     }
                 }
                 else {
-                    var_dump("le formulaire est incomplet");
+
                 }
                 break;
         }
     }
 }
-

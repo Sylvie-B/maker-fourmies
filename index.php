@@ -10,8 +10,10 @@ $db = $db->connect();
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Model/Manager/UserManager.php";
 // controller inclusion
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/controller.php";
-
 $control = new controller($db);
+
+
+
 
 if(isset($_GET['ctrl'])){
     switch ($_GET['ctrl']){
@@ -19,7 +21,15 @@ if(isset($_GET['ctrl'])){
             $control->render($_GET['ctrl'], 'Accueil');
             break;
         case 'connexion-view' :
-            $control->render($_GET['ctrl'], 'Connexion');
+            if(isset($_GET['mail']) && $_GET['mail'] == 0){
+                $control->render($_GET['ctrl'], 'Connexion', [
+                    'info' => "l'adresse mail est incorrecte"
+                ]);
+            }
+            else{
+                $control->render($_GET['ctrl'], 'Connexion');
+                $control->checkValidation($_GET['ctrl']);
+            }
             break;
         case 'signIn-view' :
             $control->render($_GET['ctrl'],'Inscription');

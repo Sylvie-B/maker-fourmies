@@ -1,7 +1,7 @@
 <div id="frame">
     <h2>Inscription</h2>
 
-    <form method="post" action="../Controller/controller.php">
+    <form method="post" action="/index.php?ctrl=signIn-view">
         <div>
             <label for="name">Nom</label>
             <input type="text" name="name" id="name">
@@ -27,3 +27,4 @@
         </div>
     </form>
 </div>
+<?php
