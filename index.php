@@ -21,7 +21,8 @@ if(isset($_GET['ctrl'])){
             $control->render($_GET['ctrl'], 'Accueil');
             break;
         case 'connexion-view' :
-            if(isset($_GET['mail']) && $_GET['mail'] == 0){
+            if(isset($_GET['error'])){
+                // todo case error
                 $control->render($_GET['ctrl'], 'Connexion', [
                     'info' => "L'adresse mail et/ou le mot de passe est incorrecte"
                 ]);

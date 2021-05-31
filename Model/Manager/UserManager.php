@@ -51,6 +51,23 @@ class UserManager {
         return $user;
     }
 
+    public function getUserByMail ($mail) : User {
+        $sql = $this->pdo->prepare("SELECT * FROM user WHERE mail = :mail");
+        $sql->bindValue(':mail', $mail);
+        $sql->execute();
+        $result = $sql->fetch();
+        $user = new User();
+        if($result){
+            $user->setIdUser($result['id_user']);
+            $user->setName($result['name']);
+            $user->setSurname($result['surname']);
+            $user->setMail($result['mail']);
+            $user->setPseudo($result['pseudo']);
+            $user->setPassword($result['password']);
+        }
+        return $user;
+    }
+
     /**
      * @return array
      */
@@ -66,5 +83,14 @@ class UserManager {
             }
         }
         return $users;
+    }
+
+    public function testPseudo($pseudo) : bool {
+
+        $sql = $this->pdo->prepare("SELECT * FROM user WHERE pseudo = :pseudo");
+        $sql->bindValue(':pseudo', $pseudo);
+        $sql->execute();
+        $result = $sql->fetch();
+        // todo return true or false
     }
 }
