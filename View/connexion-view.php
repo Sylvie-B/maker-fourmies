@@ -1,5 +1,8 @@
 <div id="frame">
     <h2>Connexion</h2>
+    <p>
+        <?=$var['info']?>
+    </p>
     <form method="post" action="/index.php?ctrl=connexion-view">
         <div>
             <label for="mail">Email</label>
@@ -13,5 +16,5 @@
             <button id="validate" name="submit">valider</button>
         </div>
     </form>
-    <?$var['info']?>
+
 </div>

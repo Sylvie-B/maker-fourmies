@@ -36,10 +36,6 @@ nav, #headband {
     justify-content: space-around;
 }
 
-div {
-    border: 1px dashed yellow;
-}
-
 .menu {
     color: #a9a9a9;
 }
@@ -70,10 +66,6 @@ form {
 
 form div {
     margin: 1vh;
-}
-
-#ref {
-    width: 75%;
 }
 
 #info {

@@ -5,6 +5,8 @@ $db = new assoDb();
 $db = $db->connect();
 
 // entities inclusions
+// managers inclusions
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Model/Entity/User.php";
 
 // managers inclusions
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Model/Manager/UserManager.php";
@@ -18,14 +20,30 @@ $control = new controller($db);
 if(isset($_GET['ctrl'])){
     switch ($_GET['ctrl']){
         case 'home-view' :
+            if(isset($_GET['error']) && $_GET['error'] == 0){
+                $control->render($_GET['ctrl'], 'Accueil', [
+                    'info' => "Vous êtes connecté",
+                ]);
+            }
             $control->render($_GET['ctrl'], 'Accueil');
             break;
         case 'connexion-view' :
             if(isset($_GET['error'])){
-                // todo case error
-                $control->render($_GET['ctrl'], 'Connexion', [
-                    'info' => "L'adresse mail et/ou le mot de passe est incorrecte"
-                ]);
+                switch ($_GET['error']){
+                    case 'mail-pass':
+                        $control->render($_GET['ctrl'], 'Connexion', [
+                            'info' => "L'adresse mail et/ou le mot de passe est incorrecte"
+                        ]);
+                        break;
+                    case 'form':
+                        $control->render($_GET['ctrl'], 'Connexion', [
+                            'info' => "Le formulaire est incomplet"
+                        ]);
+                        break;
+                    case '0':
+
+                        break;
+                }
             }
             else{
                 $control->render($_GET['ctrl'], 'Connexion');

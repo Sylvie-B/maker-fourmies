@@ -56,13 +56,13 @@ class controller {
                 if ($this->checkData('mail', 'passW')) {
                     // verify mail
                     if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
-                        header('location: index.php?ctrl=connexion-view&error=mail');
+                        header('location: index.php?ctrl=connexion-view&error=mail-pass');
                     }
                     else{
                         // verify password
                         $user = $this->userManager->getUserByMail($_POST['mail']);
                         if($user && !password_verify($_POST['passW'], $user->getPassword())) {
-                            header('location: index.php?ctrl=signIn-view&error=pass');
+                            header('location: index.php?ctrl=connexion-view&error=mail-pass');
                         }
                         else {
                             // connect user
@@ -72,7 +72,7 @@ class controller {
                                 'pseudo' => $user['pseudo'],
                                 'role' => $user['role_fk']
                             ];
-                            header('location: index.php?ctrl=signIn-view&error=0');
+                            header('location: index.php?ctrl=home-view&error=0');
                         }
                     }
                 }

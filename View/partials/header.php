@@ -20,14 +20,19 @@
                 </a>
                 <!--    choice connexion or inscription     -->
                 <div>
+
                     <a href="/index.php?ctrl=connexion-view">
                         <button class="btn" type="button">Connexion</button>
                     </a>
                     <a href="/index.php?ctrl=signIn-view">
                         <button class="btn" type="button">Inscription</button>
                     </a>
+                    <?php
+                    if(isset($var['info'])){
+                        echo $var['info'];
+                    }
+                    ?>
                 </div>
-<!--       <?php //if ?>         -->
             </div>
             <!-- menu -->
             <nav>
