@@ -49,29 +49,33 @@ class controller {
      */
     public function checkValidation($param) {
         switch ($param) {
-
+            // $param can be connexion or inscription
             case 'connexion-view':
-
                 // check email & password
                 if ($this->checkData('mail', 'passW')) {
-                    // verify mail
+                    // verify if it's an email
                     if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
+                        // if not redirect to connexion page with error mail or password
                         header('location: index.php?ctrl=connexion-view&error=mail-pass');
                     }
                     else{
-                        // verify password
+                        // if it's an email verify password
                         $user = $this->userManager->getUserByMail($_POST['mail']);
-                        if($user && !password_verify($_POST['passW'], $user->getPassword())) {
+                        $passW = $user->getPassword();
+                        if($user && !password_verify($_POST['passW'], $passW)) {
+                            // if it's not the good password redirect to connexion page
+                            // with error mail or password
                             header('location: index.php?ctrl=connexion-view&error=mail-pass');
                         }
                         else {
-                            // connect user
+                            // for the good pass word : connect user
                             $_SESSION['user'] = [
                                 'id' => $user['id_user'],
                                 'mail' => $user['mail'],
                                 'pseudo' => $user['pseudo'],
                                 'role' => $user['role_fk']
                             ];
+                            // and go to home page with error = 0
                             header('location: index.php?ctrl=home-view&error=0');
                         }
                     }
