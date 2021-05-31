@@ -1,19 +1,28 @@
+<!--    association      -->
+<div class="frameText">
+    <h2>Fourmies Maker</h2>
+    <p class="text">
+        L'asociation Fourmies Maker réuni les bricoleurs de tout horizon, pour ne pas faire les choses seuls,
+        le principe est de mettre en commun ses connaissances et ses resource en terme de matériaux, d'outils, de
+        bon plan.
+    </p>
+</div>
+
 <!--    le mouvement maker   -->
-        <section>
-    <div id="definition">
-        <h2>Le mouvement maker : Qu'est-ce c'est ?</h2>
-        <p class="section">
-            Les makers sont ceux qui font, qui fabriquent, bricolent, créent, mais pas seulement.
-            Etre maker est un état d'esprit, celui du faire soi même, de l'entre-aide et du partage.
-        </p>
-    </div>
-    <!--    association      -->
-    <div>
-        <h2>Fourmies Maker</h2>
-        <p class="section">
-            L'asociation Fourmies Maker réuni les bricoleurs de tout horizon, pour ne pas faire les choses seuls,
-            le principe est de mettre en commun ses connaissances et ses resource en terme de matériaux, d'outils, de
-            bon plan.
-        </p>
-    </div>
+<div class="frameText">
+    <h2>Le mouvement maker</h2>
+    <p class="text">
+        Les makers sont ceux qui font, qui fabriquent, bricolent, créent, mais pas seulement.
+        Etre maker est un état d'esprit, celui du faire soi même, de l'entre-aide et du partage.
+    </p>
+</div>
+
+<!--    les fablabs   -->
+<div class="frameText">
+    <h2>Qu'est-ce qu'un Fablab</h2>
+    <p class="text">
+        Contraction de Fabrication Laboratory, laboratoire de fabrication en français
+    </p>
+</div>
+
 <?php
