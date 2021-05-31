@@ -3,8 +3,8 @@
     <h2>Fourmies Maker</h2>
     <p class="text">
         L'asociation Fourmies Maker réuni les bricoleurs de tout horizon, pour ne pas faire les choses seuls,
-        le principe est de mettre en commun ses connaissances et ses resource en terme de matériaux, d'outils, de
-        bon plan.
+        le principe est de mettre en commun ses savoirs faire et ses resource en terme de matériaux, d'outils, de
+        bon plan. Avec chacun sa spécialité soutenu par d'autre maker il devient possible d'élargir les possibiltés.
     </p>
 </div>
 
@@ -25,4 +25,3 @@
     </p>
 </div>
 
-<?php
