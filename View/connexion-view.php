@@ -1,7 +1,10 @@
 <div id="frame">
     <h2>Connexion</h2>
     <p>
-        <?=$var['info']?>
+        <?php
+        if(isset($var['info']) && $_GET['error'] == 0){
+            echo $var['info'];
+        }?>
     </p>
     <form method="post" action="/index.php?ctrl=connexion-view">
         <div>
