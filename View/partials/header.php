@@ -20,18 +20,24 @@
                 </a>
                 <!--    choice connexion or inscription     -->
                 <div>
-
+                    <?php
+                    if(isset($var['info']) && $_GET['error'] == 0){
+                        echo $var['info'];?>
+                            <div>
+                                <a href="/index.php?ctrl=home-view">
+                                    <button class="btn" type="button">Déconnexion</button>
+                                </a>
+                            </div><?php
+                    }
+                    else{
+                    ?>
                     <a href="/index.php?ctrl=connexion-view">
                         <button class="btn" type="button">Connexion</button>
                     </a>
                     <a href="/index.php?ctrl=signIn-view">
                         <button class="btn" type="button">Inscription</button>
-                    </a>
-                    <?php
-                    if(isset($var['info'])){
-                        echo $var['info'];
-                    }
-                    ?>
+                    </a><?php
+                    }?>
                 </div>
             </div>
             <!-- menu -->
