@@ -45,6 +45,8 @@ a {
 }
 
 .frameText {
+    margin: 4vh 0;
+    padding: 1vh;
     background-color: white;
 }
 
@@ -67,7 +69,7 @@ form div {
 }
 
 h2 {
-    margin: 5vh;
+    margin: 3vh;
 }
 
 .text {
