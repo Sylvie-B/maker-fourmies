@@ -24,7 +24,7 @@
                     if(isset($var['info']) && $_GET['error'] == 0){
                         echo $var['info'];?>
                             <div>
-                                <a href="/index.php?ctrl=home-view">
+                                <a href="/index.php?ctrl=home-view&disconnect=1">
                                     <button class="btn" type="button">Déconnexion</button>
                                 </a>
                             </div><?php
