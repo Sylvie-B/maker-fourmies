@@ -45,8 +45,10 @@ if(isset($_GET['ctrl'])){
             $control->render($_GET['ctrl'],'Inscription');
             break;
         case 'project-view' :
-            $control->render($_GET['ctrl'],'Les projets');
+            $control->render($_GET['ctrl'],'Les projets des makers');
             break;
+        case 'oneProject-view' :
+            $control->render($_GET['ctrl'], 'projet de maker fourmies');
         case 'gallery-view' :
             $control->render($_GET['ctrl'],'Galerie');
             break;

@@ -36,6 +36,10 @@ nav, #headband {
     justify-content: space-around;
 }
 
+div {
+    border: 1px dashed yellow;
+}
+
 .menu {
     color: #a9a9a9;
 }
@@ -68,13 +72,20 @@ form div {
     margin: 1vh;
 }
 
+#ref {
+    width: 75%;
+}
+
+#info {
+    width: 28%;
+}
+
 .text {
     width: 80%;
     margin: 1vh auto;
 }
 
 #show {
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
