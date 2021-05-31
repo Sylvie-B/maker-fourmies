@@ -23,7 +23,7 @@ class controller {
     }
 
     /**
-     * is there data and are they complete ?
+     * are there data and are they complete ?
      * @param mixed ...$data
      * @return bool
      */
@@ -44,7 +44,7 @@ class controller {
     }
 
     /**
-     * verify which form is to complete
+     * display the form which is to complete
      * @param $param
      */
     public function checkValidation($param) {
@@ -59,7 +59,7 @@ class controller {
                         header('location: index.php?ctrl=connexion-view&error=mail-pass');
                     }
                     else{
-                        // if it's an email verify password
+                        // if it's an email, verify that user exist & check password
                         $user = $this->userManager->getUserByMail($_POST['mail']);
                         $passW = $user->getPassword();
                         if($user && !password_verify($_POST['passW'], $passW)) {
@@ -75,8 +75,8 @@ class controller {
                                 'pseudo' => $user['pseudo'],
                                 'role' => $user['role_fk']
                             ];
-                            // and go to home page with error = 0
-                            header('location: index.php?ctrl=home-view&error=0');
+                            // go to home page with success
+                            header('location: index.php?ctrl=home-view&success=1');
                         }
                     }
                 }
@@ -87,30 +87,40 @@ class controller {
                 break;
 
             case 'signIn-view':
-
-                // check all form fields
-                if ($this->checkData('name', 'surname', 'pseudo', 'mail', 'passW')) {
+                // check all fields
+                if ($this->checkData('name', 'surname', 'mail', 'pseudo', 'passW')) {
+                    // protect user entry
                     $name = strip_tags($_POST['name']);
                     $surname = strip_tags($_POST['surname']);
-
-                    // ! does pseudo exist ?
                     $pseudo = strip_tags($_POST['pseudo']);
 
-
-                    if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
-                        header('location: index.php?ctrl=signIn-view&error=mail');
+                    // does pseudo exist ? true if pseudo exist
+                    if($this->userManager->testPseudo($pseudo)){
+                        header('location: index.php?ctrl=signIn-view&error=pseudo');
                     }
-
-                    $password = password_hash($_POST['passW'], PASSWORD_ARGON2ID);
-
-                    // add new user in data base
-                    $ref = $this->userManager->addUser($name, $surname, $_POST['mail'], $pseudo, $password);
-                    if(!$ref){
-                        header('location: index.php?ctrl=signIn-view&error=add');
+                    else{
+                        // is this an email ?
+                        if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
+                            header('location: index.php?ctrl=signIn-view&error=mail');
+                        }
+                        else{
+                            $password = password_hash($_POST['passW'], PASSWORD_ARGON2ID);
+                            // add new user in data base
+                            $ref = $this->userManager->addUser($name, $surname, $_POST['mail'], $pseudo, $password);
+                            if(!$ref){
+                                header('location: index.php?ctrl=signIn-view&error=add');
+                            }
+                            else{
+                                $_SESSION['user'] = [
+                                    'pseudo' => $pseudo,
+                                ];
+                                header('location: index.php?ctrl=home-view&success=1');
+                            }
+                        }
                     }
                 }
                 else {
-
+                    header('location: index.php?ctrl=signIn-view&error=form');
                 }
                 break;
         }

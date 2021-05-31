@@ -23,8 +23,15 @@
             <input id="passW" type="password" name="passW">
         </div>
         <div>
-            <button id="validate" name="submit">valider</button>
+            <button id="validate" name="signIn">valider</button>
         </div>
     </form>
+    <p>
+        <!-- display error message -->
+        <?php
+        if(isset($var['info'])){
+            echo $var['info'];
+        }?>
+    </p>
 </div>
-<?php
+

@@ -1,11 +1,6 @@
 <div id="frame">
     <h2>Connexion</h2>
-    <p>
-        <?php
-        if(isset($var['info']) && $_GET['error'] == 0){
-            echo $var['info'];
-        }?>
-    </p>
+    <!-- connexion form -->
     <form method="post" action="/index.php?ctrl=connexion-view">
         <div>
             <label for="mail">Email</label>
@@ -16,7 +11,14 @@
             <input id="passW" type="password" name="passW">
         </div>
         <div>
-            <button id="validate" name="submit">valider</button>
+            <button id="validate" name="connect">valider</button>
         </div>
     </form>
+    <p>
+        <!-- display error message -->
+        <?php
+        if(isset($var['info'])){
+            echo $var['info'];
+        }?>
+    </p>
 </div>

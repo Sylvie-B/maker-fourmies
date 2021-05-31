@@ -21,11 +21,12 @@
                 <!--    choice connexion or inscription     -->
                 <div>
                     <?php
-                    if(isset($var['info']) && $_GET['error'] == 0){
-                        echo $var['info'];?>
+                        if(isset($var['info']) && $_GET['success'] == 1){
+                            echo $_SESSION['user']['pseudo'] . " " . $var['info'];
+                    ?>
                             <div>
                                 <a href="/index.php?ctrl=home-view&disconnect=1">
-                                    <button class="btn" type="button">Déconnexion</button>
+                                    <button class="btn" type="button" name="logOut">Déconnexion</button>
                                 </a>
                             </div><?php
                     }

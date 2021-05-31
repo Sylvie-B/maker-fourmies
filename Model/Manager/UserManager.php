@@ -90,7 +90,6 @@ class UserManager {
         $sql = $this->pdo->prepare("SELECT * FROM user WHERE pseudo = :pseudo");
         $sql->bindValue(':pseudo', $pseudo);
         $sql->execute();
-        $result = $sql->fetch();
-        // todo return true or false
+        return $sql->fetch();
     }
 }
