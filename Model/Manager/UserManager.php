@@ -68,6 +68,7 @@ class UserManager {
             $user->setMail($result['mail']);
             $user->setPseudo($result['pseudo']);
             $user->setPassword($result['password']);
+            $user->setRoleFk($result['role_fk']);
         }
         return $user;
     }
