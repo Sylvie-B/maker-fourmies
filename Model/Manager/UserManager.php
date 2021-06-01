@@ -18,7 +18,7 @@ class UserManager {
      */
     public function addUser ($name, $surname, $mail, $pseudo, $password){
         $sql = $this->pdo->prepare("
-            INSERT INTO 'user'('name', 'surname', 'mail', 'pseudo', 'password')
+            INSERT INTO user (name, surname, mail, pseudo, password)
             VALUES (:name, :surname, :pseudo, :mail, :password)
         ");
         $sql->bindValue(":name", $name);
