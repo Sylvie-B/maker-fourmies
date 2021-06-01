@@ -57,25 +57,26 @@ class controller {
                     // verify if it's an email
                     if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
                         // if not redirect to connexion page with error mail or password
-                        header('location: index.php?ctrl=connexion-view&error=mail-pass');
+                        header('location: index.php?ctrl=connexion-view&error=mail');
                     }
                     else{
                         // if it's an email, verify that user exist & check password
                         $user = $this->userManager->getUserByMail($_POST['mail']);
                         $passW = $user->getPassword();
-                        if($user && !password_verify($_POST['passW'], $passW)) {
+                        // && !password_verify($_POST['passW'], $passW)
+                        if(!$user) {
                             // if it's not the good password redirect to connexion page
                             // with error mail or password
-                            header('location: index.php?ctrl=connexion-view&error=mail-pass');
+                            header('location: index.php?ctrl=connexion-view&error=pass');
                         }
                         else {
                             // for the good pass word : connect user
                             session_start();
                             $_SESSION['user'] = [
-                                'id' => $user['id_user'],
-                                'mail' => $user['mail'],
-                                'pseudo' => $user['pseudo'],
-                                'role' => $user['role_fk']
+                                'id' => $user->getIdUser(),
+                                'mail' => $user->getMail(),
+                                'pseudo' => $user->getPseudo(),
+                                'role' => $user->getRoleFk(),
                             ];
                             // go to home page with success
                             header('location: index.php?ctrl=home-view&success=1');
@@ -107,7 +108,7 @@ class controller {
                     else{
                         $password = password_hash($_POST['passW'], PASSWORD_ARGON2ID);
                         // add new user in data base
-                        $add = $this->userManager->addUser($name, $surname, $_POST['mail'], $pseudo, $password);
+                        $add = $this->userManager->addUser($name, $surname, $pseudo, $_POST['mail'], $password);
                         if(!$add){
                             header('location: index.php?ctrl=signIn-view&error=add');
                         }

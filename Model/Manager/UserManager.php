@@ -14,7 +14,7 @@ class UserManager {
      * @param $mail
      * @param $pseudo
      * @param $password
-     * @return string
+     * @return bool
      */
     public function addUser ($name, $surname, $mail, $pseudo, $password){
         $sql = $this->pdo->prepare("
@@ -51,9 +51,13 @@ class UserManager {
         return $user;
     }
 
+    /**
+     * @param $mail
+     * @return User
+     */
     public function getUserByMail ($mail) : User {
         $sql = $this->pdo->prepare("SELECT * FROM user WHERE mail = :mail");
-        $sql->bindValue(':mail', $mail);
+        $sql->bindValue(':mail', $mail, PDO::PARAM_STR);
         $sql->execute();
         $result = $sql->fetch();
         $user = new User();
@@ -86,7 +90,6 @@ class UserManager {
     }
 
     public function testPseudo($pseudo) : bool {
-
         $sql = $this->pdo->prepare("SELECT * FROM user WHERE pseudo = :pseudo");
         $sql->bindValue(':pseudo', $pseudo);
         $sql->execute();

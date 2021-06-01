@@ -16,6 +16,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/controller.php";
 
 $control = new controller($db);
 
+
+
+
 // use $_GET['ctrl'] value to redirect to the right page
 if(isset($_GET['ctrl'])){
     switch ($_GET['ctrl']){
@@ -35,9 +38,16 @@ if(isset($_GET['ctrl'])){
             if(isset($_GET['error'])){
                 switch ($_GET['error']){
                     // $_GET['error'] = mail-pass means error on mail or password
-                    case 'mail-pass':
+                    case 'mail':
+
                         $control->render($_GET['ctrl'], 'Connexion', [
-                            'info' => "L'adresse mail et/ou le mot de passe est incorrecte"
+                            'info' => "L'adresse mail est incorrecte"
+                        ]);
+                        break;
+                    case 'pass':
+
+                        $control->render($_GET['ctrl'], 'Connexion', [
+                            'info' => "Le mot de passe est incorrecte"
                         ]);
                         break;
                     case 'form':
@@ -121,3 +131,4 @@ if(isset($_GET['logOut'])){
         'info' => "Vous avez été déconnecté"
     ]);
 }
+
