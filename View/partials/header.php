@@ -42,16 +42,20 @@ session_start();
                     <a href="/index.php?ctrl=signIn-view">
                         <button class="btn" type="button">Inscription</button>
                     </a><?php
-                    }?>
+                    };
+                    ?>
                 </div>
             </div>
-            <!-- menu -->
+            <!-- tabs -->
             <nav>
                 <a href="/index.php?ctrl=home-view" class="menu">
                     <div>Accueil</div>
                 </a>
                 <a href="/index.php?ctrl=resource-view" class="menu">
                     <div>Ressource</div>
+                </a>
+                <a href="/index.php?ctrl=gallery-view" class="menu">
+                    <div>Galerie</div>
                 </a>
                 <!--   for maker only : role = 1 ou 2 ou 3          -->
                 <?php
@@ -60,9 +64,6 @@ session_start();
                             <div>Les projets</div>
                         </a<?php
                     }?>
-                <a href="/index.php?ctrl=gallery-view" class="menu">
-                    <div>Galerie</div>
-                </a>
             </nav>
         </header>
         <section>

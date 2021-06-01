@@ -137,6 +137,7 @@ class controller {
     public function disconnect (){
         session_start();
         session_unset();
+        // setcookie("PHPSESSID", "", time() - 3600);
         header('location: index.php?ctrl=home-view&');
     }
 
