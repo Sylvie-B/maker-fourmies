@@ -21,7 +21,7 @@ if(isset($_GET['ctrl'])){
     switch ($_GET['ctrl']){
         // home
         case 'home-view' :
-
+            // display home page
             $control->render($_GET['ctrl'], 'Accueil');
             break;
         // connexion
@@ -30,18 +30,12 @@ if(isset($_GET['ctrl'])){
             if(isset($_GET['error'])){
                 switch ($_GET['error']){
                     // $_GET['error'] = mail-pass means error on mail or password
-                    case 'mail':
-
+                    case 'mail-pass':
                         $control->render($_GET['ctrl'], 'Connexion', [
-                            'info' => "L'adresse mail est incorrecte"
+                            'info' => "L'adresse mail et/ ou le mot de passe est incorrecte"
                         ]);
                         break;
-                    case 'pass':
 
-                        $control->render($_GET['ctrl'], 'Connexion', [
-                            'info' => "Le mot de passe est incorrecte"
-                        ]);
-                        break;
                     case 'form':
                         // $_GET['error'] = form means an incomplete form
                         $control->render($_GET['ctrl'], 'Connexion', [

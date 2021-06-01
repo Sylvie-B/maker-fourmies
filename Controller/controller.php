@@ -57,7 +57,7 @@ class controller {
                     // verify if it's an email
                     if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
                         // if not redirect to connexion page with error mail or password
-                        header('location: index.php?ctrl=connexion-view&error=mail');
+                        header('location: index.php?ctrl=connexion-view&error=mail-pass');
                     }
                     else{
                         // if it's an email, verify that user exist & check password
@@ -67,7 +67,7 @@ class controller {
                         if(!$user) {
                             // if it's not the good password redirect to connexion page
                             // with error mail or password
-                            header('location: index.php?ctrl=connexion-view&error=pass');
+                            header('location: index.php?ctrl=connexion-view&error=mail-pass');
                         }
                         else {
                             // for the good pass word : connect user
