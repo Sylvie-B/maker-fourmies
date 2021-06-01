@@ -70,6 +70,7 @@ class controller {
                         }
                         else {
                             // for the good pass word : connect user
+                            session_start();
                             $_SESSION['user'] = [
                                 'id' => $user['id_user'],
                                 'mail' => $user['mail'],
@@ -111,6 +112,7 @@ class controller {
                             header('location: index.php?ctrl=signIn-view&error=add');
                         }
                         else{
+                            session_start();
                             $_SESSION['user'] = [
                                 'pseudo' => $pseudo,
                             ];
