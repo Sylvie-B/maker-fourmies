@@ -118,7 +118,7 @@ class controller {
                             session_start();
                             $_SESSION['user'] = [
                                 'pseudo' => $pseudo,
-                                'role' => 4,
+                                'role' => '',
                             ];
                             header('location: index.php?ctrl=home-view');
                         }

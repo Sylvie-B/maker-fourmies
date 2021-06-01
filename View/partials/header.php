@@ -20,10 +20,11 @@ session_start();
                     <h1>MAKER FOURMIES</h1>
                 </a>
                 <div>
-                    <!--         -->
+                    <!--     if $_session exist then display disconnect button    -->
                     <?php
                         if(isset($_SESSION['user'])){
-                            echo $_SESSION['user']['pseudo'] . '<br>' . "connecté en tant que " . $_SESSION['user']['role'];
+                            echo $_SESSION['user']['pseudo'] . '<br>';
+                            echo $_SESSION['user']['role'];
                     ?>
                         <div>
                             <a href="/index.php?ctrl=home-view&connect=0">
@@ -32,7 +33,9 @@ session_start();
                         </div><?php
                     }
                     else{
+
                     ?>
+                    <!--     if $_session not exist then display connexion & inscription button    -->
                     <a href="/index.php?ctrl=connexion-view">
                         <button class="btn" type="button">Connexion</button>
                     </a>
