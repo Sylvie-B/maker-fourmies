@@ -117,7 +117,7 @@ class controller {
                             $_SESSION['user'] = [
                                 'pseudo' => $pseudo,
                             ];
-                            header('location: index.php?ctrl=home-view&success=1');
+                            header('location: index.php?ctrl=home-view');
                         }
                     }
                 }
@@ -125,6 +125,10 @@ class controller {
                     header('location: index.php?ctrl=signIn-view&error=form');
                 }
                 break;
+            case 'home-view':
+                if(isset($_GET['disconnect']) && $_GET['disconnect'] == 1){
+                    session_unset();
+                }
         }
     }
 }

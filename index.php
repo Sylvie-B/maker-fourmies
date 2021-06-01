@@ -16,20 +16,12 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/controller.php";
 
 $control = new controller($db);
 
-
-
-
 // use $_GET['ctrl'] value to redirect to the right page
 if(isset($_GET['ctrl'])){
     switch ($_GET['ctrl']){
         // home
         case 'home-view' :
-            // $_GET['success'] = 1 means form data were validated
-            if(isset($_GET['success']) && $_GET['success'] == 1){
-                $control->render($_GET['ctrl'], 'Accueil', [
-                    'info' => "vous êtes connecté",
-                ]);
-            }
+
             $control->render($_GET['ctrl'], 'Accueil');
             break;
         // connexion
@@ -124,11 +116,4 @@ else{
     $control->render('home-view','Accueil');
 }
 
-// when click on disconnect button
-if(isset($_GET['logOut'])){
-    session_destroy();
-    $control->render('home-view', 'Accueil', [
-        'info' => "Vous avez été déconnecté"
-    ]);
-}
 
