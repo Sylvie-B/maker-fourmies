@@ -63,23 +63,25 @@ class controller {
                         // if it's an email, verify that user exist & check password
                         $user = $this->userManager->getUserByMail($_POST['mail']);
                         $passW = $user->getPassword();
-                        // && !password_verify($_POST['passW'], $passW)
-                        if(!$user) {
+
+                        if(!$user || !password_verify($_POST['passW'], $passW)) {
                             // if it's not the good password redirect to connexion page
                             // with error mail or password
                             header('location: index.php?ctrl=connexion-view&error=mail-pass');
                         }
                         else {
-                            // for the good pass word : connect user
+                            // if user exist and good password
+                            // start a session
                             session_start();
+                            // give session user's values
                             $_SESSION['user'] = [
                                 'id' => $user->getIdUser(),
                                 'mail' => $user->getMail(),
                                 'pseudo' => $user->getPseudo(),
                                 'role' => $user->getRoleFk(),
                             ];
-                            // go to home page with success
-                            header('location: index.php?ctrl=home-view&success=1');
+                            // go to home page
+                            header('location: index.php?ctrl=home-view');
                         }
                     }
                 }
