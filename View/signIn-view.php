@@ -1,7 +1,7 @@
 <div id="frame">
     <h2>Inscription</h2>
 
-    <form method="post" action="/index.php?ctrl=signIn-view">
+    <form method="post" action="/index.php?ctrl=signIn-view&test=1">
         <div>
             <label for="name">Nom</label>
             <input type="text" name="name" id="name">

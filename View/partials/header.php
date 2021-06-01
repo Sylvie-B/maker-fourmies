@@ -21,7 +21,7 @@
                 <!--    choice connexion or inscription     -->
                 <div>
                     <?php
-                        if(isset($var['info']) && $_GET['success'] == 1){
+                        if(isset($var['info'], $_GET['success']) && $_GET['success'] == 1){
                             echo $_SESSION['user']['pseudo'] . " " . $var['info'];
                     ?>
                             <div>
