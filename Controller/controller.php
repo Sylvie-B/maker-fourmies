@@ -48,8 +48,9 @@ class controller {
      * @param $param
      */
     public function checkValidation($param) {
+        // $param can be connexion or inscription
         switch ($param) {
-            // $param can be connexion or inscription
+
             case 'connexion-view':
                 // check email & password
                 if ($this->checkData('mail', 'passW')) {
@@ -94,28 +95,26 @@ class controller {
                     $surname = strip_tags($_POST['surname']);
                     $pseudo = strip_tags($_POST['pseudo']);
 
-                    // does pseudo exist ? true if pseudo exist
+                    // testPseudo return true if pseudo already exist
                     if($this->userManager->testPseudo($pseudo)){
                         header('location: index.php?ctrl=signIn-view&error=pseudo');
                     }
-                    else{
+                    elseif (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)){
                         // is this an email ?
-                        if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
                             header('location: index.php?ctrl=signIn-view&error=mail');
+                    }
+                    else{
+                        $password = password_hash($_POST['passW'], PASSWORD_ARGON2ID);
+                        // add new user in data base
+                        $add = $this->userManager->addUser($name, $surname, $_POST['mail'], $pseudo, $password);
+                        if(!$add){
+                            header('location: index.php?ctrl=signIn-view&error=add');
                         }
                         else{
-                            $password = password_hash($_POST['passW'], PASSWORD_ARGON2ID);
-                            // add new user in data base
-                            $ref = $this->userManager->addUser($name, $surname, $_POST['mail'], $pseudo, $password);
-                            if(!$ref){
-                                header('location: index.php?ctrl=signIn-view&error=add');
-                            }
-                            else{
-                                $_SESSION['user'] = [
-                                    'pseudo' => $pseudo,
-                                ];
-                                header('location: index.php?ctrl=home-view&success=1');
-                            }
+                            $_SESSION['user'] = [
+                                'pseudo' => $pseudo,
+                            ];
+                            header('location: index.php?ctrl=home-view&success=1');
                         }
                     }
                 }

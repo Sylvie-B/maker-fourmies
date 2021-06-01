@@ -1,7 +1,7 @@
 <div id="frame">
     <h2>Connexion</h2>
     <!-- connexion form -->
-    <form method="post" action="/index.php?ctrl=connexion-view">
+    <form method="post" action="/index.php?ctrl=connexion-view&test=1">
         <div>
             <label for="mail">Email</label>
             <input type="email" name="mail" id="mail">

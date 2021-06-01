@@ -29,66 +29,68 @@ if(isset($_GET['ctrl'])){
             }
             $control->render($_GET['ctrl'], 'Accueil');
             break;
-
+        // connexion
         case 'connexion-view' :
-            // display connection form
-            $control->render($_GET['ctrl'], 'Connexion');
-            // if connexion form is submit
-            if(isset($_GET['connect'])){
-                // call form validation methode
-                $control->checkValidation($_GET['ctrl']);
-                // if an error occurs...
-                if($_GET['error']){
-                    switch ($_GET['error']){
-                        // $_GET['error'] = mail-pass means error on mail or password
-                        case 'mail-pass':
-                            $control->render($_GET['ctrl'], 'Connexion', [
-                                'info' => "L'adresse mail et/ou le mot de passe est incorrecte"
-                            ]);
-                            break;
-                        case 'form':
-                            // $_GET['error'] = form means an incomplete form
-                            $control->render($_GET['ctrl'], 'Connexion', [
-                                'info' => "Le formulaire est incomplet"
-                            ]);
-                            break;
-                    }
+            // if an error occurs...
+            if(isset($_GET['error'])){
+                switch ($_GET['error']){
+                    // $_GET['error'] = mail-pass means error on mail or password
+                    case 'mail-pass':
+                        $control->render($_GET['ctrl'], 'Connexion', [
+                            'info' => "L'adresse mail et/ou le mot de passe est incorrecte"
+                        ]);
+                        break;
+                    case 'form':
+                        // $_GET['error'] = form means an incomplete form
+                        $control->render($_GET['ctrl'], 'Connexion', [
+                            'info' => "Le formulaire est incomplet"
+                        ]);
+                        break;
                 }
             }
-            break;
-
-        case 'signIn-view' :
-            // display inscription form
-            $control->render($_GET['ctrl'], 'Inscription');
-            // if inscription form is submit
-            if(isset($_GET['signIn'])){
-                // call form validation methode
+            // there's no error, is there validation (test = 1) ?
+            elseif (isset($_GET['test']) == 1){
                 $control->checkValidation($_GET['ctrl']);
-                // if an error occurs...
-                if($_GET['error']){
-                    switch ($_GET['error']){
-                        case 'pseudo':
-                            $control->render($_GET['ctrl'], 'Inscription', [
-                                'info' => "Ce pseudo existe déjà"
-                            ]);
-                            break;
-                        case 'mail':
-                            $control->render($_GET['ctrl'], 'Inscription', [
-                                'info' => "adresse mail incorrecte"
-                            ]);
-                            break;
-                        case 'add':
-                            $control->render($_GET['ctrl'], 'Inscription', [
-                                'info' => "erreur lors de l'inscription"
-                            ]);
-                            break;
-                        case 'form':
-                            $control->render($_GET['ctrl'], 'Inscription', [
-                                'info' => "formulaire incomplet"
-                            ]);
-                            break;
-                    }
+            }
+            else{
+                // display connection form only if there's no test & no error
+                $control->render($_GET['ctrl'], 'Connexion');
+            }
+            break;
+        // inscription
+        case 'signIn-view' :
+            // if an error occurs...
+            if(isset($_GET['error'])){
+                switch ($_GET['error']){
+                    case 'pseudo':
+                        $control->render($_GET['ctrl'], 'Inscription', [
+                            'info' => "Ce pseudo existe déjà"
+                        ]);
+                        break;
+                    case 'mail':
+                        $control->render($_GET['ctrl'], 'Inscription', [
+                            'info' => "adresse mail incorrecte"
+                        ]);
+                        break;
+                    case 'add':
+                        $control->render($_GET['ctrl'], 'Inscription', [
+                            'info' => "erreur lors de l'inscription"
+                        ]);
+                        break;
+                    case 'form':
+                        $control->render($_GET['ctrl'], 'Inscription', [
+                            'info' => "formulaire incomplet"
+                        ]);
+                        break;
                 }
+            }
+            // there's no error, is there validation (test = 1) ?
+            elseif (isset($_GET['test']) == 1){
+                $control->checkValidation($_GET['ctrl']);
+            }
+            else{
+                // display connection form only if there's no test & no error
+                $control->render($_GET['ctrl'], 'Inscription');
             }
             break;
         // projects page
