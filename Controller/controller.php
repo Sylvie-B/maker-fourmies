@@ -44,7 +44,7 @@ class controller {
     }
 
     /**
-     * display the form which is to complete
+     *
      * @param $param
      */
     public function checkValidation($param) {
@@ -118,6 +118,7 @@ class controller {
                             session_start();
                             $_SESSION['user'] = [
                                 'pseudo' => $pseudo,
+                                'role' => 4,
                             ];
                             header('location: index.php?ctrl=home-view');
                         }
@@ -127,10 +128,16 @@ class controller {
                     header('location: index.php?ctrl=signIn-view&error=form');
                 }
                 break;
-            case 'home-view':
-                if(isset($_GET['disconnect']) && $_GET['disconnect'] == 1){
-                    session_unset();
-                }
         }
     }
+
+    /**
+     * stop the session
+     */
+    public function disconnect (){
+        session_start();
+        session_unset();
+        header('location: index.php?ctrl=home-view&');
+    }
+
 }

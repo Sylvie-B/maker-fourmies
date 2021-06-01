@@ -22,6 +22,9 @@ if(isset($_GET['ctrl'])){
         // home
         case 'home-view' :
             // display home page
+            if(isset($_GET['connect']) && $_GET['connect'] == 0){
+                $control->disconnect();
+            }
             $control->render($_GET['ctrl'], 'Accueil');
             break;
         // connexion
