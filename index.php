@@ -19,14 +19,6 @@ $control = new controller($db);
 // use $_GET['ctrl'] value to redirect to the right page
 if(isset($_GET['ctrl'])){
     switch ($_GET['ctrl']){
-        // home
-        case 'home-view' :
-            // display home page
-            if(isset($_GET['connect']) && $_GET['connect'] == 0){
-                $control->disconnect();
-            }
-            $control->render($_GET['ctrl'], 'Accueil');
-            break;
         // connexion
         case 'connexion-view' :
             // if an error occurs...
@@ -92,9 +84,21 @@ if(isset($_GET['ctrl'])){
                 $control->render($_GET['ctrl'], 'Inscription');
             }
             break;
+        // home
+        case 'home-view' :
+            // display home page
+            if(isset($_GET['connect']) && $_GET['connect'] == 0){
+                $control->disconnect();
+            }
+            $control->render($_GET['ctrl'], 'Accueil');
+            break;
         // projects page
         case 'project-view' :
             $control->render($_GET['ctrl'],'Les projets des makers');
+            break;
+        // home
+        case 'resource-view' :
+            $control->render($_GET['ctrl'], 'Accueil');
             break;
         // one project page for maker only
         case 'oneProject-view' :

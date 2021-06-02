@@ -17,7 +17,7 @@ session_start();
                     <img id="logo" src="../../img/gears.png" alt="logo"/>
                 </a>
                 <a id="title" href="/index.php?ctrl=home-view">
-                    <h1>MAKER FOURMIES</h1>
+                    <h1>MAKERS FOURMIES</h1>
                 </a>
                 <div>
                     <!--     if $_session exist then display disconnect button    -->

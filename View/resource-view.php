@@ -3,12 +3,12 @@
 </div>
 <div class="frameText">
     <p>
-        Vous trouverez ici les logiciels gratuits, utilisés et conseillés par les makers.
+        Vous trouverez ici les logiciels gratuits, utilisés et/ou conseillés par les makers.
     </p>
 </div>
 <div class="frameText">
     <p>
-        Les formations, école, en présentiel ou en ligne
+        Les formations, écoles, en présentiel, en ligne, diplomânt(e) ou non (par exemple les mooc)
     </p>
 </div>
 <div class="frameText">
@@ -18,12 +18,11 @@
 </div>
 <div class="frameText">
     <p>
-        Les informations sur le fablab Le L@bo de Fourmies
+        Zoom sur Le L@bo
     </p>
 </div>
 <div class="frameText">
     <p>
-        Les infos sur les Makers faire
+        Les Makers faire
     </p>
 </div>
-
