@@ -19,19 +19,19 @@
             <input type="text" name="pseudo" id="pseudo">
         </div>
         <div>
-            <label for="passW">mot de passe</label>
+            <label for="passW">Mot de passe</label>
             <input id="passW" type="password" name="passW">
         </div>
         <div>
             <button id="validate" name="signIn">valider</button>
         </div>
     </form>
-    <p>
+    <div id="target">
         <!-- display error message -->
         <?php
         if(isset($var['info'])){
             echo $var['info'];
         }?>
-    </p>
+    </div>
 </div>
 
