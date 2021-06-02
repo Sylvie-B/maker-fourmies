@@ -21,7 +21,8 @@
 <div class="frameText">
     <h2>Qu'est-ce qu'un Fablab</h2>
     <p class="text">
-        Contraction de Fabrication Laboratory, laboratoire de fabrication en français
+        Contraction de Fabrication Laboratory, laboratoire de fabrication en français, le fablab est un lieu aménagé
+        pour les bricoleurs de tout horizon. Tous différents mais tous basés sur l'esprit de partage.
     </p>
 </div>
 

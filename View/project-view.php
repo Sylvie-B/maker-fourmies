@@ -1,4 +1,3 @@
-<div id="frame">
     <h1>Projet</h1>
     <div id="show">
         <a class="picture" href="/index.php?ctrl=oneProject-view">
@@ -38,4 +37,3 @@
             <span>Projet 9</span>
         </a>
     </div>
-</div>

@@ -1,6 +1,6 @@
 <div id="frame">
     <h1>Galerie</h1>
-    <div id="show">
+    <div id="mosaic">
         <div class="picture">
             <img class="project" src="" alt="image 1">
             <span>Projet 1</span>

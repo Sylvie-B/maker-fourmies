@@ -44,19 +44,23 @@ a {
     text-decoration-line: none;
 }
 
+section, form, .picture {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+section{
+    align-items: center;
+}
+
 .frameText {
     margin: 4vh 0;
     padding: 1vh;
     background-color: white;
 }
 
-#frame, form, .picture {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-#frame, .picture {
+.picture {
     align-items: center;
 }
 
@@ -77,7 +81,7 @@ form div {
     margin: 1vh auto;
 }
 
-#show {
+#mosaic {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
