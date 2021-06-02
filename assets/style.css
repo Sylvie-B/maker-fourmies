@@ -55,6 +55,7 @@ section{
 }
 
 .frameText {
+    width: 100%;
     margin: 4vh 0;
     padding: 1vh;
     background-color: white;
