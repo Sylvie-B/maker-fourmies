@@ -44,7 +44,7 @@ a {
     text-decoration-line: none;
 }
 
-section, form, .picture, #show {
+section, form, .picture {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -82,25 +82,27 @@ form div {
     margin: 1vh auto;
 }
 
+/* in galery */
 #mosaic {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 /* in galery */
-.picture {
+.project {
     width: 24%;
     height: 24vh;
     margin: 0.5vh;
-    border: 1px solid black;
+    border: 1px dashed black;
 }
 
 .square {
+    margin: 5vh 5vw;
     border: 1px solid black;
 }
 
-.project{
+.picture{
     max-width: 20vw;
     max-height: 20vh;
-    border: 1px blue solid;
+    border: 1px black solid;
 }

@@ -24,8 +24,31 @@ session_start();
                     <?php
                         if(isset($_SESSION['user'])){
                             echo $_SESSION['user']['pseudo'] . '<br>';
-                            echo $_SESSION['user']['role'];
-                    ?>
+                            // switch button function of role
+
+                            switch ($_SESSION['user']['role']){
+                                //      administrator
+                                case 1 :?>
+                                    <a href="/index.php?ctrl=admin-view">
+                                        <!--    check user_fk value and admin ref value    -->
+                                        <button class="btn" type="button">Admin</button>
+                                    </a><?php
+                                    break;
+                                //      moderator
+                                case 2 :?>
+                                    <a href="/index.php?ctrl=modo-view">
+                                        <!--    check user_fk value and modo ref value    -->
+                                        <button class="btn" type="button">Modo</button>
+                                    </a><?php
+                                    break;
+                                //      simple role name Maker
+                                case 3 :?>
+                                    <!--    check user_fk value and maker ref value    -->
+                                        <p>Maker</p>
+                                    <?php
+                                    break;
+                                //      nothing for visitor
+                            }?>
                         <div>
                             <a href="/index.php?ctrl=home-view&connect=0">
                                 <button class="btn" type="button">Déconnexion</button>

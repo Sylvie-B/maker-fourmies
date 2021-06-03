@@ -80,7 +80,7 @@ if(isset($_GET['ctrl'])){
                 $control->checkValidation($_GET['ctrl']);
             }
             else{
-                // display connection form only if there's no test & no error
+                // display inscription form only if there's no test & no error
                 $control->render($_GET['ctrl'], 'Inscription');
             }
             break;
@@ -90,7 +90,7 @@ if(isset($_GET['ctrl'])){
             if(isset($_GET['connect']) && $_GET['connect'] == 0){
                 $control->disconnect();
             }
-            $control->render($_GET['ctrl'], 'Accueil');
+            $control->render($_GET['ctrl'], 'Association Makers Fourmies');
             break;
         // projects page
         case 'project-view' :
@@ -98,7 +98,7 @@ if(isset($_GET['ctrl'])){
             break;
         // home
         case 'resource-view' :
-            $control->render($_GET['ctrl'], 'Accueil');
+            $control->render($_GET['ctrl'], 'Association Makers Fourmies');
             break;
         // one project page for maker only
         case 'oneProject-view' :
@@ -108,13 +108,21 @@ if(isset($_GET['ctrl'])){
         case 'gallery-view' :
             $control->render($_GET['ctrl'],'Galerie');
             break;
+        // admin
+        case 'admin-view' :
+            $control->render($_GET['ctrl'],'admin');
+            break;
+        //user-record
+        case 'user-record' :
+            $control->render($_GET['ctrl'],'profil');
+            break;
         // home
         default :
-            $control->render('home-view','Accueil');
+            $control->render('home-view','Association Makers Fourmies');
     }
 }
 else{
-    $control->render('home-view','Accueil');
+    $control->render('home-view','Association Makers Fourmies');
 }
 
 

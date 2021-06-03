@@ -50,7 +50,7 @@ class controller {
     public function checkValidation($param) {
         // $param can be connexion or inscription
         switch ($param) {
-
+            // connexion
             case 'connexion-view':
                 // check email & password
                 if ($this->checkData('mail', 'passW')) {
@@ -65,12 +65,12 @@ class controller {
                         $passW = $user->getPassword();
 
                         if(!$user || !password_verify($_POST['passW'], $passW)) {
-                            // if it's not the good password redirect to connexion page
-                            // with error mail or password
+                            // if user don't exist or if it's not the good password
+                            //redirect to connexion page with error mail or password
                             header('location: index.php?ctrl=connexion-view&error=mail-pass');
                         }
                         else {
-                            // if user exist and good password
+                            // if user exist and password is correct
                             // start a session
                             session_start();
                             // give session user's values
