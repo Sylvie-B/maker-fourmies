@@ -1,39 +1,21 @@
     <h1>Projet</h1>
     <div id="show">
-        <a class="picture" href="/index.php?ctrl=oneProject-view">
-                <img class="project" src="" alt="image du projet 1">
+        <div class="square" >
+            <a href="/index.php?ctrl=oneProject-view">
                 <span>Projet 1</span>
-        </a>
-        <a class="picture" href="">
-            <img class="project" src="" alt="image du projet 2">
-            <span>Projet 2</span>
-        </a>
-        <a class="picture" href="">
-            <img class="project" src="" alt="image du projet 3">
-            <span>Projet 3</span>
-        </a>
-        <a class="picture" href="">
-            <img class="project" src="" alt="image du projet 4">
-            <span>Projet 4</span>
-        </a>
-        <a class="picture" href="">
-            <img class="project" src="" alt="image du projet 5">
-            <span>Projet 5</span>
-        </a>
-        <a class="picture" href="">
-            <img class="project" src="" alt="image du projet 6">
-            <span>Projet 6</span>
-        </a>
-        <a class="picture" href="">
-            <img class="project" src="" alt="image du projet 7">
-            <span>Projet 7</span>
-        </a>
-        <a class="picture" href="">
-            <img class="project" src="" alt="image du projet 8">
-            <span>Projet 8</span>
-        </a>
-        <a class="picture" href="">
-            <img class="project" src="" alt="image du projet 9">
-            <span>Projet 9</span>
-        </a>
+                <img class="project" src="../img/project/repose-arc.png" alt="image du projet 1">
+            </a>
+        </div>
+        <div class="square" >
+            <a href="/index.php?ctrl=oneProject-view">
+                <span>Projet 1</span>
+                <img class="project" src="../img/project/support.jpg" alt="image du projet 2">
+            </a>
+        </div>
+        <div class="square" >
+            <a href="/index.php?ctrl=oneProject-view">
+                <span>Projet 1</span>
+                <img class="project" src="../img/project/tissage01.jpg" alt="image du projet 3">
+            </a>
+        </div>
     </div>

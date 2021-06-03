@@ -12,14 +12,16 @@ let info = document.createElement('p');
 info.style.textAlign = "center";
 
 // on click count the length of each field
-btn.addEventListener('click', function (event){
-    info.innerHTML = "Veuillez remplir le(s) champs :";
-    for(let i = 0 ; i < field.length ; i++){
-        if(field[i].value.length <= 0){
-            event.preventDefault();
-            info.innerHTML += "<br>" + label[i].innerText;
+if(btn){
+    btn.addEventListener('click', function (event){
+        info.innerHTML = "Veuillez remplir le(s) champs :";
+        for(let i = 0 ; i < field.length ; i++){
+            if(field[i].value.length <= 0){
+                event.preventDefault();
+                info.innerHTML += "<br>" + label[i].innerText;
+            }
         }
-    }
-    target.appendChild(info);
-})
+        target.appendChild(info);
+    })
+}
 

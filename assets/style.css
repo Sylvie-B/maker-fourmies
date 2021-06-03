@@ -44,7 +44,7 @@ a {
     text-decoration-line: none;
 }
 
-section, form, .picture {
+section, form, .picture, #show {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -87,7 +87,7 @@ form div {
     flex-wrap: wrap;
     justify-content: space-between;
 }
-
+/* in galery */
 .picture {
     width: 24%;
     height: 24vh;
@@ -95,3 +95,12 @@ form div {
     border: 1px solid black;
 }
 
+.square {
+    border: 1px solid black;
+}
+
+.project{
+    max-width: 20vw;
+    max-height: 20vh;
+    border: 1px blue solid;
+}
