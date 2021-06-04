@@ -20,11 +20,14 @@ session_start();
                     <h1>MAKERS FOURMIES</h1>
                 </a>
                 <div>
-                    <!--     if $_session exist then display disconnect button    -->
+                    <!--     if $_session exist then display user name (= profile link), role, disconnect button    -->
                     <?php
                         if(isset($_SESSION['user'])){
-                            // display pseudo todo link profil
-                            echo $_SESSION['user']['pseudo'] . '<br>';
+                            // display pseudo todo link profile
+                            ?>
+                            <a href="/index.php?ctrl=user-view"><?php
+                                $_SESSION['user']['pseudo']
+                            ?></a><?php
                             // switch button function of role
                             switch ($_SESSION['user']['role']){
                             //      administrator

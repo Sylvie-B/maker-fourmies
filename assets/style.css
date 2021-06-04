@@ -88,6 +88,11 @@ form div {
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
+#mosaic div {
+    margin: 1vh 1vw;
+}
+
 /* in galery */
 .project {
     width: 24%;

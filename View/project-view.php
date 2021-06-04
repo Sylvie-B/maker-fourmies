@@ -2,20 +2,24 @@
 <div>
     <div class="square" >
         <a href="/index.php?ctrl=oneProject-view">
-            <span>Projet 1</span>
-            <img class="picture" src="../img/project/repose-arc.png" alt="image du projet 1">
+            <span>titre</span>
+            <img class="picture" src="../img/action/repose-arc.png" alt="image du projet 1">
         </a>
     </div>
     <div class="square" >
         <a href="/index.php?ctrl=oneProject-view">
-            <span>Projet 1</span>
-            <img class="picture" src="../img/project/support.jpg" alt="image du projet 2">
+            <span>titre</span>
+            <img class="picture" src="../img/action/support.jpg" alt="image du projet 2">
         </a>
     </div>
     <div class="square" >
         <a href="/index.php?ctrl=oneProject-view">
-            <span>Projet 1</span>
-            <img class="picture" src="../img/project/tissage01.jpg" alt="image du projet 3">
+            <span>titre</span>
+            <img class="picture" src="../img/action/tissage01.jpg" alt="image du projet 3">
         </a>
     </div>
 </div>
+
+<!--
+replace Project# by title for database
+-->
