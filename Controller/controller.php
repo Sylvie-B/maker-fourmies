@@ -99,13 +99,14 @@ class controller {
                     $surname = strip_tags($_POST['surname']);
                     $pseudo = strip_tags($_POST['pseudo']);
 
-                    // testPseudo return true if pseudo already exist
+                    // testExist return true if pseudo or mail already exist
                     if($this->userManager->testExist('pseudo', $pseudo)){
                         header('location: index.php?ctrl=signIn-view&error=pseudo');
                     }
-                    elseif (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)){
-                        // is this an email ?
-                            header('location: index.php?ctrl=signIn-view&error=mail');
+                    elseif ((!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)
+                        || $this->userManager->testExist('mail',$_POST['mail']))){
+                        // this is not an email or it's already exist
+                        header('location: index.php?ctrl=signIn-view&error=mail');
                     }
                     else{
                         $password = password_hash($_POST['passW'], PASSWORD_ARGON2ID);

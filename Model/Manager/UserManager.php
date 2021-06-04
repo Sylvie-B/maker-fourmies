@@ -103,8 +103,6 @@ class UserManager {
                 break;
         }
         $sql->execute();
-
         return $sql->fetch() ? true : false;
-
     }
 }
