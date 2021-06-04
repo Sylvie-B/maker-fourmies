@@ -5,6 +5,10 @@ class ImageManager {
     private PDO $pdo;
     private ActionManager $actionManager;
 
+    /**
+     * ImageManager constructor.
+     * @param $pdo
+     */
     public function __construct ($pdo){
         $this->pdo = $pdo;
         $this->actionManager = new ActionManager($this->pdo);
@@ -42,6 +46,10 @@ class ImageManager {
         return $image;
     }
 
+    /**
+     *
+     * @return array
+     */
     public function getAllImages () : array {
         $images = [];
         $sql = $this->pdo->prepare("SELECT * FROM image");
