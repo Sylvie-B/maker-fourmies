@@ -5,12 +5,17 @@ class ActionManager {
     private PDO $pdo;
     private TypeManager $typeManager;
 
+    /**
+     * ActionManager constructor.
+     * @param $pdo
+     */
     public function __construct($pdo) {
         $this->pdo = $pdo;
         $this->typeManager = new TypeManager($this->pdo);
     }
 
     /**
+     * create new action in database
      * @param string $title
      * @param string $description
      * @param $date
@@ -30,10 +35,12 @@ class ActionManager {
         return $this->pdo->lastInsertId() !== 0 ;
     }
 
-    // todo find all informations about a project
+    // todo find all informations about a project for one project view
     // select project-title, description, date, user-pseudo, technic- , tool-, matter-.
 
+
     /**
+     * get action by id
      * @param $id
      * @return Action
      */
@@ -55,6 +62,7 @@ class ActionManager {
     }
 
     /**
+     * get all actions
      * @return array
      */
     public function getAllActions() : array {
@@ -72,3 +80,4 @@ class ActionManager {
         return $actions;
     }
 }
+

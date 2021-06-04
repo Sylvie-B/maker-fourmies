@@ -15,19 +15,20 @@ class ImageManager {
     }
 
     /**
+     * create new image
      * @param string $image
      * @param $action_fk
      * @return string
      */
     public function addImage(string $image, $action_fk){
-        $sql = $this->pdo->prepare("INSERT INTO image (image, action_fk) VALUES (':image', ':action_fk')");
+        $sql = $this->pdo->prepare("INSERT INTO image (image) VALUES (':image')");
         $sql->bindValue(':image', $image);
-        $sql->bindValue(':action_fk', $action_fk, PDO::PARAM_INT);
         $sql->execute();
         return $this->pdo->lastInsertId() !== 0 ;
     }
 
     /**
+     * get image by id
      * @param $id
      * @return Image
      */
@@ -46,8 +47,9 @@ class ImageManager {
         return $image;
     }
 
+// todo get each title
     /**
-     *
+     * find all images from database
      * @return array
      */
     public function getAllImages () : array {
@@ -57,9 +59,7 @@ class ImageManager {
         $result = $sql->fetchAll();
         if($result){
             foreach ($result as $image) {
-                $action = $this->actionManager->getOneAction($result['action_fk']);
-                $images[] = new Image($image['id_img'], $image['image'], $action);
-
+                $images[] = new Image($image['id_img'], $image['image']);
             }
         }
         return $images;
