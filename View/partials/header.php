@@ -23,31 +23,31 @@ session_start();
                     <!--     if $_session exist then display disconnect button    -->
                     <?php
                         if(isset($_SESSION['user'])){
+                            // display pseudo todo link profil
                             echo $_SESSION['user']['pseudo'] . '<br>';
                             // switch button function of role
-
                             switch ($_SESSION['user']['role']){
-                                //      administrator
+                            //      administrator
                                 case 1 :?>
                                     <a href="/index.php?ctrl=admin-view">
-                                        <!--    check user_fk value and admin ref value    -->
+                                        <!--  todo  check user_fk value and admin ref value    -->
                                         <button class="btn" type="button">Admin</button>
                                     </a><?php
                                     break;
-                                //      moderator
+                            //      moderator
                                 case 2 :?>
                                     <a href="/index.php?ctrl=modo-view">
-                                        <!--    check user_fk value and modo ref value    -->
+                                        <!--  todo  check user_fk value and modo ref value    -->
                                         <button class="btn" type="button">Modo</button>
                                     </a><?php
                                     break;
-                                //      simple role name Maker
+                            //      Maker
                                 case 3 :?>
-                                    <!--    check user_fk value and maker ref value    -->
+                                    <!--  todo  check user_fk value and maker ref value    -->
                                         <p>Maker</p>
                                     <?php
                                     break;
-                                //      nothing for visitor
+                            //      nothing for user
                             }?>
                         <div>
                             <a href="/index.php?ctrl=home-view&connect=0">
@@ -55,9 +55,7 @@ session_start();
                             </a>
                         </div><?php
                     }
-                    else{
-
-                    ?>
+                    else{?>
                     <!--     if $_session not exist then display connexion & inscription button    -->
                     <a href="/index.php?ctrl=connexion-view">
                         <button class="btn" type="button">Connexion</button>

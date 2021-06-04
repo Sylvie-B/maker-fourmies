@@ -15,9 +15,9 @@
         <p>Statut : <span>Maker Fou</span></p>
         <div>
             <p>Mes contributions</p>
-            <!--    display project list    -->
+        <!--    display project list    -->
             <div></div>
-            <!--    display animation list    -->
+        <!--    display animation list    -->
             <div></div>
         </div>
     </div>

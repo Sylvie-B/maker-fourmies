@@ -113,7 +113,7 @@ if(isset($_GET['ctrl'])){
             $control->render($_GET['ctrl'],'admin');
             break;
         //user-record
-        case 'user-record' :
+        case 'user-view' :
             $control->render($_GET['ctrl'],'profil');
             break;
         // home
