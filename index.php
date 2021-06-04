@@ -1,4 +1,5 @@
 <?php
+session_start();
 // database inclusion
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/assoDb.php';
 // database connexion
@@ -75,15 +76,16 @@ if(isset($_GET['ctrl'])){
                         break;
                 }
             }
-            // there's no error, is there validation (test = 1) ?
+            // there's no error, if there's validation test = 1
             elseif (isset($_GET['test']) == 1){
                 $control->checkValidation($_GET['ctrl']);
             }
             else{
-                // display inscription form only if there's no test & no error
+                // display inscription form
                 $control->render($_GET['ctrl'], 'Inscription');
             }
             break;
+        // available pages
         // home
         case 'home-view' :
             // display home page
@@ -92,29 +94,54 @@ if(isset($_GET['ctrl'])){
             }
             $control->render($_GET['ctrl'], 'Association Makers Fourmies');
             break;
-        // projects page
-        case 'project-view' :
-            $control->render($_GET['ctrl'],'Les projets des makers');
-            break;
-        // home
+        // resource
         case 'resource-view' :
             $control->render($_GET['ctrl'], 'Association Makers Fourmies');
             break;
-        // one project page for maker only
-        case 'oneProject-view' :
-            $control->render($_GET['ctrl'], 'projet de maker fourmies');
-            break;
-        // display gallery
+        // gallery
         case 'gallery-view' :
             $control->render($_GET['ctrl'],'Galerie');
             break;
-        // admin
-        case 'admin-view' :
-            $control->render($_GET['ctrl'],'admin');
-            break;
-        //user-record
+        //user-view
         case 'user-view' :
             $control->render($_GET['ctrl'],'profil');
+            break;
+        // for user, maker, modo, admin
+        // projects page
+        case 'project-view' :
+            // not available for visitor
+            if(isset($_SESSION['user'])){
+                $control->render($_GET['ctrl'],'Les projets des makers');
+            }
+            else{
+                $control->render('error-view','Association Makers Fourmies', [
+                    "Vous n'avez pas accès à la page demandée"
+                ]);
+            }
+            break;
+        // one project page for maker only
+        case 'oneProject-view' :
+            // not available for user, user role must be < 4
+            if(isset($_SESSION['user']) && $_SESSION['user']['role'] < 4){
+                $control->render($_GET['ctrl'], 'projet de maker fourmies');
+            }
+            else{
+                $control->render('error-view','Association Makers Fourmies', [
+                    "Vous n'avez pas accès à la page demandée"
+                ]);
+            }
+            break;
+        // admin
+        case 'admin-view' :
+            // if role = admin
+            if(isset($_SESSION['user'])) {
+                $control->render($_GET['ctrl'], 'admin');
+            }
+            else{
+                $control->render('home-view','Association Makers Fourmies', [
+                    "Vous n'avez pas accès à la page demandée"
+                ]);
+            }
             break;
         // home
         default :
@@ -124,5 +151,3 @@ if(isset($_GET['ctrl'])){
 else{
     $control->render('home-view','Association Makers Fourmies');
 }
-
-

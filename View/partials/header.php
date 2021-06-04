@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,30 +20,26 @@ session_start();
                     <!--     if $_session exist then display user name (= profile link), role, disconnect button    -->
                     <?php
                         if(isset($_SESSION['user'])){
-                            // display pseudo todo link profile
+                            // display pseudo
+                            $_SESSION['user']['pseudo'];
                             ?>
-                            <a href="/index.php?ctrl=user-view"><?php
-                                $_SESSION['user']['pseudo']
-                            ?></a><?php
+                            <a href="/index.php?ctrl=user-view" title="mon profil"><?= $_SESSION['user']['pseudo'] ?><br></a><?php
                             // switch button function of role
                             switch ($_SESSION['user']['role']){
                             //      administrator
                                 case 1 :?>
                                     <a href="/index.php?ctrl=admin-view">
-                                        <!--  todo  check user_fk value and admin ref value    -->
                                         <button class="btn" type="button">Admin</button>
                                     </a><?php
                                     break;
                             //      moderator
                                 case 2 :?>
                                     <a href="/index.php?ctrl=modo-view">
-                                        <!--  todo  check user_fk value and modo ref value    -->
                                         <button class="btn" type="button">Modo</button>
                                     </a><?php
                                     break;
                             //      Maker
                                 case 3 :?>
-                                    <!--  todo  check user_fk value and maker ref value    -->
                                         <p>Maker</p>
                                     <?php
                                     break;

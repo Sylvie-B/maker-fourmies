@@ -82,8 +82,8 @@ form div {
     margin: 1vh auto;
 }
 
-/* in galery */
-#mosaic {
+/* in Galery */
+#mosaic, .square, .description {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -93,21 +93,21 @@ form div {
     margin: 1vh 1vw;
 }
 
-/* in galery */
-.project {
-    width: 24%;
-    height: 24vh;
-    margin: 0.5vh;
-    border: 1px dashed black;
-}
-
-.square {
-    margin: 5vh 5vw;
-    border: 1px solid black;
-}
-
 .picture{
     max-width: 20vw;
     max-height: 20vh;
     border: 1px black solid;
 }
+
+/* in Project */
+.square {
+    margin-top: 5vh;
+    border: 1px solid black;
+}
+
+.description {
+    flex-direction: column;
+    width: 50%;
+}
+
+
