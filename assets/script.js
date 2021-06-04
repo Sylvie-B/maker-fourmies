@@ -24,5 +24,3 @@ if(btn){
         target.appendChild(info);
     })
 }
-
-// display role name function of role_fk ?

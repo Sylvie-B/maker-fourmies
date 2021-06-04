@@ -2,7 +2,7 @@
 <div class="frameText">
     <h2>Fourmies Maker</h2>
     <p class="text">
-        L'asociation Fourmies Maker réuni les bricoleurs de tout horizon, pour ne pas faire les choses seuls,
+        L'association Fourmies Maker réuni les bricoleurs de tout horizon, pour ne pas faire les choses seuls,
         le principe est de mettre en commun ses savoirs faire et ses resources en terme de matériaux, d'outils, de
         bon plan. Avec chacun sa spécialité soutenu par d'autre maker il devient possible d'élargir les possibiltés.
     </p>
