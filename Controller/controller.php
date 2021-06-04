@@ -100,7 +100,7 @@ class controller {
                     $pseudo = strip_tags($_POST['pseudo']);
 
                     // testPseudo return true if pseudo already exist
-                    if($this->userManager->testPseudo($pseudo)){
+                    if($this->userManager->testExist('pseudo', $pseudo)){
                         header('location: index.php?ctrl=signIn-view&error=pseudo');
                     }
                     elseif (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)){

@@ -90,12 +90,21 @@ class UserManager {
         return $users;
     }
 
-    public function testPseudo($pseudo) : bool {
-        $sql = $this->pdo->prepare("SELECT * FROM user WHERE pseudo = :pseudo");
-        $sql->bindValue(':pseudo', $pseudo);
+    public function testExist($ref, $data) : bool {
+        $sql = 0;
+        switch ($ref){
+            case 'pseudo' :
+                $sql = $this->pdo->prepare("SELECT * FROM user WHERE pseudo = :pseudo");
+                $sql->bindValue(':pseudo', $data);
+                break;
+            case 'mail' :
+                $sql = $this->pdo->prepare("SELECT * FROM user WHERE mail = :mail");
+                $sql->bindValue(':mail', $data);
+                break;
+        }
         $sql->execute();
-        if($sql->fetch()){
-            return true;
-        };
+
+        return $sql->fetch() ? true : false;
+
     }
 }
