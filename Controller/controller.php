@@ -44,6 +44,7 @@ class controller {
     }
 
     /**
+     * switch between connexion or inscription view
      *
      * @param $param
      */
@@ -141,5 +142,7 @@ class controller {
         // setcookie("PHPSESSID", "", time() - 3600);
         header('location: index.php?ctrl=home-view&');
     }
+
+
 
 }

@@ -103,7 +103,7 @@ if(isset($_GET['ctrl'])){
             $control->render($_GET['ctrl'],'Galerie');
             break;
         //user-view
-        case 'user-view' :
+        case 'profile-view' :
             $control->render($_GET['ctrl'],'profil');
             break;
         // for user, maker, modo, admin

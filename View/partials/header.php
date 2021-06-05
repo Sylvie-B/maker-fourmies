@@ -24,7 +24,7 @@
                             $_SESSION['user']['pseudo'];
                             ?>
                             <span>Bonjour, </span>
-                            <a href="/index.php?ctrl=user-view" title="mon profil"><?= $_SESSION['user']['pseudo'] ?><br></a><?php
+                            <a href="/index.php?ctrl=profile-view" title="mon profil"><?= $_SESSION['user']['pseudo'] ?><br></a><?php
                             // switch button function of role
                             switch ($_SESSION['user']['role']){
                             //      administrator
