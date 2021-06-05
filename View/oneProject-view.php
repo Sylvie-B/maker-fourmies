@@ -1,35 +1,23 @@
 <div id="frame">
-    <h1>Création d'un objet</h1>
+        <h1>title</h1>
     <p>
-        <!-- replace by project description -->
-        Nous avons créé un objet de décoration, du dessin à l'impression...
+        project description
     </p>
     <div>
         <!-- get images & each image title -->
-        <div id="show">
-            <div class="picture">
-                <img class="project" src="" alt="image 1">
-                <span>Projet 1</span>
-            </div>
+        <div>
+            <img src="" alt="image 1">
         </div>
-<!--    EVO
-        <div id="projectComment">
-            <div>
-                <span>Commentaire :</span>
-                <p>Cette création pourrait être améliorée...</p>
-            </div>
-        </div>     -->
     </div>
 </div>
 
 <div>
-
-    <div id="info">
-        <div id="projectMaker">
-            <span>Maker : Héliosens</span>
+    <div>
+        <div>
+            <p>Maker : Heliosens</p>
         </div>
         <!-- technic / tool / matter / time -->
-        <div id="technicFile">
+        <div>
             <span>Fiche Technnique</span>
             <p>
                 Technique : dessin et impression 3D
@@ -40,9 +28,13 @@
             <p>
                 Matière : PLA
             </p>
-            <p>
-                Temps de conception : 2 jours
-                Temps d'impression : 3 heures
+            <div>
+                <p>
+                    Temps de conception : 2 jours
+                </p>
+                <p>
+                    Temps d'impression : 3 heures
+                </p>
             </p>
         </div>
     </div>
