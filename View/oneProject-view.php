@@ -1,41 +1,24 @@
 <div id="frame">
     <h1>Création d'un objet</h1>
     <p>
+        <!-- replace by project description -->
         Nous avons créé un objet de décoration, du dessin à l'impression...
     </p>
     <div>
+        <!-- get images & each image title -->
         <div id="show">
             <div class="picture">
                 <img class="project" src="" alt="image 1">
                 <span>Projet 1</span>
             </div>
-            <div class="picture">
-                <img class="project" src="" alt="image 2">
-                <span>Projet 1</span>
-            </div>
-            <div class="picture">
-                <img class="project" src="" alt="image 3">
-                <span>Projet 1</span>
-            </div>
-            <div class="picture">
-                <img class="project" src="" alt="image 4">
-                <span>Projet 1</span>
-            </div>
-            <div class="picture">
-                <img class="project" src="" alt="image 5">
-                <span>Projet 1</span>
-            </div>
-            <div class="picture">
-                <img class="project" src="" alt="image 6">
-                <span>Projet 1</span>
-            </div>
         </div>
+<!--    EVO
         <div id="projectComment">
             <div>
                 <span>Commentaire :</span>
                 <p>Cette création pourrait être améliorée...</p>
             </div>
-        </div>
+        </div>     -->
     </div>
 </div>
 
