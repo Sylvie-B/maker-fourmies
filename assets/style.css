@@ -113,4 +113,49 @@ form div {
     width: 50%;
 }
 
+/* on admin mod */
+ul {
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+}
 
+#first {
+    margin-top: 2px;
+    justify-content: space-between;
+}
+
+li{
+    margin: 2px;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    border: 1px solid black;
+    text-align: center;
+}
+
+#first li{
+    width: 33%;
+}
+
+#second li {
+    width: 14%;
+}
+
+#operation, #second {
+    visibility: hidden;
+}
+
+#operation li {
+    width: 25%;
+}
+
+@media screen and (max-width: 800px){
+    #second {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #second li {
+        min-width: 122px;
+    }
+}
