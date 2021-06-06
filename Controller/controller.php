@@ -5,6 +5,10 @@ class controller {
     private PDO $pdo;
     private UserManager $userManager;
 
+    /**
+     * controller constructor.
+     * @param $pdo
+     */
     public function __construct ($pdo){
         $this->pdo = $pdo;
         $this->userManager = new UserManager($this->pdo);
@@ -21,6 +25,8 @@ class controller {
         require_once $_SERVER['DOCUMENT_ROOT'] . "/view/" . $page . ".php";
         require_once $_SERVER['DOCUMENT_ROOT'] . "/View/partials/footer.php";
     }
+
+    // render form for admin or modo to change user or action
 
     /**
      * are there data and are they complete ?
@@ -142,7 +148,5 @@ class controller {
         // setcookie("PHPSESSID", "", time() - 3600);
         header('location: index.php?ctrl=home-view&');
     }
-
-
 
 }

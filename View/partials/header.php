@@ -27,24 +27,24 @@
                             <a href="/index.php?ctrl=profile-view" title="mon profil"><?= $_SESSION['user']['pseudo'] ?><br></a><?php
                             // switch button function of role
                             switch ($_SESSION['user']['role']){
-                            //      administrator
+                            //  for administrator
                                 case 1 :?>
                                     <a href="/index.php?ctrl=admin-view">
                                         <button class="btn" type="button">Admin</button>
                                     </a><?php
                                     break;
-                            //      moderator
+                            //  for moderator
                                 case 2 :?>
                                     <a href="/index.php?ctrl=modo-view">
                                         <button class="btn" type="button">Modo</button>
                                     </a><?php
                                     break;
-                            //      Maker
+                            //  for Maker
                                 case 3 :?>
                                         <p>Maker</p>
                                     <?php
                                     break;
-                            //      nothing for user
+                            //  nothing for user
                             }?>
                         <div>
                             <a href="/index.php?ctrl=home-view&connect=0">

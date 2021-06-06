@@ -52,3 +52,4 @@ for (let i = 0 ; i < actions.length ; i++){
         actions[i].style.backgroundColor = 'white';
     })
 }
+

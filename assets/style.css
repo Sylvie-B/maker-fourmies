@@ -48,7 +48,12 @@ a {
     text-decoration-line: none;
 }
 
-section, form, .picture {
+form {
+    background-color: #314b58;
+    padding: 5vh 8vw;
+}
+
+section, .formTest, .picture {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -156,6 +161,18 @@ li{
     width: 25%;
 }
 
+.part {
+    padding: 0 1vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.operationForm {
+    display: flex;
+    flex-direction: row;
+}
+
+/*   responsive   */
 @media screen and (max-width: 800px){
     #second {
         flex-wrap: wrap;

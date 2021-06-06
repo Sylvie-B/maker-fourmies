@@ -28,3 +28,5 @@
     <li class="action">Supprimer</li>
 </ul>
 
+<?php
+include $_SERVER['DOCUMENT_ROOT'] . "/view/operation-view.php";
