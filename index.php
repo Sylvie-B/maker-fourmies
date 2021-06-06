@@ -143,6 +143,10 @@ if(isset($_GET['ctrl'])){
                 ]);
             }
             break;
+        // contact
+        case 'contact-view' :
+            $control->render($_GET['ctrl'],'Contact & adhésion');
+            break;
         // home
         default :
             $control->render('home-view','Association Makers Fourmies');

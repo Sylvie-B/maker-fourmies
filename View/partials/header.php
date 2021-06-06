@@ -75,6 +75,9 @@
                 <a href="/index.php?ctrl=gallery-view" class="menu">
                     <div>Galerie</div>
                 </a>
+                <a href="/index.php?ctrl=contact-view" class="menu">
+                    <div>Contact et adhésion</div>
+                </a>
                 <!--   for maker only : role = 1 ou 2 ou 3          -->
                 <?php
                     if(isset($_SESSION['user']) && $_SESSION['user']['role'] != 4){?>
