@@ -7,7 +7,9 @@
 body {
     width: 100%;
     background-color: #314b58;
-    background-size: auto;
+    /*background-color: grey;*/
+    background-image: url("/img/pngaaa.com-845526.png");
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
@@ -68,11 +70,11 @@ section{
     align-items: center;
 }
 
-form {
+.formTest {
     align-items: flex-end;
 }
 
-form div {
+.formTest div {
     margin: 1vh;
 }
 
@@ -124,6 +126,11 @@ ul {
     margin-top: 2px;
     justify-content: space-between;
 }
+
+/*!* test *!*/
+/*#others {*/
+/*    visibility: hidden;*/
+/*}*/
 
 li{
     margin: 2px;
