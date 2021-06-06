@@ -1,4 +1,4 @@
-<h1>Projet</h1>
+<h1>Projet et Animation</h1>
 <div>
     <div class="square" >
         <span>titre</span>
@@ -18,6 +18,3 @@
     </div>
 </div>
 
-<!--
-replace titre by title from database
--->

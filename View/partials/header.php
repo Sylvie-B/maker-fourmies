@@ -81,8 +81,8 @@
                 <!--   for maker only : role = 1 ou 2 ou 3          -->
                 <?php
                     if(isset($_SESSION['user']) && $_SESSION['user']['role'] != 4){?>
-                        <a href="/index.php?ctrl=project-view" class="menu">
-                            <div>Les projets</div>
+                        <a href="/index.php?ctrl=action-view" class="menu">
+                            <div>Les actions</div>
                         </a<?php
                     }?>
             </nav>

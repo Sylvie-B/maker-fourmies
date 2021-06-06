@@ -22,7 +22,7 @@ if(isset($_GET['ctrl'])){
     switch ($_GET['ctrl']){
         // connexion
         case 'connexion-view' :
-            // if an error occurs...
+            // if an error occurs
             if(isset($_GET['error'])){
                 switch ($_GET['error']){
                     // $_GET['error'] = mail-pass means error on mail or password
@@ -102,13 +102,17 @@ if(isset($_GET['ctrl'])){
         case 'gallery-view' :
             $control->render($_GET['ctrl'],'Galerie');
             break;
+        // contact
+        case 'contact-view' :
+            $control->render($_GET['ctrl'],'Contact & adhésion');
+            break;
         //user-view
         case 'profile-view' :
             $control->render($_GET['ctrl'],'profil');
             break;
         // for user, maker, modo, admin
         // projects page
-        case 'project-view' :
+        case 'action-view' :
             // not available for visitor
             if(isset($_SESSION['user'])){
                 $control->render($_GET['ctrl'],'Les projets des makers');
@@ -142,10 +146,6 @@ if(isset($_GET['ctrl'])){
                     "Vous n'avez pas accès à la page demandée"
                 ]);
             }
-            break;
-        // contact
-        case 'contact-view' :
-            $control->render($_GET['ctrl'],'Contact & adhésion');
             break;
         // home
         default :

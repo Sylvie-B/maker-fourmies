@@ -6,8 +6,9 @@
 
 body {
     width: 100%;
-    background-color: #263740;
-
+    background-color: #314b58;
+    background-size: auto;
+    background-repeat: no-repeat;
 }
 
 html {
