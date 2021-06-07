@@ -1,6 +1,3 @@
-<div id="frame">
-    <h1>Ressource</h1>
-</div>
 <div class="frameText">
     <p>
         Vous trouverez ici les logiciels gratuits, utilisés et/ou conseillés par les makers.

@@ -6,8 +6,5 @@
 <div>
     <p>Vous êtes déjà inscrit(e) et voulez devenir adhérent(e)</p>
     <p>Contactez l'association :</p>
-
-    <!-- todo if recorded user add visible button to ask affiliation -->
-
     <p>Email : XXX@gmail.fr</p>
 </div>

@@ -1,4 +1,3 @@
-<h1>Projet et Animation</h1>
 <div>
     <div class="square" >
         <span>titre</span>
