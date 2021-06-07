@@ -9,24 +9,25 @@ body {
     background-color: #314b58;
 }
 
+html {
+    font-family:Bahnschrift, sans-serif;
+}
+
 #motif1, #motif2 {
     position: absolute;
-    z-index: -10;
+
 }
 
 #motif2 {
     top : 0;
     right: 0;
+    z-index: -10;
 }
 
 #motif1 {
     bottom: 0;
     left: 0;
-}
-
-html {
-    font-family:Bahnschrift, sans-serif;
-    text-align: center;
+    z-index: -11;
 }
 
 #container{
@@ -39,6 +40,10 @@ header {
     box-shadow: 5px 5px 3px 0 #a9a9a9;
     margin: 1vh;
     padding: 1vh;
+}
+
+#logo {
+    width: 4vw;
 }
 
 #title, #frameForm {
@@ -56,7 +61,7 @@ nav, #headband {
 }
 
 .menu, label {
-    color: #a9a9a9;
+    color: #0058a7;
 }
 
 a {
@@ -65,7 +70,7 @@ a {
 
 form {
     background-color: #314b58;
-    margin: 2vw;
+    margin: 1vw;
 }
 
 input, select, label {
@@ -75,12 +80,18 @@ input, select, label {
 
 #frameForm {
     background-color: white;
-    margin-top: 4vh;
+}
+
+#half{
+    width: 40%;
+    height: 5vh;
+    margin-top: 2vh;
 }
 
 h3{
     background-color: cornflowerblue;
     min-width: 18vw;
+    text-align: center;
 }
 
 section, .formTest, .picture {
@@ -112,9 +123,9 @@ section{
     margin: 1vh;
 }
 
-#info {
-    width: 28%;
-}
+/*#info {*/
+/*    width: 28%;*/
+/*}*/
 
 .text {
     margin: 1vh auto;
@@ -153,6 +164,7 @@ ul {
     list-style-type: none;
     width: 100%;
     display: flex;
+    padding: 1vw;
 }
 
 #first {
@@ -167,10 +179,11 @@ ul {
 
 li{
     margin: 2px;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
+    padding-top: 0.8vh;
+    padding-bottom: 0.8vh;
     border: 1px solid black;
     background: darkgrey;
+    text-align: center;
 }
 
 #first li{
@@ -190,15 +203,16 @@ li{
 }
 
 .part {
-    /*min-width: 18vw;*/
     padding: 0 1vw;
+}
+
+.operationForm, .part {
     display: flex;
     flex-direction: column;
 }
 
 .operationForm {
-    display: flex;
-    flex-direction: column;
+    align-items: center;
 }
 
 #ref{
