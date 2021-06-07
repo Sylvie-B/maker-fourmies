@@ -21,6 +21,9 @@ if(btn){
                 event.preventDefault();
                 info.innerHTML += "<br>" + label[i].innerText;
             }
+            else{
+                info.innerHTML = " ";
+            }
         }
         target.appendChild(info);
     })
