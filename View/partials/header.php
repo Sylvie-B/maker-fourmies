@@ -8,7 +8,8 @@
 </head>
 <body>
     <div id="motif">
-
+        <img id="motif1" src="/img/pngaaa-1.png" alt="motif de fond">
+        <img id="motif2" src="/img/pngaaa-2.png" alt="motif de fond">
     </div>
     <div id="container">
         <header>

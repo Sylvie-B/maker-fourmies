@@ -9,14 +9,19 @@ body {
     background-color: #314b58;
 }
 
-#motif {
+#motif1, #motif2 {
     position: absolute;
+    z-index: -10;
+}
+
+#motif2 {
+    top : 0;
+    right: 0;
+}
+
+#motif1 {
     bottom: 0;
     left: 0;
-    background-image: url("/img/pngaaa.com-845526.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: -10;
 }
 
 html {

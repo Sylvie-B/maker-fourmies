@@ -1,7 +1,6 @@
 /*  background motif    */
-let motif = document.getElementById('motif');
-motif.style.width = innerWidth + "px";
-motif.style.height = innerHeight + "px";
+document.getElementById('motif1').style.height = innerHeight * 0.8 + "px";
+document.getElementById('motif2').style.height = innerHeight * 0.8 + "px";
 
 /* inscription & connexion */
 
