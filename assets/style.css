@@ -7,10 +7,17 @@
 body {
     width: 100%;
     background-color: #314b58;
-    /*background-color: grey;*/
+
+}
+
+#motif {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     background-image: url("/img/pngaaa.com-845526.png");
-    background-size: cover;
     background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -10;
 }
 
 html {
@@ -29,8 +36,8 @@ header {
     padding: 1vh;
 }
 
-#title {
-    color: blue;
+#title, #frameForm {
+    color: #0a0a7e;
     text-align: center;
     align-self: center;
 }
@@ -49,8 +56,12 @@ a {
 }
 
 form {
-    background-color: #314b58;
+    background-color: grey;
     padding: 5vh 8vw;
+}
+
+#frameForm {
+    background-color: white;
 }
 
 section, .formTest, .picture {
@@ -65,9 +76,8 @@ section{
 }
 
 .frameText {
-    width: 100%;
     margin: 4vh 0;
-    padding: 1vh;
+    padding: 3vh;
     background-color: white;
 }
 
@@ -88,7 +98,6 @@ section{
 }
 
 .text {
-    width: 80%;
     margin: 1vh auto;
 }
 

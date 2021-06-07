@@ -1,3 +1,8 @@
+/*  background motif    */
+let motif = document.getElementById('motif');
+motif.style.width = innerWidth + "px";
+motif.style.height = innerHeight + "px";
+
 /* inscription & connexion */
 
 // get fields, labels and button
