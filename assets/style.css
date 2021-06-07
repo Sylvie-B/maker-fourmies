@@ -21,6 +21,7 @@ body {
 
 html {
     font-family:Bahnschrift, sans-serif;
+    text-align: center;
 }
 
 #container{
@@ -37,7 +38,6 @@ header {
 
 #title, #frameForm {
     color: #0a0a7e;
-    text-align: center;
     align-self: center;
 }
 
@@ -75,6 +75,7 @@ input, select, label {
 
 h3{
     background-color: cornflowerblue;
+    min-width: 18vw;
 }
 
 section, .formTest, .picture {
@@ -151,13 +152,13 @@ ul {
 
 #first {
     margin-top: 2px;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
-/*!* test *!*/
-/*#others {*/
-/*    visibility: hidden;*/
-/*}*/
+/* test */
+#others {
+    display: none;
+}
 
 li{
     margin: 2px;
@@ -165,7 +166,6 @@ li{
     padding-bottom: 2vh;
     border: 1px solid black;
     background: darkgrey;
-    text-align: center;
 }
 
 #first li{
@@ -185,7 +185,7 @@ li{
 }
 
 .part {
-    min-width: 18vw;
+    /*min-width: 18vw;*/
     padding: 0 1vw;
     display: flex;
     flex-direction: column;
@@ -193,7 +193,17 @@ li{
 
 .operationForm {
     display: flex;
+    flex-direction: column;
+}
+
+#ref{
+    display: flex;
     flex-direction: row;
+}
+
+.red {
+    color: red;
+    border: red solid 2px;
 }
 
 /*   responsive   */

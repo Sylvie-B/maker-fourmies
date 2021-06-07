@@ -17,8 +17,9 @@
     <div id="target">
         <!-- display error message -->
         <?php
-        if(isset($var['info'])){
-            echo $var['info'];
+        if(isset($var['info'])){?>
+            <div class="red" id="target"><?=
+            $var['info'];?>
+            </div><?php
         }?>
-    </div>
 </div>

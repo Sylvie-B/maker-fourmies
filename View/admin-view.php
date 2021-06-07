@@ -1,5 +1,5 @@
 <div>
-    <h1>ADMINISTRATEUR</h1>
+    <h3>MODE ADMINISTRATEUR</h3>
 </div>
 
 <!-- principals entities -->
@@ -22,15 +22,37 @@
 
 <!-- operation -->
 <ul id="operation">
-    <li class="action">Ajouter</li>
-    <li class="action">Voir la liste</li>
-    <li class="action">Mettre à jour</li>
-    <li class="action">Supprimer</li>
+
+    <li class="action">
+        <a href="/index.php?ctrl=admin-view&action=add">Ajouter</a>
+    </li>
+    <li class="action">
+        <a href="/index.php?ctrl=admin-view">Voir la liste</a>
+    </li>
+    <li class="action">
+        <a href="/index.php?ctrl=admin-view">Mettre à jour</a>
+    </li>
+    <li class="action">
+        <a href="/index.php?ctrl=admin-view">Supprimer</a>
+    </li>
 </ul>
 
-<div id="frameForm">
-    <?php
-    // controller display good form
-    include $_SERVER['DOCUMENT_ROOT'] . "/view/operation-view.php";
-    ?>
-</div>
+
+<?php
+// formController display good form
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Model/assoDb.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/formController.php";
+$db = new assoDb();
+$db = $db->connect();
+$formCtrl = new formController($db);
+//    $refForm = 'action';
+if(isset($_GET['action'])){?>
+<div id="frameForm"><?php
+    switch ($_GET['action']){
+        case 'add' :
+            $formCtrl->formRender('operation-view', 'PUBLIER UNE ACTION');
+    }?>
+</div><?php
+}
+
+

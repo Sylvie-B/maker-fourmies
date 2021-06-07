@@ -7,6 +7,7 @@ motif.style.height = innerHeight + "px";
 
 // get fields, labels and button
 let field = document.getElementsByTagName('input');
+
 let btn = document.getElementById('validate');
 let label = document.getElementsByTagName('label');
 
@@ -61,3 +62,8 @@ for (let i = 0 ; i < actions.length ; i++){
     })
 }
 
+// // pre-check subpart
+// let field = document.getElementsByTagName('input');
+// let btn = document.getElementById('validate');
+// let label = document.getElementsByTagName('label');
+console.log('field : ' + field, 'btn : ' + btn, 'label : ' + 'label : ' + label );

@@ -26,32 +26,35 @@ class formController {
     }
 
     // give the right form
-    public function formRender ($item) {
+
+    /**
+     * @param $typeForm
+     * @param $title
+     * @param array $var
+     */
+    public function formRender ($typeForm, $title, array $var = []) {
         // add good form on admin view
-        switch ($item){
-            case 1:
-                echo "ici";
-                break;
-        }
+        include $_SERVER['DOCUMENT_ROOT'] . "/view/" . $typeForm . ".php";
     }
 
+    /**
+     * @return bool
+     */
     // get admin form data
-    public function getFormData (){
-        /** case add action **/
-        // test action data
-        $this->checkData('actionType', 'actionTitle', 'actionDescription', 'startAction');
-        // if not error action message
-
-        // test image
-        $this->checkData('imageTitle', 'actionImage');
-        // if not error image message
-
-        // test maker - other maker can be empty
-        $this->checkData('maker', );
-
-        // technic - time can be empty
-        $this->checkData('actionTechnic', 'actionTool', 'actionMatter');
-
+    public function checkActionData (){
+        // if not check return false then error message
+        if(!$this->checkData('actionType', 'actionTitle', 'actionDescription', 'startAction')){ // test action data
+            $this->formRender('operation-view', 'Publier une ACTION', ["erreur dans Action"]);
+        }
+        elseif (!$this->checkData('imageTitle', 'actionImage')) {   // test image
+            $this->formRender('operation-view', 'Publier une ACTION', ["erreur dans Image"]);
+        }
+        elseif (!$this->checkData('maker', )){   // test maker - other maker can be empty
+            $this->formRender('operation-view', 'Publier une ACTION', ["erreur dans Maker"]);
+        }
+        elseif (!$this->checkData('actionTechnic', 'actionTool', 'actionMatter')){   // technic - time can be empty
+            $this->formRender('operation-view', 'Publier une ACTION', ["erreur dans Technic"]);
+        }
+        return true;
     }
-
 }

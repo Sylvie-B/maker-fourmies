@@ -77,7 +77,7 @@ if(isset($_GET['ctrl'])){
                         break;
                 }
             }
-            // there's no error, if there's validation test = 1
+            // if there's no error & validation test = 1
             elseif (isset($_GET['test']) == 1){
                 $control->checkValidation($_GET['ctrl']);
             }
