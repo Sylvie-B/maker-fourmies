@@ -24,12 +24,16 @@
         </select>
 
         <input type="text" name="actionTitle" placeholder="titre">
-        <textarea name="actionDescription" id="actionDescription" cols="50" rows="3" placeholder="description de l'action"></textarea>
+        <textarea name="actionDescription" id="actionDescription" cols="50" rows="3"
+                  placeholder="description de l'action"></textarea>
+
+        <label for="startDate">commencée le :</label>
+        <input type="date" name="startAction" id="startDate">
+
+        <h3>Image</h3>
         <input type="text" name="imageTitle" placeholder="titre de l'image">
         <input type="text" name="actionImage" placeholder="image">
 
-        <label for="startDate">commencée le :</label>
-        <input type="date" id="startDate">
     </div>
 
     <!-- MAKER -->
@@ -45,6 +49,7 @@
         <label for="otherMaker">participant(s)</label>
         <select name="otherMaker" id="otherMaker" multiple>
             <!-- get makers list -->
+            <option value="">autre(s)</option>
             <option value="heliosens">Heliosens</option>
         </select>
     </div>
@@ -74,10 +79,11 @@
         </select>
 
         <!-- TIME -->
-        <label for="conceptionTime">temps de conception</label>
+        <h3>Temps :</h3>
+        <label for="conceptionTime">conception</label>
         <input type="time" name="conception" id="conceptionTime">
 
-        <label for="realisationTime">temps de réalisation</label>
+        <label for="realisationTime">réalisation</label>
         <input type="time" name="realisation" id="realisationTime">
     </div>
 
