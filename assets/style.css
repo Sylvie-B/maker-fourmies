@@ -7,7 +7,6 @@
 body {
     width: 100%;
     background-color: #314b58;
-
 }
 
 #motif {
@@ -42,7 +41,7 @@ header {
     align-self: center;
 }
 
-h3, form, #frameForm{
+form, #frameForm{
     padding: 1.6vh 3.2vw;
 }
 
@@ -51,7 +50,7 @@ nav, #headband {
     justify-content: space-around;
 }
 
-.menu {
+.menu, label {
     color: #a9a9a9;
 }
 
@@ -60,12 +59,22 @@ a {
 }
 
 form {
-    background-color: grey;
+    background-color: #314b58;
     margin: 2vw;
+}
+
+input, select, label {
+    margin: 0.5vh 0;
+    padding: 0.5vh;
 }
 
 #frameForm {
     background-color: white;
+    margin-top: 4vh;
+}
+
+h3{
+    background-color: cornflowerblue;
 }
 
 section, .formTest, .picture {
@@ -155,6 +164,7 @@ li{
     padding-top: 2vh;
     padding-bottom: 2vh;
     border: 1px solid black;
+    background: darkgrey;
     text-align: center;
 }
 
@@ -167,7 +177,7 @@ li{
 }
 
 #operation, #second {
-    visibility: hidden;
+    display: none;
 }
 
 #operation li {
@@ -175,6 +185,7 @@ li{
 }
 
 .part {
+    min-width: 18vw;
     padding: 0 1vw;
     display: flex;
     flex-direction: column;
