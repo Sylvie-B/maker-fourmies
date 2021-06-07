@@ -4,6 +4,7 @@
 class controller {
     private PDO $pdo;
     private UserManager $userManager;
+    private formController $formControl;
 
     /**
      * controller constructor.
@@ -12,6 +13,7 @@ class controller {
     public function __construct ($pdo){
         $this->pdo = $pdo;
         $this->userManager = new UserManager($this->pdo);
+        $this->formControl = new formController($this->pdo);
     }
 
     /**
@@ -26,29 +28,6 @@ class controller {
         require_once $_SERVER['DOCUMENT_ROOT'] . "/View/partials/footer.php";
     }
 
-    // render form for admin or modo to change user or action
-
-    /**
-     * are there data and are they complete ?
-     * @param mixed ...$data
-     * @return bool
-     */
-    public function checkData(...$data): bool {
-        foreach ($data as $input) {
-            // is data exist ?
-            if(!isset($_POST[$input])){
-                return false;
-            }
-            else{
-                // is data not empty ?
-                if(empty($_POST[$input])){
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
     /**
      * switch between connexion or inscription view
      *
@@ -60,7 +39,7 @@ class controller {
             // connexion
             case 'connexion-view':
                 // check email & password
-                if ($this->checkData('mail', 'passW')) {
+                if ($this->formControl->checkData('mail', 'passW')) {
                     // verify if it's an email
                     if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
                         // if not redirect to connexion page with error mail or password
@@ -100,7 +79,7 @@ class controller {
 
             case 'signIn-view':
                 // check all fields
-                if ($this->checkData('name', 'surname', 'mail', 'pseudo', 'passW')) {
+                if ($this->formControl->checkData('name', 'surname', 'mail', 'pseudo', 'passW')) {
                     // protect user entry
                     $name = strip_tags($_POST['name']);
                     $surname = strip_tags($_POST['surname']);

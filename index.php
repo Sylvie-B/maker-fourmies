@@ -13,9 +13,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Model/Entity/User.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Model/Manager/UserManager.php";
 
 // controller inclusion
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/formController.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/controller.php";
 
 $control = new controller($db);
+
 
 // use $_GET['ctrl'] value to redirect to the right page
 if(isset($_GET['ctrl'])){
