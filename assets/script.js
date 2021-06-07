@@ -1,6 +1,6 @@
 /*  background motif    */
-document.getElementById('motif1').style.height = innerHeight * 0.8 + "px";
-document.getElementById('motif2').style.height = innerHeight * 0.8 + "px";
+document.getElementById('motif1').style.width = innerWidth * 0.5 + "px";
+document.getElementById('motif2').style.width = innerWidth * 0.5 + "px";
 
 /* inscription & connexion */
 
@@ -61,8 +61,3 @@ for (let i = 0 ; i < actions.length ; i++){
     })
 }
 
-// // pre-check subpart
-// let field = document.getElementsByTagName('input');
-// let btn = document.getElementById('validate');
-// let label = document.getElementsByTagName('label');
-console.log('field : ' + field, 'btn : ' + btn, 'label : ' + 'label : ' + label );
