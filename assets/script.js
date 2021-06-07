@@ -46,13 +46,13 @@ let actions = document.getElementsByClassName('action');
 for (let i = 0 ; i < entity.length ; i++){
     entity[i].addEventListener('click', function (){
         entity[i].style.backgroundColor = 'white';
-        operation.style.visibility = 'visible';
+        operation.style.display = 'flex';
     })
 }
 
 others.addEventListener('click', function (){
     others.style.backgroundColor = 'white';
-    second.style.visibility = 'visible';
+    second.style.display = 'flex';
 })
 
 for (let i = 0 ; i < actions.length ; i++){
