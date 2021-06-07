@@ -28,5 +28,9 @@
     <li class="action">Supprimer</li>
 </ul>
 
-<?php
-include $_SERVER['DOCUMENT_ROOT'] . "/view/operation-view.php";
+<div id="frameForm">
+    <?php
+    // controller display good form
+    include $_SERVER['DOCUMENT_ROOT'] . "/view/operation-view.php";
+    ?>
+</div>

@@ -18,7 +18,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/controller.php";
 
 $control = new controller($db);
 
-
 // use $_GET['ctrl'] value to redirect to the right page
 if(isset($_GET['ctrl'])){
     switch ($_GET['ctrl']){

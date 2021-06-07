@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
+    <div id="motif">
+
+    </div>
     <div id="container">
         <header>
             <div id="headband">

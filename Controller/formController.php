@@ -4,6 +4,10 @@
 class formController {
     private PDO $pdo;
 
+    /**
+     * formController constructor.
+     * @param $pdo
+     */
     public function __construct ($pdo){
         $this->pdo = $pdo;
     }
@@ -27,5 +31,15 @@ class formController {
             }
         }
         return true;
+    }
+
+    public function formRender ($item) {
+        // add good form on admin view
+        switch ($item){
+            case 1:
+                echo "ici";
+                break;
+
+        }
     }
 }
