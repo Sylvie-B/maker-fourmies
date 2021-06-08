@@ -3,11 +3,13 @@
 
 class Image {
     private ?int $id_img;
+    private ?string $image_title;
     private ?string $image;
     private ?Action $action;
 
-    public function __construct(?int $id_img = null, ?string $image = null, ?Action $action = null){
+    public function __construct(?int $id_img = null, ?string $image_title, ?string $image = null, ?Action $action = null){
         $this->id_img = $id_img;
+        $this->image_title = $image_title;
         $this->image = $image;
         $this->action = $action;
     }
@@ -26,6 +28,22 @@ class Image {
     public function setIdImg(?int $id_img): void
     {
         $this->id_img = $id_img;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getImageTitle(): ?string
+    {
+        return $this->image_title;
+    }
+
+    /**
+     * @param string|null $image_title
+     */
+    public function setImageTitle(?string $image_title): void
+    {
+        $this->image_title = $image_title;
     }
 
     /**
