@@ -37,22 +37,22 @@
     </li>
 </ul>
 
-
 <?php
 // formController display good form
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Model/assoDb.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/formController.php";
+
 $db = new assoDb();
 $db = $db->connect();
+
 $formCtrl = new formController($db);
+
 //    $refForm = 'action';
 if(isset($_GET['action'])){?>
-<div id="frameForm"><?php
-    switch ($_GET['action']){
-        case 'add' :
-            $formCtrl->formRender('operation-view', 'PUBLIER UNE ACTION');
-    }?>
-</div><?php
+    <div id="frameForm"><?php
+        switch ($_GET['action']){
+            case 'add' :
+                $formCtrl->formRender('operation-view', 'PUBLIER UNE ACTION');
+        }?>
+    </div><?php
 }
-
-

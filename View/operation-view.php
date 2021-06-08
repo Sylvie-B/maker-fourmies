@@ -4,11 +4,6 @@
     update
     delete
 -->
-<!--    if modo show
-    create action
-    read action
-    update action or user
--->
 
 <!-- CREATE ACTION -->
 <h2><?=$title?></h2>
@@ -88,7 +83,7 @@
             <input type="time" name="realisation" id="realisationTime">
         </div>
     </div>
-    <button type="">publier</button>
+    <button id="half" type="submit">publier</button>
 </form>
 <!-- display error message -->
 <?php

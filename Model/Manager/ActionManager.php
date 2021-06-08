@@ -35,9 +35,8 @@ class ActionManager {
         return $this->pdo->lastInsertId() !== 0 ;
     }
 
-    // todo find all informations about a project for one project view
+    // todo find all informations about action for one action view
     // select project-title, description, date, user-pseudo, technic- , tool-, matter-.
-
 
     /**
      * get action by id
@@ -80,4 +79,3 @@ class ActionManager {
         return $actions;
     }
 }
-

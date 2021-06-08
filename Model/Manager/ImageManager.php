@@ -14,14 +14,13 @@ class ImageManager {
         $this->actionManager = new ActionManager($this->pdo);
     }
 
-    /**
-     * create new image
-     * @param string $image
-     * @param $action_fk
-     * @return string
-     */
-    public function addImage(string $image, $action_fk){
-        $sql = $this->pdo->prepare("INSERT INTO image (image) VALUES (':image')");
+
+    public function addImage(string $title, string $image){
+        $sql = $this->pdo->prepare("
+            INSERT INTO image (image_title, image)
+            VALUES (':image_title, :image')
+            ");
+        $sql->bindValue(':image_title', $title);
         $sql->bindValue(':image', $image);
         $sql->execute();
         return $this->pdo->lastInsertId() !== 0 ;

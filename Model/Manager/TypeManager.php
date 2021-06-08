@@ -36,6 +36,25 @@ class TypeManager {
         return $type;
     }
 
+    /**
+     * @param $type
+     * @return Type
+     */
+    public function typeId ($type){
+        $sql = $this->pdo->prepare("SELECT * FROM type WHERE type = :type");
+        $sql->bindValue(':type', $type);
+        $sql->execute();
+        $result = $sql->fetch();
+        $type = new Type();
+        if($result){
+            $type->setIdType($result['id_type']);
+        }
+        return $type;
+    }
+
+    /**
+     * @return array
+     */
     public function getAllTypes () {
         $types = [];
         $sql = $this->pdo->prepare("SELECT * FROM type");

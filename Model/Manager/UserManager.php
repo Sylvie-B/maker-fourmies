@@ -4,6 +4,10 @@
 class UserManager {
     private PDO $pdo;
 
+    /**
+     * UserManager constructor.
+     * @param $pdo
+     */
     public function __construct($pdo) {
         $this->pdo = $pdo;
     }
@@ -90,6 +94,11 @@ class UserManager {
         return $users;
     }
 
+    /**
+     * @param $ref
+     * @param $data
+     * @return bool
+     */
     public function testExist($ref, $data) : bool {
         $sql = 0;
         switch ($ref){

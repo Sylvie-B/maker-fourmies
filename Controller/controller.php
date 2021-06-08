@@ -30,7 +30,6 @@ class controller {
 
     /**
      * switch between connexion or inscription view
-     *
      * @param $param
      */
     public function checkValidation($param) {
