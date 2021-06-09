@@ -1,4 +1,4 @@
-<div>
+<div class="part">
     <h3>MODE ADMINISTRATEUR</h3>
 </div>
 
@@ -9,33 +9,22 @@
   <li id="others">Base de données</li>
 </ul>
 
-<!-- others entities -->
-<ul id="second">
-    <li class="entity">Image</li>
-    <li class="entity">Matiére</li>
-    <li class="entity">Origine</li>
-    <li class="entity">Role</li>
-    <li class="entity">Technique</li>
-    <li class="entity">Outils</li>
-    <li class="entity">Type</li>
-</ul>
-
 <!-- operation -->
-<ul id="operation">
+<div id="operation">
+    <a class="action menu" href="/index.php?ctrl=admin-view&action=add" >
+        <span>Ajouter</span>
+    </a>
+    <a class="action menu" href="/index.php?ctrl=admin-view">
+        <span>Voir la liste</span>
+    </a>
+    <a class="action menu" href="/index.php?ctrl=admin-view">
+        <span>Mettre à jour</span>
+    </a>
 
-    <li class="action">
-        <a href="/index.php?ctrl=admin-view&action=add">Ajouter</a>
-    </li>
-    <li class="action">
-        <a href="/index.php?ctrl=admin-view">Voir la liste</a>
-    </li>
-    <li class="action">
-        <a href="/index.php?ctrl=admin-view">Mettre à jour</a>
-    </li>
-    <li class="action">
-        <a href="/index.php?ctrl=admin-view">Supprimer</a>
-    </li>
-</ul>
+    <a class="action menu" href="/index.php?ctrl=admin-view">
+        <span>Supprimer</span>
+    </a>
+</div>
 
 <?php
 // formController display good form
@@ -52,7 +41,7 @@ if(isset($_GET['action'])){?>
     <div id="frameForm"><?php
         switch ($_GET['action']){
             case 'add' :
-                $formCtrl->formRender('operation-view', 'PUBLIER UNE ACTION');
+                $formCtrl->formRender('actionForm', 'PUBLIER UNE ACTION');
         }?>
     </div><?php
 }

@@ -4,6 +4,10 @@
 class TypeManager {
     private PDO $pdo;
 
+    /**
+     * TypeManager constructor.
+     * @param $pdo
+     */
     public function __construct($pdo) {
         $this->pdo = $pdo;
     }
@@ -55,7 +59,7 @@ class TypeManager {
     /**
      * @return array
      */
-    public function getAllTypes () {
+    public function getAllTypes() :array {
         $types = [];
         $sql = $this->pdo->prepare("SELECT * FROM type");
         $sql->execute();
@@ -68,3 +72,5 @@ class TypeManager {
         return $types;
     }
 }
+
+

@@ -11,11 +11,11 @@ body {
 
 html {
     font-family:Bahnschrift, sans-serif;
+    color: #0a0a7e;
 }
 
 #motif1, #motif2 {
     position: absolute;
-
 }
 
 #motif2 {
@@ -46,7 +46,7 @@ header {
     width: 4vw;
 }
 
-#title, #frameForm {
+#title, #frameForm, h3 {
     color: #0a0a7e;
     align-self: center;
 }
@@ -55,17 +55,23 @@ form, #frameForm{
     padding: 1.6vh 3.2vw;
 }
 
-nav, #headband {
+nav, #headband, #operation {
     display: flex;
     justify-content: space-around;
 }
 
 .menu, label {
-    color: #0058a7;
+    color: #0a0a7e;
 }
 
 a {
     text-decoration-line: none;
+}
+
+nav {
+    border-top: 1px solid #0058a7;
+    padding-top: 0.2vh;
+    flex-wrap: wrap;
 }
 
 form {
@@ -88,7 +94,7 @@ input, select, label {
     margin-top: 2vh;
 }
 
-h3{
+h6{
     background-color: cornflowerblue;
     min-width: 18vw;
     text-align: center;
@@ -122,10 +128,6 @@ section{
 .formTest div {
     margin: 1vh;
 }
-
-/*#info {*/
-/*    width: 28%;*/
-/*}*/
 
 .text {
     margin: 1vh auto;
@@ -167,6 +169,15 @@ ul {
     padding: 1vw;
 }
 
+li{
+    margin: 2px;
+    padding-top: 0.8vh;
+    padding-bottom: 0.8vh;
+    border: 1px solid black;
+    background: darkgrey;
+    text-align: center;
+}
+
 #first {
     margin-top: 2px;
     justify-content: space-evenly;
@@ -177,15 +188,6 @@ ul {
     display: none;
 }
 
-li{
-    margin: 2px;
-    padding-top: 0.8vh;
-    padding-bottom: 0.8vh;
-    border: 1px solid black;
-    background: darkgrey;
-    text-align: center;
-}
-
 #first li{
     width: 33%;
 }
@@ -194,12 +196,16 @@ li{
     width: 14%;
 }
 
-#operation, #second {
+#operation {
     display: none;
+    width: 80%;
 }
 
-#operation li {
-    width: 25%;
+#operation a {
+    width: 20%;
+    border: 1px solid black;
+    background: darkgrey;
+    text-align: center;
 }
 
 .part {
@@ -209,6 +215,7 @@ li{
 .operationForm, .part {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .operationForm {

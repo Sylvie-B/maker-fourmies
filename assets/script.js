@@ -1,8 +1,8 @@
-/*  background motif    */
+/**  background motif    */
 document.getElementById('motif1').style.width = innerWidth * 0.5 + "px";
 document.getElementById('motif2').style.width = innerWidth * 0.5 + "px";
 
-/* inscription & connexion */
+/** inscription & connexion */
 
 // get fields, labels and button
 let field = document.getElementsByTagName('input');
@@ -35,11 +35,11 @@ if(btn){
 }
 
 /* admin mod */
+
 // on click show action choice
 let entity = document.getElementsByClassName('entity');
 let operation = document.getElementById('operation');
 let others = document.getElementById('others');
-let second = document.getElementById('second');
 let actions = document.getElementsByClassName('action');
 
 // first menu on click show operations or others entities
@@ -50,14 +50,39 @@ for (let i = 0 ; i < entity.length ; i++){
     })
 }
 
-others.addEventListener('click', function (){
-    others.style.backgroundColor = 'white';
-    second.style.display = 'flex';
-})
+if(others){
+    others.addEventListener('click', function (){
+        others.style.backgroundColor = 'white';
+    })
+}
 
 for (let i = 0 ; i < actions.length ; i++){
     actions[i].addEventListener('click', function (){
         actions[i].style.backgroundColor = 'white';
     })
 }
+
+
+let typeSelect = document.getElementById('actionType');
+if(typeSelect){
+
+    const xhr = new XMLHttpRequest();
+    xhr.onload = function (){
+        typeSelect.innerHTML = "<option value=\"\">Type d'action</option>";
+        let types = JSON.parse(xhr.responseText);
+        console.log("ici" + types);
+        for(let i = 0 ; i < types.length ; i++){
+            let option = document.createElement('option');
+            option.value = types['id_type'];
+            option.innerText = types['type'];
+            typeSelect.append(option);
+        }
+    }
+    xhr.open('GET', '/api/type-api.php');
+    xhr.send();
+
+}
+
+
+
 

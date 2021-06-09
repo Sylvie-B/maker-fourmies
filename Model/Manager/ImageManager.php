@@ -14,11 +14,15 @@ class ImageManager {
         $this->actionManager = new ActionManager($this->pdo);
     }
 
-
+    /**
+     * @param string $title
+     * @param string $image
+     * @return bool
+     */
     public function addImage(string $title, string $image){
         $sql = $this->pdo->prepare("
             INSERT INTO image (image_title, image)
-            VALUES (':image_title, :image')
+            VALUES (':image_title', ':image')
             ");
         $sql->bindValue(':image_title', $title);
         $sql->bindValue(':image', $image);
@@ -46,7 +50,6 @@ class ImageManager {
         return $image;
     }
 
-// todo get each title
     /**
      * find all images from database
      * @return array

@@ -8,9 +8,11 @@ $db = $db->connect();
 
 // entities inclusions
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Model/Entity/User.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Type.php';
 
 // managers inclusions
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Model/Manager/UserManager.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Manager/TypeManager.php';
 
 // controller inclusion
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/formController.php";
@@ -156,3 +158,4 @@ if(isset($_GET['ctrl'])){
 else{
     $control->render('home-view','Association Makers Fourmies');
 }
+

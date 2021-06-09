@@ -3,8 +3,13 @@
 
 class controller {
     private PDO $pdo;
+    private ActionManager $actionManager;
+    private ImageManager $imageManager;
+    private TypeManager $typeManager;
     private UserManager $userManager;
+
     private formController $formControl;
+
 
     /**
      * controller constructor.
@@ -125,6 +130,44 @@ class controller {
         session_unset();
         // setcookie("PHPSESSID", "", time() - 3600);
         header('location: index.php?ctrl=home-view&');
+    }
+
+    /**
+     * @return bool
+     */
+    public function checkActionData (){
+        // if check action-part return true else false then error message
+        if($this->formControl->checkData('actionType', 'actionTitle', 'actionDescription', 'startAction')){ // test action data
+            $type = $_POST['actionType'];
+            $id_type = $this->typeManager->typeId($type)->getIdType();
+            $title = strip_tags($_POST['actionTitle']);
+            $description = strip_tags($_POST['actionDescription']);
+            $start = $_POST['startAction'];
+            // sub-part action
+            $this->actionManager->addAction($title, $description, $start, $id_type);
+
+            // if check image-part
+            if ($this->formControl->checkData('imageTitle', 'actionImage')) {   // test image
+                $imgTitle = strip_tags($_POST['imageTitle']);
+                $actionImg = strip_tags($_POST['actionTitle']);
+                // sub-part image
+                $this->imageManager->addImage();
+            }
+            else {
+                $this->formControl->formRender('operation-view', 'Publier une ACTION', ["erreur dans Image"]);
+            }
+        }
+        else{
+            $this->formControl->formRender('operation-view', 'Publier une ACTION', ["erreur dans Action"]);
+        }
+
+//        elseif (!$this->checkData('maker', )){   // test maker - other maker can be empty
+//            $this->formRender('operation-view', 'Publier une ACTION', ["erreur dans Maker"]);
+//        }
+//        elseif (!$this->checkData('actionTechnic', 'actionTool', 'actionMatter')){   // technic - time can be empty
+//            $this->formRender('operation-view', 'Publier une ACTION', ["erreur dans Technic"]);
+
+        return true;
     }
 
 }
