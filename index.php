@@ -7,12 +7,27 @@ $db = new assoDb();
 $db = $db->connect();
 
 // entities inclusions
-require_once $_SERVER['DOCUMENT_ROOT'] . "/Model/Entity/User.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Action.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Image.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Matter.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Origin.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Role.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Technic.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Tool.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Type.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Model/Entity/User.php";
 
 // managers inclusions
-require_once $_SERVER['DOCUMENT_ROOT'] . "/Model/Manager/UserManager.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Manager/ActionManager.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Manager/ImageManager.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Manager/MatterManager.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Manager/OriginManager.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Manager/RoleManager.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Manager/TechnicManager.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Manager/ToolManager.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Manager/TypeManager.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Model/Manager/UserManager.php";
+
 
 // controller inclusion
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/formController.php";
@@ -20,7 +35,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/controller.php";
 
 $control = new controller($db);
 
-// use $_GET['ctrl'] value to redirect to the right page
+// use $_GET['ctrl'] value to display the right page
 if(isset($_GET['ctrl'])){
     switch ($_GET['ctrl']){
         // connexion

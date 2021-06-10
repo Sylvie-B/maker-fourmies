@@ -5,11 +5,14 @@ class controller {
     private PDO $pdo;
     private ActionManager $actionManager;
     private ImageManager $imageManager;
+    private MatterManager $matterManager;
+    private OriginManager $originManager;
+    private RoleManager $roleManager;
+    private TechnicManager $technicManager;
+    private ToolManager $toolManager;
     private TypeManager $typeManager;
     private UserManager $userManager;
-
     private formController $formControl;
-
 
     /**
      * controller constructor.
@@ -17,8 +20,17 @@ class controller {
      */
     public function __construct ($pdo){
         $this->pdo = $pdo;
+        $this->actionManager = new ActionManager($this->pdo);
+        $this->imageManager = new ImageManager($this->pdo);
+        $this->matterManager = new MatterManager($this->pdo);
+        $this->originManager = new OriginManager($this->pdo);
+        $this->roleManager = new RoleManager($this->pdo);
+        $this->technicManager = new TechnicManager($this->pdo);
+        $this->toolManager = new ToolManager($this->pdo);
+        $this->typeManager = new TypeManager($this->pdo);
         $this->userManager = new UserManager($this->pdo);
         $this->formControl = new formController($this->pdo);
+
     }
 
     /**
@@ -136,8 +148,8 @@ class controller {
      * @return bool
      */
     public function checkActionData (){
-        // if check action-part return true else false then error message
-        if($this->formControl->checkData('actionType', 'actionTitle', 'actionDescription', 'startAction')){ // test action data
+        // check action-part form return true or error message
+        if($this->formControl->checkData('actionType', 'actionTitle', 'actionDescription', 'startAction')){
             $type = $_POST['actionType'];
             $id_type = $this->typeManager->typeId($type)->getIdType();
             $title = strip_tags($_POST['actionTitle']);
@@ -146,12 +158,12 @@ class controller {
             // sub-part action
             $this->actionManager->addAction($title, $description, $start, $id_type);
 
-            // if check image-part
+            // if check image-part form
             if ($this->formControl->checkData('imageTitle', 'actionImage')) {   // test image
                 $imgTitle = strip_tags($_POST['imageTitle']);
                 $actionImg = strip_tags($_POST['actionTitle']);
                 // sub-part image
-                $this->imageManager->addImage();
+                $this->imageManager->addImage($imgTitle, $actionImg);
             }
             else {
                 $this->formControl->formRender('operation-view', 'Publier une ACTION', ["erreur dans Image"]);
