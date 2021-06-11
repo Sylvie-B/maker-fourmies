@@ -150,7 +150,7 @@ if(isset($_GET['ctrl'])){
             break;
         // one project page for maker only
         case 'oneProject-view' :
-            // not available for user, not available if role is >= à 4
+            // not available for user, not available if role is <= à 4
             if(isset($_SESSION['user']) && $_SESSION['user']['role'] < 4){
                 $control->render($_GET['ctrl'], 'projet de maker fourmies');
             }
