@@ -140,7 +140,8 @@ if(isset($_GET['ctrl'])){
         case 'action-view' :
             // not available for visitor
             if(isset($_SESSION['user']) && $_SESSION['user']['role'] < 4){
-                $control->render($_GET['ctrl'],'Les projets des makers');
+                $var = $imgCtrl->displayAction();
+                $control->render($_GET['ctrl'],'Les projets des makers', $var);
             }
             else{
                 $control->render('error-view','Association Makers Fourmies', [

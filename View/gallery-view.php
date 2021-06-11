@@ -3,7 +3,8 @@
     <?php
         foreach ($var as $item){
             echo "
-            <img class='imgFrame' src='/img/action/" . $item->getImage() . "' alt = '" . $item->getImageTitle() . " ' title='" . $item->getImageTitle() . "'>
+            <img class='imgFrame' src='/img/action/" . $item->getImage() . "' alt = '" . $item->getImageTitle() .
+                " ' title='" . $item->getImageTitle() . "'>
             ";
         }
     ?>
