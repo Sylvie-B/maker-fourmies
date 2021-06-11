@@ -6,13 +6,13 @@
     <div>
         <!-- get images & each image title -->
         <div>
-            <img src="" alt="image 1">
+            <img class="picture" src="../img/action/repose-arc.png" alt="image du projet 1">
         </div>
     </div>
 </div>
 
 <div>
-    <div>
+    <div class="frameText">
         <div>
             <p>Maker : Heliosens</p>
         </div>

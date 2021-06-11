@@ -17,4 +17,6 @@ class imgController {
         $result = $this->imageManager->getAllImages();
         return $result;
     }
+
+
 }
