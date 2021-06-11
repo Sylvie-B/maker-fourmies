@@ -7,10 +7,6 @@
     <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
-    <div id="motif">
-        <img id="motif1" src="/img/pngaaa-1.png" alt="motif de fond">
-        <img id="motif2" src="/img/pngaaa-2.png" alt="motif de fond">
-    </div>
     <div id="container">
         <header>
             <div id="headband">
@@ -81,7 +77,7 @@
                 </a>
                 <!--   for maker only : role = 1 ou 2 ou 3          -->
                 <?php
-                    if(isset($_SESSION['user']) && $_SESSION['user']['role'] != 4){?>
+                    if(isset($_SESSION['user']) && $_SESSION['user']['role'] < 4){?>
                         <a href="/index.php?ctrl=action-view" class="menu">
                             <div>Les actions</div>
                         </a<?php

@@ -7,27 +7,14 @@
 body {
     width: 100%;
     background-color: #314b58;
+    background-image: url("/img/pngaaa-1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 html {
     font-family:Bahnschrift, sans-serif;
     color: #0a0a7e;
-}
-
-#motif1, #motif2 {
-    position: absolute;
-}
-
-#motif2 {
-    top : 0;
-    right: 0;
-    z-index: -10;
-}
-
-#motif1 {
-    bottom: 0;
-    left: 0;
-    z-index: -11;
 }
 
 #container{
@@ -100,14 +87,14 @@ h6{
     text-align: center;
 }
 
-section, .formTest, .picture {
+main, .formTest, .picture {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-section{
+main{
     align-items: center;
 }
 
