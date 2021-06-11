@@ -7,11 +7,11 @@ class controller {
     // like action is divided on sub-form
     /**
      * @param string $part
-     * @param string $target
+     * @param string $title
      * @param array $var
      */
-    public function partRender (string $part, string $target, array $var = []){
-
+    public function partRender (string $part, string $title, array $var = []){
+        require_once $_SERVER['DOCUMENT_ROOT'] . "/view/formParts/" . $part . ".php";
     }
 
     /**

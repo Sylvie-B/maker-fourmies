@@ -32,11 +32,11 @@ class actionController extends controller {
                 $this->imageManager->addImage($imgTitle, $actionImg);
             }
             else {
-                $this->formRender('operation-view', 'Publier une ACTION', ["erreur dans Image"]);
+                $this->partRender('actionForm', 'Publier une ACTION', ["erreur dans Image"]);
             }
         }
         else{
-            $this->formRender('operation-view', 'Publier une ACTION', ["erreur dans Action"]);
+            $this->partRender('actionForm', 'Publier une ACTION', ["erreur dans Action"]);
         }
 
 //        elseif (!$this->checkData('maker', )){   // test maker - other maker can be empty
