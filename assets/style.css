@@ -216,6 +216,7 @@ li{
 
 .imgFrame {
     max-width: 20vw;
+    margin: 2px;
 }
 
 /*   responsive   */

@@ -14,6 +14,7 @@ class imgController {
      * @return array
      */
     public function displayImage () {
-        return $this->imageManager->getAllImages();
+        $result = $this->imageManager->getAllImages();
+        return $result;
     }
 }
