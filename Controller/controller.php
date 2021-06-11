@@ -2,39 +2,20 @@
 
 
 class controller {
-    private PDO $pdo;
-    private ActionManager $actionManager;
-    private ImageManager $imageManager;
-    private MatterManager $matterManager;
-    private OriginManager $originManager;
-    private RoleManager $roleManager;
-    private TechnicManager $technicManager;
-    private ToolManager $toolManager;
-    private TypeManager $typeManager;
-    private UserManager $userManager;
-    private formController $formControl;
 
+    // display a form-part of bigger form like connexion is in inscription
+    // like action is divided on sub-form
     /**
-     * controller constructor.
-     * @param $pdo
+     * @param string $part
+     * @param string $target
+     * @param array $var
      */
-    public function __construct ($pdo){
-        $this->pdo = $pdo;
-        $this->actionManager = new ActionManager($this->pdo);
-        $this->imageManager = new ImageManager($this->pdo);
-        $this->matterManager = new MatterManager($this->pdo);
-        $this->originManager = new OriginManager($this->pdo);
-        $this->roleManager = new RoleManager($this->pdo);
-        $this->technicManager = new TechnicManager($this->pdo);
-        $this->toolManager = new ToolManager($this->pdo);
-        $this->typeManager = new TypeManager($this->pdo);
-        $this->userManager = new UserManager($this->pdo);
-        $this->formControl = new formController($this->pdo);
+    public function partRender (string $part, string $target, array $var = []){
 
     }
 
     /**
-     * display the right page - set title - give data in array
+     * display asked page - set title - give data in array
      * @param string $page
      * @param string $title
      * @param array $var
@@ -46,92 +27,16 @@ class controller {
     }
 
     /**
-     * switch between connexion or inscription view
-     * @param $param
+     * are there data and are they complete ?
+     * @param mixed ...$data
+     * @return bool
      */
-    public function checkValidation($param) {
-        // $param can be connexion or inscription
-        switch ($param) {
-            // connexion
-            case 'connexion-view':
-                // check email & password
-                if ($this->formControl->checkData('mail', 'passW')) {
-                    // verify if it's an email
-                    if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
-                        // if not redirect to connexion page with error mail or password
-                        header('location: index.php?ctrl=connexion-view&error=mail-pass');
-                    }
-                    else{
-                        // if it's an email, verify that user exist & check password
-                        $user = $this->userManager->getUserByMail($_POST['mail']);
-                        $passW = $user->getPassword();
-
-                        if(!$user || !password_verify($_POST['passW'], $passW)) {
-                            // if user don't exist or if it's not the good password
-                            //redirect to connexion page with error mail or password
-                            header('location: index.php?ctrl=connexion-view&error=mail-pass');
-                        }
-                        else {
-                            // if user exist and password is correct
-                            // start a session
-                            session_start();
-                            // give session user's values
-                            $_SESSION['user'] = [
-                                'id' => $user->getIdUser(),
-                                'mail' => $user->getMail(),
-                                'pseudo' => $user->getPseudo(),
-                                'role' => $user->getRoleFk(),
-                            ];
-                            // go to home page
-                            header('location: index.php?ctrl=home-view');
-                        }
-                    }
-                }
-                else {
-                    // form incomplete
-                    header('location: index.php?ctrl=connexion-view&error=form');
-                }
-                break;
-
-            case 'signIn-view':
-                // check all fields
-                if ($this->formControl->checkData('name', 'surname', 'mail', 'pseudo', 'passW')) {
-                    // protect user entry
-                    $name = strip_tags($_POST['name']);
-                    $surname = strip_tags($_POST['surname']);
-                    $pseudo = strip_tags($_POST['pseudo']);
-
-                    // testExist return true if pseudo or mail already exist
-                    if($this->userManager->testExist('pseudo', $pseudo)){
-                        header('location: index.php?ctrl=signIn-view&error=pseudo');
-                    }
-                    elseif ((!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)
-                        || $this->userManager->testExist('mail',$_POST['mail']))){
-                        // this is not an email or it's already exist
-                        header('location: index.php?ctrl=signIn-view&error=mail');
-                    }
-                    else{
-                        $password = password_hash($_POST['passW'], PASSWORD_ARGON2ID);
-                        // add new user in data base
-                        $add = $this->userManager->addUser($name, $surname, $pseudo, $_POST['mail'], $password);
-                        if(!$add){
-                            header('location: index.php?ctrl=signIn-view&error=add');
-                        }
-                        else{
-                            session_start();
-                            $_SESSION['user'] = [
-                                'pseudo' => $pseudo,
-                                'role' => 4,
-                            ];
-                            header('location: index.php?ctrl=home-view');
-                        }
-                    }
-                }
-                else {
-                    header('location: index.php?ctrl=signIn-view&error=form');
-                }
-                break;
+    public function checkData(...$data): bool {
+        foreach ($data as $input) {
+            // is data exist ? is data not empty ?
+            return !isset($_POST[$input]) ? false : (empty($_POST[$input]) ? false : true);
         }
+        return true;
     }
 
     /**
@@ -140,46 +45,7 @@ class controller {
     public function disconnect (){
         session_start();
         session_unset();
-        // setcookie("PHPSESSID", "", time() - 3600);
         header('location: index.php?ctrl=home-view&');
-    }
-
-    /**
-     * @return bool
-     */
-    public function checkActionData (){
-        // check action-part form return true or error message
-        if($this->formControl->checkData('actionType', 'actionTitle', 'actionDescription', 'startAction')){
-            $type = $_POST['actionType'];
-            $id_type = $this->typeManager->typeId($type)->getIdType();
-            $title = strip_tags($_POST['actionTitle']);
-            $description = strip_tags($_POST['actionDescription']);
-            $start = $_POST['startAction'];
-            // sub-part action
-            $this->actionManager->addAction($title, $description, $start, $id_type);
-
-            // if check image-part form
-            if ($this->formControl->checkData('imageTitle', 'actionImage')) {   // test image
-                $imgTitle = strip_tags($_POST['imageTitle']);
-                $actionImg = strip_tags($_POST['actionTitle']);
-                // sub-part image
-                $this->imageManager->addImage($imgTitle, $actionImg);
-            }
-            else {
-                $this->formControl->formRender('operation-view', 'Publier une ACTION', ["erreur dans Image"]);
-            }
-        }
-        else{
-            $this->formControl->formRender('operation-view', 'Publier une ACTION', ["erreur dans Action"]);
-        }
-
-//        elseif (!$this->checkData('maker', )){   // test maker - other maker can be empty
-//            $this->formRender('operation-view', 'Publier une ACTION', ["erreur dans Maker"]);
-//        }
-//        elseif (!$this->checkData('actionTechnic', 'actionTool', 'actionMatter')){   // technic - time can be empty
-//            $this->formRender('operation-view', 'Publier une ACTION', ["erreur dans Technic"]);
-
-        return true;
     }
 
 }

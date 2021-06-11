@@ -17,7 +17,7 @@ html {
     color: #0a0a7e;
 }
 
-#container{
+main{
     width: 90%;
     margin: auto;
 }
@@ -99,7 +99,7 @@ main{
     align-items: center;
 }
 
-.frameText {
+.frameText, .square {
     margin: 4vh 0;
     padding: 3vh;
     background-color: white;

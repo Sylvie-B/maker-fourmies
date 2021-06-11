@@ -41,7 +41,7 @@ if(isset($_GET['action'])){?>
     <div id="frameForm"><?php
         switch ($_GET['action']){
             case 'add' :
-                $formCtrl->formRender('actionForm', 'PUBLIER UNE ACTION');
+                $formCtrl->partRender('actionForm', 'PUBLIER UNE ACTION');
         }?>
     </div><?php
 }

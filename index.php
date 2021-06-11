@@ -28,12 +28,14 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Manager/ToolManager.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Manager/TypeManager.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Model/Manager/UserManager.php";
 
-
 // controller inclusion
-require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/formController.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/controller.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/formController.php";
 
-$control = new controller($db);
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/profileController.php";
+
+$control = new controller();
+$formCtrl = new formController($db);
 
 // use $_GET['ctrl'] value to display the right page
 if(isset($_GET['ctrl'])){
@@ -60,7 +62,7 @@ if(isset($_GET['ctrl'])){
             }
             // there's no error, is there validation (test = 1) ?
             elseif (isset($_GET['test']) == 1){
-                $control->checkValidation($_GET['ctrl']);
+                $formCtrl->checkValidation($_GET['ctrl']);
             }
             else{
                 // display connection form only if there's no test & no error
@@ -96,7 +98,7 @@ if(isset($_GET['ctrl'])){
             }
             // if there's no error & validation test = 1
             elseif (isset($_GET['test']) == 1){
-                $control->checkValidation($_GET['ctrl']);
+                $formCtrl->checkValidation($_GET['ctrl']);
             }
             else{
                 // display inscription form
@@ -126,7 +128,10 @@ if(isset($_GET['ctrl'])){
             break;
         //user-view
         case 'profile-view' :
-            $control->render($_GET['ctrl'],'profil');
+            // if admin or if it's user's profil
+
+                $control->render($_GET['ctrl'], 'profil');
+
             break;
         // for user, maker, modo, admin
         // projects page
@@ -143,7 +148,7 @@ if(isset($_GET['ctrl'])){
             break;
         // one project page for maker only
         case 'oneProject-view' :
-            // not available for user, user role must be < 4
+            // not available for user, not available if role is >= à 4
             if(isset($_SESSION['user']) && $_SESSION['user']['role'] < 4){
                 $control->render($_GET['ctrl'], 'projet de maker fourmies');
             }
@@ -173,4 +178,3 @@ if(isset($_GET['ctrl'])){
 else{
     $control->render('home-view','Association Makers Fourmies');
 }
-

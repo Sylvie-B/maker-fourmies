@@ -1,4 +1,4 @@
-<div>
+
     <div class="square" >
         <span>titre</span>
         <div class="description">
@@ -15,5 +15,5 @@
             <img class="picture" src="../img/action/repose-arc.png" alt="image du projet 1">
         </a>
     </div>
-</div>
+
 

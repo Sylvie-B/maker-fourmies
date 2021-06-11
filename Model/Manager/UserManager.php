@@ -13,6 +13,7 @@ class UserManager {
     }
 
     /**
+     * add user in data base
      * @param $name
      * @param $surname
      * @param $mail
@@ -35,6 +36,7 @@ class UserManager {
     }
 
     /**
+     * get one user instance by id
      * @param $id
      * @return User
      */
@@ -56,6 +58,7 @@ class UserManager {
     }
 
     /**
+     * get one user instance by mail
      * @param $mail
      * @return User
      */
@@ -78,6 +81,7 @@ class UserManager {
     }
 
     /**
+     * get all user in array
      * @return array
      */
     public function getAllUsers() : array {
@@ -96,7 +100,10 @@ class UserManager {
 
     /**
      * @param $ref
+     * column to check between pseudo or mail
+     *
      * @param $data
+     * data to find
      * @return bool
      */
     public function testExist($ref, $data) : bool {
@@ -114,4 +121,9 @@ class UserManager {
         $sql->execute();
         return $sql->fetch() ? true : false;
     }
+
+    /**
+     * compose profile
+     */
+
 }
