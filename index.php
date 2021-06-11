@@ -139,7 +139,7 @@ if(isset($_GET['ctrl'])){
         // projects page
         case 'action-view' :
             // not available for visitor
-            if(isset($_SESSION['user'])){
+            if(isset($_SESSION['user']) && $_SESSION['user']['role'] < 4){
                 $control->render($_GET['ctrl'],'Les projets des makers');
             }
             else{
@@ -163,7 +163,7 @@ if(isset($_GET['ctrl'])){
         // admin
         case 'admin-view' :
             // if role = admin
-            if(isset($_SESSION['user'])) {
+            if(isset($_SESSION['user']) && $_SESSION['user']['role'] < 2){
                 $control->render($_GET['ctrl'], 'admin');
             }
             else{
