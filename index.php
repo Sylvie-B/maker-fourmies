@@ -31,11 +31,14 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Model/Manager/UserManager.php";
 // controller inclusion
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/controller.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/formController.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/imgController.php";
+
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/profileController.php";
 
 $control = new controller();
 $formCtrl = new formController($db);
+$imgCtrl = new imgController($db);
 
 // use $_GET['ctrl'] value to display the right page
 if(isset($_GET['ctrl'])){
@@ -120,7 +123,8 @@ if(isset($_GET['ctrl'])){
             break;
         // gallery
         case 'gallery-view' :
-            $control->render($_GET['ctrl'],'Galerie');
+            $var = $imgCtrl->displayImage();
+            $control->render($_GET['ctrl'],'Galerie', $var);
             break;
         // contact
         case 'contact-view' :
@@ -129,9 +133,7 @@ if(isset($_GET['ctrl'])){
         //user-view
         case 'profile-view' :
             // if admin or if it's user's profil
-
                 $control->render($_GET['ctrl'], 'profil');
-
             break;
         // for user, maker, modo, admin
         // projects page
@@ -178,3 +180,4 @@ if(isset($_GET['ctrl'])){
 else{
     $control->render('home-view','Association Makers Fourmies');
 }
+

@@ -61,9 +61,10 @@ class ImageManager {
         $result = $sql->fetchAll();
         if($result){
             foreach ($result as $image) {
-                $images[] = new Image($image['id_img'], $image['image']);
+                $images[] = new Image(null, $image['image_title'], $image['image']);
             }
         }
         return $images;
     }
+
 }

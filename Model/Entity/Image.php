@@ -7,7 +7,7 @@ class Image {
     private ?string $image;
     private ?Action $action;
 
-    public function __construct(?int $id_img = null, ?string $image_title, ?string $image = null, ?Action $action = null){
+    public function __construct( ?int $id_img = null, ?string $image_title = null, ?string $image = null, ?Action $action = null){
         $this->id_img = $id_img;
         $this->image_title = $image_title;
         $this->image = $image;
