@@ -1,9 +1,8 @@
-/**  background motif    */
-document.getElementById('motif1').style.width = innerWidth * 0.5 + "px";
-document.getElementById('motif2').style.width = innerWidth * 0.5 + "px";
+let container = document.getElementById('container');
+container.style.width = innerWidth + 'px';
+container.style.height = innerHeight + 'px';
 
 /** inscription & connexion */
-
 // get fields, labels and button
 let field = document.getElementsByTagName('input');
 
@@ -22,6 +21,7 @@ if(btn){
     btn.addEventListener('click', function (event){
         info.innerHTML = "Veuillez remplir le(s) champs :";
         for(let i = 0 ; i < field.length ; i++){
+
             if(field[i].value.length <= 0){
                 event.preventDefault();
                 info.innerHTML += "<br>" + label[i].innerText;
@@ -34,7 +34,7 @@ if(btn){
     })
 }
 
-/* admin mod */
+/** admin mod */
 
 // on click show action choice
 let entity = document.getElementsByClassName('entity');
@@ -42,17 +42,11 @@ let operation = document.getElementById('operation');
 let others = document.getElementById('others');
 let actions = document.getElementsByClassName('action');
 
-// first menu on click show operations or others entities
+// first menu on click show operations
 for (let i = 0 ; i < entity.length ; i++){
     entity[i].addEventListener('click', function (){
         entity[i].style.backgroundColor = 'white';
         operation.style.display = 'flex';
-    })
-}
-
-if(others){
-    others.addEventListener('click', function (){
-        others.style.backgroundColor = 'white';
     })
 }
 
@@ -61,28 +55,3 @@ for (let i = 0 ; i < actions.length ; i++){
         actions[i].style.backgroundColor = 'white';
     })
 }
-
-
-let typeSelect = document.getElementById('actionType');
-if(typeSelect){
-
-    const xhr = new XMLHttpRequest();
-    xhr.onload = function (){
-        typeSelect.innerHTML = "<option value=\"\">Type d'action</option>";
-        let types = JSON.parse(xhr.responseText);
-        console.log("ici" + types);
-        for(let i = 0 ; i < types.length ; i++){
-            let option = document.createElement('option');
-            option.value = types['id_type'];
-            option.innerText = types['type'];
-            typeSelect.append(option);
-        }
-    }
-    xhr.open('GET', '/api/type-api.php');
-    xhr.send();
-
-}
-
-
-
-

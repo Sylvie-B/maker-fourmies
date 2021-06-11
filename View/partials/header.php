@@ -84,4 +84,4 @@
                     }?>
             </nav>
         </header>
-        <section>
+        <main>

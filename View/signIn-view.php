@@ -1,4 +1,4 @@
-<form class="formTest" method="post" action="/index.php?ctrl=signIn-view&test=1">
+<form id="frameForm" class="formTest" method="post" action="/index.php?ctrl=signIn-view&test=1">
     <div>
         <label for="name">Nom</label>
         <input type="text" name="name" id="name">
@@ -24,10 +24,11 @@
     </div>
 </form>
 
+
 <!-- display error message -->
 <?php
 if(isset($var['info'])){?>
-    <div class="red" id="target"><?=
+    <div id="target"><?=
         $var['info'];?>
     </div><?php
 }?>
