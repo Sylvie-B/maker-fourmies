@@ -43,9 +43,8 @@ class ImageManager {
         $image = new Image();
         if($result){
             $image->setIdImg($result['id_img']);
+            $image->setImageTitle($result['image_title']);
             $image->setImage($result['image']);
-            $action = $this->actionManager->getOneAction($result['action_fk']);
-            $image->setAction($action);
         }
         return $image;
     }

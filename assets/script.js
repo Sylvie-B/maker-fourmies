@@ -1,6 +1,5 @@
 let container = document.getElementById('container');
 container.style.width = innerWidth + 'px';
-container.style.height = innerHeight + 'px';
 
 /** inscription & connexion */
 // get fields, labels and button
