@@ -28,7 +28,7 @@ class formController extends controller {
                     // verify if it's an email
                     if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
                         // if not redirect to connexion page with error mail or password
-                        header('location: index.php?ctrl=connexion-view&error=mail-pass');
+                        header('Location: index.php?ctrl=connexion-view&error=mail-pass');
                     }
                     else{
                         // if it's an email, verify that user exist & check password
@@ -38,7 +38,7 @@ class formController extends controller {
                         if(!$user || !password_verify($_POST['passW'], $passW)) {
                             // if user don't exist or if it's not the good password
                             //redirect to connexion page with error mail or password
-                            header('location: index.php?ctrl=connexion-view&error=mail-pass');
+                            header('Location: index.php?ctrl=connexion-view&error=mail-pass');
                         }
                         else {
                             // if user exist and password is correct
@@ -52,13 +52,13 @@ class formController extends controller {
                                 'role' => $user->getRoleFk(),
                             ];
                             // go to home page with custom header
-                            header('location: index.php?ctrl=home-view');
+                            header('Location: index.php?ctrl=home-view');
                         }
                     }
                 }
                 else {
                     // form incomplete
-                    header('location: index.php?ctrl=connexion-view&error=form');
+                    header('Location: index.php?ctrl=connexion-view&error=form');
                 }
                 break;
 
@@ -72,19 +72,19 @@ class formController extends controller {
 
                     // testExist return true if pseudo or mail already exist
                     if($this->userManager->testExist('pseudo', $pseudo)){
-                        header('location: index.php?ctrl=signIn-view&error=pseudo');
+                        header('Location: index.php?ctrl=signIn-view&error=pseudo');
                     }
                     elseif ((!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)
                         || $this->userManager->testExist('mail',$_POST['mail']))){
                         // this is not an email or it's already exist
-                        header('location: index.php?ctrl=signIn-view&error=mail');
+                        header('Location: index.php?ctrl=signIn-view&error=mail');
                     }
                     else{
                         $password = password_hash($_POST['passW'], PASSWORD_ARGON2ID);
                         // add new user in data base
                         $add = $this->userManager->addUser($name, $surname, $pseudo, $_POST['mail'], $password);
                         if(!$add){
-                            header('location: index.php?ctrl=signIn-view&error=add');
+                            header('Location: index.php?ctrl=signIn-view&error=add');
                         }
                         else{
                             session_start();
@@ -92,12 +92,12 @@ class formController extends controller {
                                 'pseudo' => $pseudo,
                                 'role' => 4,
                             ];
-                            header('location: index.php?ctrl=home-view');
+                            header('Location: index.php?ctrl=home-view');
                         }
                     }
                 }
                 else {
-                    header('location: index.php?ctrl=signIn-view&error=form');
+                    header('Location: index.php?ctrl=signIn-view&error=form');
                 }
                 break;
         }

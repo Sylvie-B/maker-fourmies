@@ -1,7 +1,7 @@
         </main>
         <footer></footer>
     </div>
-
-<script src="../../assets/script.js"></script>
+</div>
+<script src="/assets/script.js"></script>
 </body>
 </html>
