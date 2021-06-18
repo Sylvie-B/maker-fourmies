@@ -1,8 +1,6 @@
 <div id="frame">
         <h1>title</h1>
-    <p>
-        project description
-    </p>
+    <p>project description</p>
     <div>
         <!-- get images & each image title -->
         <div>

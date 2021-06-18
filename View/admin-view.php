@@ -20,7 +20,6 @@
     <a class="action menu" href="/index.php?ctrl=admin-view">
         <span>Mettre à jour</span>
     </a>
-
     <a class="action menu" href="/index.php?ctrl=admin-view">
         <span>Supprimer</span>
     </a>

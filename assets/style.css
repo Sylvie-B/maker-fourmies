@@ -5,11 +5,7 @@
 }
 
 body {
-    width: 100%;
-    background-color: #314b58;
-    background-image: url("/img/pngaaa-1.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url("/img/fond-clair.png");
 }
 
 html {
@@ -18,7 +14,7 @@ html {
 }
 
 main{
-    width: 90%;
+    width: 95%;
     margin: auto;
 }
 
@@ -123,14 +119,15 @@ main{
 }
 
 #mosaic div {
-    margin: 1vh 1vw;
+    margin: 1vh 0;
+    padding: 1vw;
 }
 
-.picture{
-    max-width: 20vw;
-    max-height: 20vh;
-    border: 1px black solid;
-}
+/*.picture{*/
+/*    max-width: 20vw;*/
+/*    max-height: 20vh;*/
+/*    border: 1px black solid;*/
+/*}*/
 
 /* in Project */
 .square {
@@ -214,19 +211,23 @@ li{
     border: red solid 2px;
 }
 
-.imgFrame {
-    max-width: 20vw;
+.brouette {
+    width: 24%;
+}
+
+.imgWidth{
+    max-width: 17vw;
+    max-height: 19vh;
     margin: 2px;
 }
 
-/*   responsive   */
-@media screen and (max-width: 800px){
-    #second {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+.imgFrame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+}
 
-    #second li {
-        min-width: 122px;
-    }
+.textText {
+    font-size: 1.5vw;
 }
