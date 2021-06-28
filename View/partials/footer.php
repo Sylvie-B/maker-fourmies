@@ -1,6 +1,5 @@
-        </main>
-        <footer></footer>
-    </div>
+    </main>
+    <footer></footer>
 </div>
 <script src="/assets/script.js"></script>
 </body>

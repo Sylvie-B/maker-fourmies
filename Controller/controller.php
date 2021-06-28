@@ -45,7 +45,7 @@ class controller {
     public function disconnect (){
         session_start();
         session_unset();
-        header('Location: /index.php?ctrl=home-view');
+        header('Location: /index.php?ctrl=asso-view');
     }
 
 }

@@ -1,11 +1,18 @@
-<?php
-    foreach ($var as $item){?>
-        <div class="square" >
-            <span><?= $item->getTitle() ?></span>
-            <div class="description">
-                <p><?= $item->getDescription() ?></p>
-            </div>
-            <!-- get first project image -->
+<div id="row">
+    <div class="column third">
+        <div>
+            <div>Animation</div>
+            <div>1</div>
+            <div>2</div>
         </div>
-    <?php
-    }
+
+    </div>
+
+    <div class="column third">
+        <div>Atelier</div>
+    </div>
+
+    <div class="column third">
+        <div>Projet</div>
+    </div>
+</div>

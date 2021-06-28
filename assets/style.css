@@ -4,230 +4,113 @@
     box-sizing: border-box;
 }
 
-body {
+#container {
     background-image: url("/img/fond-clair.png");
+    background-size: cover;
 }
 
 html {
     font-family:Bahnschrift, sans-serif;
-    color: #0a0a7e;
+    color: black;
 }
 
-main{
-    width: 95%;
-    margin: auto;
-}
-
-header {
-    background-color: white;
-    box-shadow: 5px 5px 3px 0 #a9a9a9;
-    margin: 1vh;
-    padding: 1vh;
-}
-
-#logo {
-    width: 4vw;
-}
-
-#title, h3 {
-    color: #0a0a7e;
-    align-self: center;
-}
-
-#frameForm div {
-    margin: 1vh;
-}
-
-nav, #headband, #operation {
-    display: flex;
-    justify-content: space-around;
-}
-
-.menu, label {
-    color: #0a0a7e;
+main {
+    padding: 0.8vh;
 }
 
 a {
     text-decoration-line: none;
+    color: #6c6cb6;
+}
+
+#row, .column, nav, .frame, .mosaic, #mosaic, .frameImg, .mail{
+    display: flex;
 }
 
 nav {
-    border-top: 1px solid #0058a7;
-    padding-top: 0.2vh;
-    flex-wrap: wrap;
+    align-items: center;
+    font-size: 0.8rem;
 }
 
-form {
-    background-color: #314b589c;
-    margin: 1vw;
-}
-
-input, select, label {
-    margin: 0.5vh 0;
-    padding: 0.5vh;
-}
-
-
-#half{
-    width: 40%;
-    height: 5vh;
-    margin-top: 2vh;
-}
-
-h6{
-    background-color: cornflowerblue;
-    min-width: 18vw;
-    text-align: center;
-}
-
-main, #frameForm, .picture {
-    display: flex;
+.column {
     flex-direction: column;
-    flex-wrap: wrap;
+}
+
+#row {
+    padding-top: 1vh;
     justify-content: space-between;
 }
 
-main{
-    align-items: center;
+nav a {
+    width: 15%;
+    padding: 2vh 0;
+    background-color: black;
+    color: white;
 }
 
-.frameText, .square {
-    width: 100%;
-    margin: 4vh 0;
-    padding: 3vh;
+#item, nav {
+    text-align: center;
+    justify-content: flex-end;
+}
+
+.frame, nav a{
+    border: 1px solid #6c6cb6;
+}
+
+.frame{
     background-color: white;
-}
-
-.picture {
+    justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
-#frameForm {
-    align-items: flex-end;
+.side {
+    width: 10%;
 }
 
-
-.text {
-    margin: 1vh auto;
+.side div {
+    min-height: 15vh;
 }
 
-/* in Galery */
-#mosaic, .square, .description {
-    display: flex;
+#article {
+    width: 79%;
+}
+
+.third {
+    width: 30%;
+    text-align: center;
+}
+
+.line {
+    min-height: 10vh;
+}
+
+#mosaic{
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
-#mosaic div {
-    margin: 1vh 0;
-    padding: 1vw;
+.frameImg {
+    align-items: flex-end;
+    margin: 1vh 1vw;
 }
 
-/*.picture{*/
-/*    max-width: 20vw;*/
-/*    max-height: 20vh;*/
-/*    border: 1px black solid;*/
-/*}*/
-
-/* in Project */
-.square {
-    margin-top: 5vh;
-    border: 1px solid black;
+.mosaic {
+    width: 22vw;
+    padding: 1vh 1vw;
 }
 
-.description {
-    flex-direction: column;
-    width: 50%;
-}
-
-/* on admin mod */
-ul {
-    list-style-type: none;
-    width: 100%;
-    display: flex;
-    padding: 1vw;
-}
-
-li{
-    margin: 2px;
-    padding-top: 0.8vh;
-    padding-bottom: 0.8vh;
-    border: 1px solid black;
-    background: darkgrey;
+.frameText {
+    padding-top: 1vh;
     text-align: center;
+    min-height: 10vh;
 }
 
-#first {
-    margin-top: 2px;
-    justify-content: space-evenly;
-}
-
-/* test */
-#others {
-    display: none;
-}
-
-#first li{
-    width: 33%;
-}
-
-#second li {
-    width: 14%;
-}
-
-#operation {
-    display: none;
-    width: 80%;
-}
-
-#operation a {
-    width: 20%;
-    border: 1px solid black;
-    background: darkgrey;
-    text-align: center;
-}
-
-.part {
-    padding: 0 1vw;
-}
-
-.operationForm, .part {
-    display: flex;
-    flex-direction: column;
+.mail {
     justify-content: center;
 }
 
-.operationForm {
-    align-items: center;
-}
-
-#ref{
-    display: flex;
-    flex-direction: row;
-}
-
-#target {
-    color: red;
-    border: red solid 2px;
-}
-
-.brouette {
-    width: 24%;
-}
-
-.imgWidth{
-    max-width: 17vw;
-    max-height: 19vh;
-    margin: 2px;
-}
-
-.imgFrame {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: black;
-}
-
-.textText {
-    font-size: 1.5vw;
+.half {
+    width: 50%;
+    justify-content: center;
 }

@@ -1,14 +1,15 @@
-<div id="mosaic" class="frameText">
+<div id="mosaic">
     <?php
-        foreach ($var as $item){?>
-        <div class="brouette">
-            <div class='imgFrame'>
-                <img class="imgWidth" src='/img/action/<?= $item->getImage() ?>'
-                     alt="<?= $item->getImageTitle() ?>"
-                     title="<?= $item->getImageTitle() ?>"
-                />
-                <div class="textText"><?= $item->getImageTitle() ?></div>
-            </div>
+    foreach ($var as $item){?>
+    <div class="frameImg frame">
+        <div class="column mosaic">
+            <img src='/img/action/<?= $item->getImage() ?>'
+                 alt="<?= $item->getImageTitle() ?>"
+                 title="<?= $item->getImageTitle() ?>"/>
+            <div class="frameText"><?= $item->getImageTitle() ?></div>
         </div>
+    </div>
     <?php
-    }
+    }?>
+</div>
+

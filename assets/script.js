@@ -1,8 +1,11 @@
 let container = document.getElementById('container');
-container.style.width = innerWidth + 'px';
+container.style.minHeight = innerHeight + 'px';
 
-/** inscription & connexion */
-// get fields, labels and button
+/**
+ * inscription & connexion
+ * get fields, labels and button
+ */
+
 let field = document.getElementsByTagName('input');
 
 let btn = document.getElementById('validate');

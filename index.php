@@ -109,13 +109,16 @@ if(isset($_GET['ctrl'])){
             }
             break;
         // available pages
-        // home
-        case 'home-view' :
-            // display home page
+        // asso
+        case 'asso-view' :
+            // display asso page
             if(isset($_GET['connect']) && $_GET['connect'] == 0){
                 $control->disconnect();
             }
             $control->render($_GET['ctrl'], 'Association Makers Fourmies');
+            break;
+        case 'actu-view' :
+            $control->render($_GET['ctrl'], 'Actualité');
             break;
         // resource
         case 'resource-view' :
@@ -168,17 +171,17 @@ if(isset($_GET['ctrl'])){
                 $control->render($_GET['ctrl'], 'admin');
             }
             else{
-                $control->render('home-view','Association Makers Fourmies', [
+                $control->render('asso-view','Association Makers Fourmies', [
                     "Vous n'avez pas accès à la page demandée"
                 ]);
             }
             break;
-        // home
+        // asso
         default :
-            $control->render('home-view','Association Makers Fourmies');
+            $control->render('asso-view','Association Makers Fourmies');
     }
 }
 else{
-    $control->render('home-view','Association Makers Fourmies');
+    $control->render('asso-view','Association Makers Fourmies');
 }
 
