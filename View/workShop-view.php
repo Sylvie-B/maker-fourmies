@@ -1,2 +1,5 @@
-<div>ici les ateliers</div>
-<?php
+<main>
+    <div>ici les ateliers</div>
+</main>
+
+

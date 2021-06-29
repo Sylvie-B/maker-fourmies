@@ -1,4 +1,4 @@
-
+<main>
     <div class="frame line">
         <p>
             Vous trouverez ici les logiciels gratuits, utilisés et/ou conseillés par les makers.
@@ -24,3 +24,4 @@
             Les Makers faire
         </p>
     </div>
+</main>

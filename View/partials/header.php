@@ -10,51 +10,63 @@
     <div id="container">
         <header>
             <div id="row">
-                <a href="/index.php?ctrl=actu-view">
-                    <img id="logo" src="/img/gears.png" alt="logo"/>
-                </a>
-                <a id="title" href="/index.php?ctrl=actu-view">
-                    <h1>MAKERS FOURMIES</h1>
-                </a>
-                <div id="item">
-                    <!--     if $_session exist then display user name (= profile link), role, disconnect button    -->
-                    <?php
-                        if(isset($_SESSION['user'])){
-                            ?><span>Bonjour, </span>
-                            <a href="/index.php?ctrl=profile-view" title="mon profil">
-                                <?= $_SESSION['user']['pseudo'] ?>
-                            </a>
-                            <div id="ref"><?php
-                            // switch button function of role
-                            switch ($_SESSION['user']['role']){
-                            //  for administrator
-                                case 1 :?>
+                <div class="side">
+                    <a href="/index.php?ctrl=actu-view">
+                        <img id="logo" src="/img/gears.png" alt="logo"/>
+                    </a>
+                </div>
+                <div id="title">
+                    <a href="/index.php?ctrl=actu-view">
+                        <h1>MAKERS FOURMIES</h1>
+                    </a>
+                </div>
+                <div class="side">
+                    <div id="item">
+                        <?php
+                        if(isset($_SESSION['user'])){?><!--     if $_session exist then display... -->
+                            <div id="helloUser"><!-- ...user name (= profile link)    -->
+                                    <span>Bonjour, </span>
+                                    <a href="/index.php?ctrl=profile-view" title="mon profil">
+                                        <?= $_SESSION['user']['pseudo']?>
+                                    </a>
+                            </div>
+
+                            <div id="userRole"><!-- ...user role, disconnect button    -->
+                                <?php
+                                // switch button function of role
+                                switch ($_SESSION['user']['role']){
+                                //  for administrator
+                                    case 1 :?>
                                         <a href="/index.php?ctrl=admin-view">
                                             <button class="btn" type="button">Admin</button>
                                         </a><?php
-                                    break;
-                            //  for Maker
-                                case 3 :?>
-                                        <div id="ref">
-                                            <p>Maker</p>
-                                    <?php
-                                    break;
-                            //  nothing for user
-                            }?>
-                                <a href="/index.php?ctrl=actu-view&connect=0">
-                                    <button class="btn" type="button">Déconnexion</button>
+                                        break;
+                                //  for Maker
+                                    case 3 :?>
+                                        <p>Maker</p>
+                                        <?php
+                                        break;
+                                //  nothing for user
+                                    }?>
+                                    <a href="/index.php?ctrl=actu-view&connect=0">
+                                        <button class="btn" type="button">Déconnexion</button>
+                                    </a>
+                            </div>
+                        <?php
+                        }
+                        else{?>
+                            <!--     if $_session not exist then display connexion & inscription button    -->
+                            <div id="connexionButton">
+                                <a href="/index.php?ctrl=connexion-view">
+                                    <button class="btn" type="button">Connexion</button>
                                 </a>
-                            </div><?php
-                    }
-                    else{?>
-                    <!--     if $_session not exist then display connexion & inscription button    -->
-                    <a href="/index.php?ctrl=connexion-view">
-                        <button class="btn" type="button">Connexion</button>
-                    </a>
-                    <a href="/index.php?ctrl=signIn-view">
-                        <button class="btn" type="button">Inscription</button>
-                    </a><?php
-                    };?>
+                                <a href="/index.php?ctrl=signIn-view">
+                                    <button class="btn" type="button">Inscription</button>
+                                </a>
+                            </div>
+                            <?php
+                            };?>
+                    </div>
                 </div>
             </div>
             <!-- tabs -->
@@ -83,4 +95,4 @@
                     }?>
             </nav>
         </header>
-        <main>
+</body>

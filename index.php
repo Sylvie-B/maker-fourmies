@@ -2,9 +2,7 @@
 session_start();
 // database inclusion
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/assoDb.php';
-// database connexion
-$db = new assoDb();
-$db = $db->connect();
+
 
 // entities inclusions
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Action.php';
@@ -35,6 +33,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/imgController.php";
 
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/profileController.php";
+
+// database connexion
+$db = new assoDb();
+$db = $db->connect();
 
 $control = new controller();
 $formCtrl = new formController($db);
@@ -171,17 +173,16 @@ if(isset($_GET['ctrl'])){
                 $control->render($_GET['ctrl'], 'admin');
             }
             else{
-                $control->render('asso-view','Association Makers Fourmies', [
+                $control->render('actu-view','Association Makers Fourmies', [
                     "Vous n'avez pas accès à la page demandée"
                 ]);
             }
             break;
         // asso
         default :
-            $control->render('asso-view','Association Makers Fourmies');
+            $control->render('actu-view','Association Makers Fourmies');
     }
 }
 else{
-    $control->render('asso-view','Association Makers Fourmies');
+    $control->render('actu-view','Association Makers Fourmies');
 }
-

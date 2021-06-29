@@ -9,7 +9,8 @@ class Action {
     private ?string $date;
     private ?Type $type;
 
-    public function __construct(?int $id_act = null, string $title=null, string $description = null, string $date = null, Type $type = null){
+    public function __construct(?int $id_act = null, ?string $title=null, ?string $description = null,
+                                ?string $date = null, ?Type $type = null){
         $this->id_act = $id_act;
         $this->title = $title;
         $this->description = $description;
