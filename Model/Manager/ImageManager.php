@@ -22,12 +22,12 @@ class ImageManager {
     public function addImage(string $title, string $image){
         $sql = $this->pdo->prepare("
             INSERT INTO image (image_title, image)
-            VALUES (':image_title', ':image')
+            VALUES (:image_title, :image)
             ");
         $sql->bindValue(':image_title', $title);
         $sql->bindValue(':image', $image);
         $sql->execute();
-        return $this->pdo->lastInsertId() !== 0 ;
+        return $this->pdo->lastInsertId() !==0 ;
     }
 
     /**
