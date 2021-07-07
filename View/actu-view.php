@@ -3,19 +3,19 @@
         <!--    good to know    -->
         <div class="column side">
             <div class="frame">
-                <span>Bon à savoir</span>
+                <a href="#">Bon à savoir</a>
             </div>
             <div class="frame">
-                <span>Mouvement Maker</span>
+                <a href="#">Mouvement Maker</a>
             </div>
             <div class="frame">
-                <span>Fablab</span>
+                <a href="#">Fablab</a>
             </div>
             <div class="frame">
-                <span>Se former</span>
+                <a href="#">Se former</a>
             </div>
             <div class="frame">
-                <span>Open source</span>
+                <a href="#">Open source</a>
             </div>
         </div>
         <div class="frame" id="article">
@@ -29,10 +29,10 @@
         </div>
         <div class="column side">
             <div class="frame">
-                <span>A venir</span>
+                <a href="#">A venir</a>
             </div>
             <div class="frame">
-                <span>Anciens articles</span>
+                <a href="#">Anciens articles</a>
             </div>
         </div>
     </div>
