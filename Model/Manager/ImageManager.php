@@ -3,7 +3,6 @@
 
 class ImageManager {
     private PDO $pdo;
-    private ActionManager $actionManager;
 
     /**
      * ImageManager constructor.
@@ -11,7 +10,6 @@ class ImageManager {
      */
     public function __construct ($pdo){
         $this->pdo = $pdo;
-        $this->actionManager = new ActionManager($this->pdo);
     }
 
     /**
@@ -65,5 +63,4 @@ class ImageManager {
         }
         return $images;
     }
-
 }

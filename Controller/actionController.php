@@ -2,9 +2,21 @@
 
 
 class actionController extends controller {
+    private PDO $pdo;
     private TypeManager $typeManager;
     private ActionManager $actionManager;
     private ImageManager $imageManager;
+
+    /**
+     * actionController constructor.
+     * @param PDO $pdo
+     */
+    public function __construct(PDO $pdo){
+        $this->pdo = $pdo;
+        $this->typeManager = new TypeManager($this->pdo);
+        $this->actionManager = new ActionManager($this->pdo);
+        $this->imageManager = new ImageManager($this->pdo);
+    }
 
     /**
      * @return bool

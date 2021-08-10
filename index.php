@@ -6,6 +6,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/assoDb.php';
 
 // entities inclusions
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Action.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Article.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Image.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Matter.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Origin.php';
@@ -17,6 +18,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Model/Entity/User.php";
 
 // managers inclusions
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Manager/ActionManager.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Manager/ArticleManager.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Manager/ImageManager.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Manager/MatterManager.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Manager/OriginManager.php';
@@ -28,19 +30,20 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Model/Manager/UserManager.php";
 
 // controller inclusion
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/controller.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/actionController.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/formController.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/imgController.php";
-
-
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/partsController.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Controller/profileController.php";
 
 // database connexion
 $db = new assoDb();
 $db = $db->connect();
 
+$actionCtrl = new actionController($db);
 $control = new controller();
 $formCtrl = new formController($db);
-$imgCtrl = new imgController($db);
+$partsCtrl = new partsController($db);
+
 
 // use $_GET['ctrl'] value to display the right page
 if(isset($_GET['ctrl'])){
@@ -119,8 +122,10 @@ if(isset($_GET['ctrl'])){
             }
             $control->render($_GET['ctrl'], 'Association Makers Fourmies');
             break;
+        // article = actu
         case 'actu-view' :
-            $control->render($_GET['ctrl'], 'Actualité');
+            $var = $partsCtrl->displayArticle();
+            $control->render($_GET['ctrl'], 'Actualité', $var);
             break;
         // resource
         case 'resource-view' :
@@ -128,7 +133,7 @@ if(isset($_GET['ctrl'])){
             break;
         // gallery
         case 'gallery-view' :
-            $var = $imgCtrl->displayImage();
+            $var = $partsCtrl->displayImage();
             $control->render($_GET['ctrl'],'Galerie', $var);
             break;
         // contact
@@ -138,14 +143,14 @@ if(isset($_GET['ctrl'])){
         //user-view
         case 'profile-view' :
             // if admin or if it's user's profil
-                $control->render($_GET['ctrl'], 'profil');
+            $control->render($_GET['ctrl'], 'profil');
             break;
         // for user, maker, modo, admin
         // projects page
         case 'action-view' :
             // not available for visitor
             if(isset($_SESSION['user']) && $_SESSION['user']['role'] < 4){
-                $var = $imgCtrl->displayAction();
+                $var = $partsCtrl->displayAction();
                 $control->render($_GET['ctrl'],'Les projets des makers', $var);
             }
             else{
