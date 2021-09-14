@@ -23,7 +23,7 @@ a {
     color: #6c6cb6;
 }
 
-#row, .column, nav, .frame, .mosaic, #mosaic, .frameImg, .mail, #title{
+#row, .column, nav, .frame, .mosaic, #mosaic, .frameImg, .mail, #title, .outline {
     display: flex;
 }
 
@@ -77,7 +77,7 @@ nav {
 }
 
 #article {
-    width: 75%;
+    width: 90%;
 }
 
 .third {
@@ -116,5 +116,10 @@ nav {
 
 .half {
     width: 50%;
+    justify-content: center;
+}
+
+.outline {
+    width: 100%;
     justify-content: center;
 }

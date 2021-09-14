@@ -1,13 +1,9 @@
 <main>
     <div class="frame line">
-        <p>
-            Vous trouverez ici les logiciels gratuits, utilisés et/ou conseillés par les makers.
-        </p>
+        <p>Les logiciels</p>
     </div>
     <div class="frame line">
-        <p>
-            Les formations, écoles, en présentiel, en ligne, diplomânt(e) ou non (par exemple les mooc)
-        </p>
+        <p>Les formations</p>
     </div>
     <div class="frame line">
         <p>
